@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.32804.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fresnel.Sample.Features.Model", "Fresnel.Sample.Features.Model\Fresnel.Sample.Features.Model.csproj", "{2E195FD6-EE7F-4ECF-A2B0-886A4EC86338}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fresnel.Sample.Features.DesktopApp", "Fresnel.Sample.Features.DesktopApp\Fresnel.Sample.Features.DesktopApp.csproj", "{86F29CDA-6FE0-4D1B-AD1C-4413922C4CE3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E195FD6-EE7F-4ECF-A2B0-886A4EC86338}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E195FD6-EE7F-4ECF-A2B0-886A4EC86338}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E195FD6-EE7F-4ECF-A2B0-886A4EC86338}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E195FD6-EE7F-4ECF-A2B0-886A4EC86338}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86F29CDA-6FE0-4D1B-AD1C-4413922C4CE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86F29CDA-6FE0-4D1B-AD1C-4413922C4CE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86F29CDA-6FE0-4D1B-AD1C-4413922C4CE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86F29CDA-6FE0-4D1B-AD1C-4413922C4CE3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E98DA411-A669-48C9-9EAF-A300F639D2A7}
+	EndGlobalSection
+EndGlobal

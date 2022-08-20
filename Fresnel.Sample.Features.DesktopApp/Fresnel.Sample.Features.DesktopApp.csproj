@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows10.0.22000.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<AssemblyVersion>1.0.0</AssemblyVersion>
+		<FileVersion>1.0.0</FileVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Envivo.Fresnel" Version="0.8.11-preview" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Fresnel.SampleModel\Fresnel.SampleModel.csproj" />
+	</ItemGroup>
+
+</Project>

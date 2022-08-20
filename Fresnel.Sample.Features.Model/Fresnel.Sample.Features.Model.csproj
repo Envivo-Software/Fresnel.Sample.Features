@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <FileVersion>1.0.0</FileVersion>
+    <AssemblyName>Envivo.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>Envivo.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <AppDesignerFolder>Eg_3_Properties</AppDesignerFolder>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Eg_3_Properties\**" />
+    <EmbeddedResource Remove="Eg_3_Properties\**" />
+    <None Remove="Eg_3_Properties\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Envivo.Fresnel.ModelAttributes" Version="1.0.1" />
+    <PackageReference Include="Envivo.Fresnel.ModelTypes" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="A_Objects\InheritanceByInterface\" />
+    <Folder Include="F_Persistence\" />
+  </ItemGroup>
+
+</Project>
