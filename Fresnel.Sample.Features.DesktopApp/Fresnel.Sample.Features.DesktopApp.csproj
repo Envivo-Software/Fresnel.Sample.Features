@@ -14,7 +14,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Fresnel.SampleModel\Fresnel.SampleModel.csproj" />
+	  <ProjectReference Include="..\Fresnel.Sample.Features.Model\Fresnel.Sample.Features.Model.csproj" />
 	</ItemGroup>
 
 </Project>
