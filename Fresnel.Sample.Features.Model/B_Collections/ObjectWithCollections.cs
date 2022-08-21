@@ -47,6 +47,28 @@ namespace Envivo.Fresnel.Sample.Features.Model.B_Collections
             set { _AssociatedItems = value; }
         }
 
+        ///// <summary>
+        ///// Adds the given entity to the AssociatedItems collection
+        ///// </summary>
+        ///// <param name="entity"></param>
+        //public void AddToAssociatedItems(SaveableEntity entity)
+        //{
+        //    // Execute custom logic here
+        //    _AssociatedItems.Add(entity);
+        //}
+
+        ///// <summary>
+        ///// Removes the given entity from the AssociatedItems collection
+        ///// </summary>
+        ///// <param name="entity"></param>
+        ///// <returns></returns>
+        //public bool RemoveFromAssociatedItems(SaveableEntity entity)
+        //{
+        //    // Execute custom logic here
+        //    return _AssociatedItems.Remove(entity);
+        //}
+
+
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
