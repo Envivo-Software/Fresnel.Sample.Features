@@ -9,7 +9,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Reflection;
 
-namespace Envivo.Fresnel.Sample.Features.Model.Methods.E_Methods
+namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
 {
     /// <summary>
     /// A set of methods
