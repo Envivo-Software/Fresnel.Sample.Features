@@ -25,7 +25,8 @@ namespace Envivo.Fresnel.Sample.Features.Model.G_Factories
             var newObj = new MultiType
             {
                 Id = Guid.NewGuid(),
-                A_DateTime = DateTime.Now
+                A_DateTime = DateTime.Now,
+                A_String = $"Created by {this.GetType().Name}"
             };
 
             for (var i = 0; i < itemCount; i++)

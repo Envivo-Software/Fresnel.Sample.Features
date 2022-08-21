@@ -8,14 +8,19 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
     /// <summary>
     /// This is a saveable Aggregate Root, and will appear in the UI.
     /// </summary>
-    public class SaveableAggregateRoot : IAggregateRoot
+    public class SaveableAggregateRoot : IAggregateRoot, IPersistable
     {
         /// <summary>
-        /// The [Key] attribute
+        /// <inheritdoc/>
         /// </summary>
         [Key]
         public Guid Id { get; set; }
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        [ConcurrencyCheck]
+        public long Version { get; set; }
 
         /// <summary>
         /// The name of this aggregate root
