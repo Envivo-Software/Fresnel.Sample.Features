@@ -1,7 +1,7 @@
 ﻿namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByClass
 {
     /// <summary>
-    /// This one has an Integer
+    /// This object has an Integer
     /// </summary>
     public class ObjectA : AbstractObject
     {

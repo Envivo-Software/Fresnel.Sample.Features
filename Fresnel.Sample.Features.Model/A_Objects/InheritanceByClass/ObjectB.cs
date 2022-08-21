@@ -1,7 +1,7 @@
 ﻿namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByClass
 {
     /// <summary>
-    /// This one has a Boolean
+    /// This object has a Boolean
     /// </summary>
     public class ObjectB : AbstractObject
     {
