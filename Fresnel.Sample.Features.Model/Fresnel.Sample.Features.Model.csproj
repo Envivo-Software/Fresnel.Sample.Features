@@ -21,13 +21,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Envivo.Fresnel.ModelAttributes" Version="1.0.1" />
-    <PackageReference Include="Envivo.Fresnel.ModelTypes" Version="1.1.0" />
+    <Folder Include="A_Objects\InheritanceByInterface\" />
+    <Folder Include="F_Persistence\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="A_Objects\InheritanceByInterface\" />
-    <Folder Include="F_Persistence\" />
+    <PackageReference Include="Envivo.Fresnel.ModelAttributes" Version="1.0.1" />
+    <PackageReference Include="Envivo.Fresnel.ModelTypes" Version="1.1.0" />
   </ItemGroup>
 
 </Project>
