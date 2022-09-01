@@ -1,3 +1,5 @@
+// SPDX-FileCopyrightText: Copyright (c) 2022 Envivo Software
+// SPDX-License-Identifier: Apache-2.0
 using System;
 
 namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
