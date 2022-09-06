@@ -9,7 +9,7 @@ https://github.com/Envivo-Software/Envivo.Fresnel/wiki
 
 - Windows 10 or above
 - .NET 6
-- Visual Studio 2022, with Workloads:
+- Visual Studio 2022, with Workloads for:
   - .NET Desktop Development
   - .NET Multi-platform App UI Development
 
