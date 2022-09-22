@@ -35,6 +35,11 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         }
 
         /// <summary>
+        /// This is a Text with a public Getter, but no Setter.
+        /// </summary>
+        public string ReadOnlyText2 => NormalText;
+
+        /// <summary>
         /// This is a Text with a hidden Getter, but a public Setter.
         /// This will not be visible in the UI.
         /// </summary>
@@ -89,5 +94,15 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         [MaxLength(10)]
         [DisplayFormat(DataFormatString = @"[0-9]*")]
         public string EditMaskText { get; set; }
+
+        /// <summary>
+        /// Sets the text value using a method
+        /// </summary>
+        /// <param name="newValue"></param>
+        [Display(AutoGenerateField = false)]
+        public void ChangeStringValue(string newValue)
+        {
+            this.NormalText = newValue;
+        }
     }
 }
