@@ -70,6 +70,19 @@ namespace Envivo.Fresnel.Sample.Features.Model.B_Collections
         //    return _AssociatedItems.Remove(entity);
         //}
 
+        /// <summary>
+        /// Adds an item to the OwnedItems collection, 
+        /// to show that collection changes are detected
+        /// </summary>
+        public void AddNewOwnedItem()
+        {
+            this.OwnedItems.Add(new BasicObject
+            {
+                Id = Guid.NewGuid(),
+                Name = $"Test Object {Environment.TickCount}",
+                Description = "This was created internally"
+            });
+        }
 
         /// <summary>
         /// <inheritdoc/>
