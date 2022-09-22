@@ -36,7 +36,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         /// </summary>
         public void MethodWithNoReturnValue()
         {
-            Trace.TraceInformation(MethodBase.GetCurrentMethod().Name);
+            Trace.TraceInformation(nameof(MethodWithNoReturnValue));
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
             DateTime dateTime
         )
         {
-            Trace.TraceInformation(MethodBase.GetCurrentMethod().Name);
+            Trace.TraceInformation(nameof(MethodWithOneParameter));
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
                 throw new ArgumentNullException("enumFilter");
             }
 
-            var result = string.Concat(MethodBase.GetCurrentMethod().Name,
+            var result = string.Concat(nameof(MethodWithValueParameters),
                                        " executed with the values [",
                                        aString, ", ",
                                        aNumber, ", ",
@@ -102,7 +102,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
             IEnumerable<SaveableEntity> entities
         )
         {
-            return $"{MethodBase.GetCurrentMethod().Name} executed with the selection '{entity?.Name}'";
+            return $"{nameof(MethodWithObjectParameters)} executed with the selection '{entity?.Name}'";
         }
 
         /// <summary>
@@ -141,7 +141,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
                 Trace.TraceInformation("Running...");
             }
 
-            return MethodBase.GetCurrentMethod().Name;
+            return nameof(LongRunningSyncMethod);
         }
     }
 }
