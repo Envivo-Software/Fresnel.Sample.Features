@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: Copyright (c) 2022 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
+using Envivo.Fresnel.ModelAttributes;
 using Envivo.Fresnel.Sample.Features.Model.C_Properties;
 using Envivo.Fresnel.Sample.Features.Model.D_Enums;
 using System;
@@ -53,12 +54,14 @@ namespace Envivo.Fresnel.Sample.Features.Model.G_Factories
         /// <summary>
         /// An object of TextValues
         /// </summary>
+        [Relationship(RelationshipType.Owns)]
         public TextValues An_Object
         {
             get { return _An_Object; }
             set { _An_Object = value; }
         }
 
+        [Relationship(RelationshipType.Owns)]
         public ICollection<TextValues> A_Collection
         {
             get { return _A_Collection; }
