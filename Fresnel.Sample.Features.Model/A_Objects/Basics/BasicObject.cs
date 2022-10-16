@@ -11,6 +11,9 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
     /// </summary>
     public class BasicObject : IEntity
     {
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
         public Guid Id { get; set; }
 
 

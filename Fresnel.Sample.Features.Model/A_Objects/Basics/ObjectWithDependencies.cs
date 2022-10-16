@@ -11,12 +11,21 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
     /// </summary>
     public class ObjectWithDependencies
     {
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <param name="basicObjectFactory"></param>
         public ObjectWithDependencies(IFactory<BasicObject> basicObjectFactory)
         {
             BasicObject = basicObjectFactory.Create();
             Name = "This name is provided by default";
         }
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <param name="basicObjectFactory"></param>
+        /// <param name="name"></param>
         public ObjectWithDependencies(IFactory<BasicObject> basicObjectFactory, string name)
         {
             BasicObject = basicObjectFactory.Create();

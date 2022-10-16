@@ -99,7 +99,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         /// Sets the text value using a method
         /// </summary>
         /// <param name="newValue"></param>
-        [Display(AutoGenerateField = false)]
         public void ChangeStringValue(string newValue)
         {
             this.NormalText = newValue;
