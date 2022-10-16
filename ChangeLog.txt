@@ -1,0 +1,10 @@
+2022-10-16: 
+* fix(BasicObjectRepository): Replaced BasicObjectRepository with SaveableAggregateRootRepository
+* fix(MultiType): Added Relationships for reference properties
+* feat(ObjectWithCollections): Added method to facilitate testing of Undo functionality
+* feat(TextValues): Now has read-only property using lambda
+* feat(TextValues): Added method to facilitate testing of Undo functionality
+* refactor(MethodSamples): Now uses nameof
+* refactor: Added comments, cleaned up code
+
+2022-09-01: PREVIEW RELEASE
