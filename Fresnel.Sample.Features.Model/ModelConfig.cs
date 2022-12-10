@@ -6,6 +6,8 @@ using Envivo.Fresnel.Sample.Features.Model.B_Collections;
 using Envivo.Fresnel.Sample.Features.Model.C_Properties;
 using Envivo.Fresnel.Sample.Features.Model.E_Methods;
 using Envivo.Fresnel.Sample.Features.Model.H_Queries;
+using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Envivo.Fresnel.Sample.Features.Model
@@ -23,17 +25,7 @@ namespace Envivo.Fresnel.Sample.Features.Model
 
             Configure_C_Properties();
 
-            ConfigureClass<MethodSamples>()
-                .Method(o => o.MethodWithOneParameter, new KeyAttribute())
-                .MethodParameter(o => o.MethodWithOneParameter, "dateTime",
-                                        new DisplayAttribute { Name = "Date/Time" },
-                                        new DataTypeAttribute(DataType.Date))
-                .MethodParameter(o => o.MethodWithObjectParameters, "entity",
-                                        new UIAttribute(preferredControl: UiControlType.Select),
-                                        new FilterQuerySpecificationAttribute(typeof(SaveableEntityQuerySpecification)))
-                .MethodParameter(o => o.MethodWithObjectParameters, "entities",
-                                        new FilterQuerySpecificationAttribute(typeof(SaveableEntityQuerySpecification)))
-                ;
+            Configure_E_Methods();
         }
 
         private void Configure_A_Objects()
@@ -84,6 +76,39 @@ namespace Envivo.Fresnel.Sample.Features.Model
             ConfigureClass<ExceptionTests>()
                 .Property(p => p.ThrowExceptionIfTrue, new UIAttribute(trueValue: "Do it!", falseValue: "Don't do it!"));
 
+        }
+
+        private void Configure_E_Methods()
+        {
+            ConfigureClass<MethodSamples>()
+                .Method(o => o.MethodWithOneParameter, new KeyAttribute())
+                .MethodParameter(o => o.MethodWithOneParameter, "dateTime",
+                                        new DisplayAttribute { Name = "Date/Time" },
+                                        new DefaultValueAttribute(DateTime.Now),
+                                        new DataTypeAttribute(DataType.Date))
+
+                .MethodParameter(o => o.MethodWithObjectParameters, "entity",
+                                        new UIAttribute(preferredControl: UiControlType.Select),
+                                        new FilterQuerySpecificationAttribute(typeof(SaveableEntityQuerySpecification)))
+
+                .MethodParameter(o => o.MethodWithObjectParameters, "entities",
+                                        new FilterQuerySpecificationAttribute(typeof(SaveableEntityQuerySpecification)))
+
+                .MethodParameter(o => o.MethodWithValueParameters, "aString",
+                                        new DefaultValueAttribute("Enter a value"))
+                .MethodParameter(o => o.MethodWithValueParameters, "aNumber",
+                                        new RangeAttribute(0, 99))
+                .MethodParameter(o => o.MethodWithValueParameters, "aDate",
+                                        new DefaultValueAttribute(DateTime.Now),
+                                        new DataTypeAttribute(DataType.Date))
+
+                .MethodParameter(o => o.MethodWithObjectParameters, "entity",
+                                        new UIAttribute(preferredControl: UiControlType.Select),
+                                        new FilterQuerySpecificationAttribute(typeof(SaveableEntityQuerySpecification)))
+                .MethodParameter(o => o.MethodWithObjectParameters, "entities",
+                                        new FilterQuerySpecificationAttribute(typeof(SaveableEntityQuerySpecification)))
+
+                ;
         }
     }
 }

@@ -64,8 +64,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         /// <param name="aDate">This will accept a Date</param>
         public string MethodWithValueParameters
         (
-            IQuerySpecification<EnumValues.IndividualOptions>
-            enumFilter,
+            IQuerySpecification<EnumValues.IndividualOptions> enumFilter,
             string aString,
             int aNumber,
             DateTime aDate
