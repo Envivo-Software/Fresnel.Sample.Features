@@ -9,7 +9,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
-using System.Reflection;
 
 namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
 {
