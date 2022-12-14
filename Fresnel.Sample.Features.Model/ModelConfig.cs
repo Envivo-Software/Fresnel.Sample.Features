@@ -5,8 +5,9 @@ using Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByClass;
 using Envivo.Fresnel.Sample.Features.Model.B_Collections;
 using Envivo.Fresnel.Sample.Features.Model.C_Properties;
 using Envivo.Fresnel.Sample.Features.Model.E_Methods;
+using Envivo.Fresnel.Sample.Features.Model.G_Factories;
 using Envivo.Fresnel.Sample.Features.Model.H_Queries;
-using System;
+using Envivo.Fresnel.Sample.Features.Model.J_Services;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -26,6 +27,11 @@ namespace Envivo.Fresnel.Sample.Features.Model
             Configure_C_Properties();
 
             Configure_E_Methods();
+
+            ConfigureClass<MultiType>()
+                .Property(o => o.An_Int, new DefaultValueAttribute(99))
+                .Property(o => o.A_DateTime, new DefaultValueAttribute(typeof(DateTimeValueProvider)))
+                ;
         }
 
         private void Configure_A_Objects()
@@ -84,8 +90,8 @@ namespace Envivo.Fresnel.Sample.Features.Model
                 .Method(o => o.MethodWithOneParameter, new KeyAttribute())
                 .MethodParameter(o => o.MethodWithOneParameter, "dateTime",
                                         new DisplayAttribute { Name = "Date/Time" },
-                                        new DefaultValueAttribute(DateTime.Now),
-                                        new DataTypeAttribute(DataType.Date))
+                                        new DefaultValueAttribute(typeof(DateTimeValueProvider)),
+                                        new DataTypeAttribute(DataType.DateTime))
 
                 .MethodParameter(o => o.MethodWithObjectParameters, "entity",
                                         new UIAttribute(preferredControl: UiControlType.Select),
@@ -95,11 +101,12 @@ namespace Envivo.Fresnel.Sample.Features.Model
                                         new FilterQuerySpecificationAttribute(typeof(SaveableEntityQuerySpecification)))
 
                 .MethodParameter(o => o.MethodWithValueParameters, "aString",
-                                        new DefaultValueAttribute("Enter a value"))
+                                        new DisplayAttribute { Prompt = "Enter a value" })
                 .MethodParameter(o => o.MethodWithValueParameters, "aNumber",
                                         new RangeAttribute(0, 99))
                 .MethodParameter(o => o.MethodWithValueParameters, "aDate",
-                                        new DefaultValueAttribute(DateTime.Now),
+                                        new DisplayAttribute { Prompt = "Enter a date" },
+                                        new DefaultValueAttribute(typeof(DateTimeValueProvider)),
                                         new DataTypeAttribute(DataType.Date))
 
                 .MethodParameter(o => o.MethodWithObjectParameters, "entity",
