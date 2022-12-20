@@ -74,12 +74,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
                 throw new ArgumentNullException("enumFilter");
             }
 
-            var result = string.Concat(nameof(MethodWithValueParameters),
-                                       " executed with the values [",
-                                       aString, ", ",
-                                       aNumber, ", ",
-                                       aDate, "]");
-            return result;
+            return $"{nameof(MethodWithValueParameters)} executed with the values [{aString}, {aNumber}, {aDate}]";
         }
 
         /// <summary>
@@ -101,6 +96,38 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         )
         {
             return $"{nameof(MethodWithObjectParameters)} executed with the selection '{entity?.Name}'";
+        }
+
+        /// <summary>
+        /// This method has nullable parameters, and will open a dialog.
+        /// </summary>
+        /// <returns></returns>
+        public string MethodWithNullableParameters
+        (
+            string aString,
+            int? anInteger,
+            bool? aBoolean,
+            [DataType(DataType.Date)]
+            DateTime? aDate
+        )
+        {
+            return $"{nameof(MethodWithNullableParameters)} executed with the values [{aString}, {anInteger}, {aBoolean}, {aDate}]";
+        }
+
+        /// <summary>
+        /// This method has nullable parameters that are all REQUIRED, and will open a dialog.
+        /// The parameters are configured in <see cref="ModelConfig.Configure_E_Methods"/>
+        /// </summary>
+        /// <returns></returns>
+        public string MethodWithRequiredParameters
+        (
+            string aString,
+            int? anInteger,
+            bool? aBoolean,
+            DateTime? aDate
+        )
+        {
+            return $"{nameof(MethodWithRequiredParameters)} executed with the values [{aString}, {anInteger}, {aBoolean}, {aDate}]";
         }
 
         /// <summary>

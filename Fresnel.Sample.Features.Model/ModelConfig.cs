@@ -79,6 +79,16 @@ namespace Envivo.Fresnel.Sample.Features.Model
                 .Property(p => p.CustomDateFormat, new DisplayFormatAttribute { DataFormatString = "yyyy MMMM dd (dddd) h:mm tt" })
                 ;
 
+            ConfigureClass<RequiredValues>()
+                .Property(p => p.Id, new KeyAttribute())
+                .Property(p => p.Version, new ConcurrencyCheckAttribute())
+                .Property(p => p.NullableBool, new RequiredAttribute())
+                .Property(p => p.NullableDateTime, new RequiredAttribute())
+                .Property(p => p.NullableDouble, new RequiredAttribute())
+                .Property(p => p.NullableInt, new RequiredAttribute())
+                .Property(p => p.NullableString, new RequiredAttribute())
+                ;
+
             ConfigureClass<ExceptionTests>()
                 .Property(p => p.ThrowExceptionIfTrue, new UIAttribute(trueValue: "Do it!", falseValue: "Don't do it!"));
 
@@ -115,7 +125,13 @@ namespace Envivo.Fresnel.Sample.Features.Model
                 .MethodParameter(o => o.MethodWithObjectParameters, "entities",
                                         new FilterQuerySpecificationAttribute(typeof(SaveableEntityQuerySpecification)))
 
-                ;
+                .MethodParameter(o => o.MethodWithRequiredParameters, "aString", new RequiredAttribute())
+                .MethodParameter(o => o.MethodWithRequiredParameters, "anInteger", new RequiredAttribute())
+                .MethodParameter(o => o.MethodWithRequiredParameters, "aBoolean", new RequiredAttribute())
+                .MethodParameter(o => o.MethodWithRequiredParameters, "aDate",
+                                        new RequiredAttribute(),
+                                        new DataTypeAttribute(DataType.Date))
+            ;
         }
     }
 }
