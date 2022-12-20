@@ -52,6 +52,17 @@ namespace Envivo.Fresnel.Sample.Features.Model
             ConfigureClass<AbstractObject>()
                 .Property(o => o.HiddenProperty, new DisplayAttribute { AutoGenerateField = false })
                 ;
+
+            ConfigureClass<ObjectWithCustomNames>(new DisplayNameAttribute("Custom Names"))
+                .Property(o => o.A_Boolean, new DisplayNameAttribute("Yes or No"))
+                .Property(o => o.A_String, new DisplayNameAttribute("Text"))
+                .Property(o => o.An_Int, new DisplayNameAttribute("Whole number"))
+                .Property(o => o.A_Double, new DisplayNameAttribute("Fractional number"))
+                .Property(o => o.A_DateTime, new DisplayNameAttribute("Date/Time"))
+                .Method(o => o.A_Method, new DisplayNameAttribute("Open dialog"))
+                .MethodParameter(o => o.A_Method, "property1" , new DisplayNameAttribute("First property"))
+                .MethodParameter(o => o.A_Method, "property2", new DisplayNameAttribute("Second property"))
+                ;
         }
 
         private void Configure_B_Collections()
