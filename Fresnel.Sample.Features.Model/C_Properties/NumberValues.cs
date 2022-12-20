@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 using Envivo.Fresnel.ModelAttributes;
 using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
@@ -104,7 +105,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         /// <summary>
         /// This is a number property with a custom title
         /// </summary>
-        [Display(Name = "This name has been made up")]
+        [DisplayName("This name has been made up")]
         internal virtual int CustomNumber
         {
             get { return _IntValue; }

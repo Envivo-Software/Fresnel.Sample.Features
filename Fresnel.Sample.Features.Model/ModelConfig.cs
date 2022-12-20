@@ -99,7 +99,7 @@ namespace Envivo.Fresnel.Sample.Features.Model
             ConfigureClass<MethodSamples>()
                 .Method(o => o.MethodWithOneParameter, new KeyAttribute())
                 .MethodParameter(o => o.MethodWithOneParameter, "dateTime",
-                                        new DisplayAttribute { Name = "Date/Time" },
+                                        new DisplayNameAttribute("Date/Time"),
                                         new DefaultValueAttribute(typeof(DateTimeValueProvider)),
                                         new DataTypeAttribute(DataType.DateTime))
 
