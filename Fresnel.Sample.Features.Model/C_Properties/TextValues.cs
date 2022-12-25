@@ -92,7 +92,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         /// This will force the string to only allow numbers
         /// </summary>
         [MaxLength(10)]
-        [DisplayFormat(DataFormatString = @"[0-9]*")]
+        [RegularExpression("[0-9]*")]
         public string EditMaskText { get; set; }
 
         /// <summary>
