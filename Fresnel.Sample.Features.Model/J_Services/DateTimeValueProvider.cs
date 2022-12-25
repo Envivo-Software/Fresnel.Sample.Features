@@ -6,7 +6,7 @@ using System;
 namespace Envivo.Fresnel.Sample.Features.Model.J_Services
 {
     /// <summary>
-    /// <inheritdoc/>
+    /// Provides a DateTime value using DateTime.Now
     /// </summary>
     public class DateTimeValueProvider : IValueProvider<object, DateTime>
     {
