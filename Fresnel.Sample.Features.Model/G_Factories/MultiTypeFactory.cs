@@ -33,10 +33,11 @@ namespace Envivo.Fresnel.Sample.Features.Model.G_Factories
 
             for (var i = 0; i < itemCount; i++)
             {
-                newObj.A_Collection.Add(new TextValues
+                newObj.A_Collection.Add(new MultiTypeChild
                 {
                     Id = Guid.NewGuid(),
-                    NormalText = $"Item no {i}"
+                    Name = $"Item no {i}",
+                    Description = $"Created by {this.GetType().Name}"
                 });
             }
 

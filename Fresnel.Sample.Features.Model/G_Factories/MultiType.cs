@@ -1,7 +1,6 @@
 // SPDX-FileCopyrightText: Copyright (c) 2022 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
 using Envivo.Fresnel.ModelAttributes;
-using Envivo.Fresnel.Sample.Features.Model.C_Properties;
 using Envivo.Fresnel.Sample.Features.Model.D_Enums;
 using System;
 using System.Collections.Generic;
@@ -11,12 +10,12 @@ namespace Envivo.Fresnel.Sample.Features.Model.G_Factories
 {
     public class MultiType
     {
-        private TextValues _An_Object;
-        private ICollection<TextValues> _A_Collection = new List<TextValues>();
+        private MultiTypeChild _An_Object;
+        private ICollection<MultiTypeChild> _A_Collection = new List<MultiTypeChild>();
 
         public MultiType()
         {
-            An_Object = new TextValues();
+            An_Object = new MultiTypeChild();
         }
 
         [Key]
@@ -52,17 +51,21 @@ namespace Envivo.Fresnel.Sample.Features.Model.G_Factories
         public string PropertyWithExpression => "Some value";
 
         /// <summary>
-        /// An object of TextValues
+        /// An value object of MultiTypeChild
         /// </summary>
         [Relationship(RelationshipType.Owns)]
-        public TextValues An_Object
+        public MultiTypeChild An_Object
         {
             get { return _An_Object; }
             set { _An_Object = value; }
         }
 
+        /// <summary>
+        /// A collection of value objects
+        /// </summary>
+        [AllowedOperations(canModify: false)]
         [Relationship(RelationshipType.Owns)]
-        public ICollection<TextValues> A_Collection
+        public ICollection<MultiTypeChild> A_Collection
         {
             get { return _A_Collection; }
             set { _A_Collection = value; }
