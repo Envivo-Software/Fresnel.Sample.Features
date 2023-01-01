@@ -10,6 +10,8 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
     /// </summary>
     public class TextValues
     {
+        private string _CustomValidation;
+
         /// <summary>
         /// The unique Id for this entity
         /// </summary>
@@ -94,6 +96,21 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         [MaxLength(10)]
         [RegularExpression("[0-9]*")]
         public string EditMaskText { get; set; }
+
+        /// <summary>
+        /// This property has custom validation when it is modified
+        /// </summary>
+        public string CustomValidation
+        {
+            get { return _CustomValidation; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    throw new ApplicationException("Expected a non-null value");
+
+                _CustomValidation = value;
+            }
+        }
 
         /// <summary>
         /// Sets the text value using a method
