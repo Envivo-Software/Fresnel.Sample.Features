@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: Apache-2.0
 using Envivo.Fresnel.ModelAttributes;
 using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
 {

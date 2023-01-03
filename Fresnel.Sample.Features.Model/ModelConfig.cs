@@ -60,7 +60,7 @@ namespace Envivo.Fresnel.Sample.Features.Model
                 .Property(o => o.A_Double, new DisplayNameAttribute("Fractional number"))
                 .Property(o => o.A_DateTime, new DisplayNameAttribute("Date/Time"))
                 .Method(o => o.A_Method, new DisplayNameAttribute("Open dialog"))
-                .MethodParameter(o => o.A_Method, "property1" , new DisplayNameAttribute("First property"))
+                .MethodParameter(o => o.A_Method, "property1", new DisplayNameAttribute("First property"))
                 .MethodParameter(o => o.A_Method, "property2", new DisplayNameAttribute("Second property"))
                 ;
         }
