@@ -110,15 +110,18 @@ namespace Envivo.Fresnel.Sample.Features.Model
             ConfigureClass<MethodSamples>()
                 .Method(o => o.MethodWithOneParameter, new KeyAttribute())
                 .MethodParameter(o => o.MethodWithOneParameter, "dateTime",
+                                        new RequiredAttribute(),
                                         new DisplayNameAttribute("Date/Time"),
                                         new DefaultValueAttribute(typeof(DateTimeValueProvider)),
                                         new DataTypeAttribute(DataType.DateTime))
 
                 .MethodParameter(o => o.MethodWithObjectParameters, "entity",
+                                        new RequiredAttribute(),
                                         new UIAttribute(preferredControl: UiControlType.Select),
                                         new FilterQuerySpecificationAttribute(typeof(SaveableEntityQuerySpecification)))
 
                 .MethodParameter(o => o.MethodWithObjectParameters, "entities",
+                                        new RequiredAttribute(),
                                         new FilterQuerySpecificationAttribute(typeof(SaveableEntityQuerySpecification)))
 
                 .MethodParameter(o => o.MethodWithValueParameters, "aString",

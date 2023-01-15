@@ -54,7 +54,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
 
         /// <summary>
         /// This method accepts multiple parameters, and will open a dialog.
-        /// The method can only be invoked when the user supplies the parameter values.
+        /// All parameters are supplied with default values.
         /// The result will appear in the Message Panel.
         /// </summary>
         /// <param name="enumFilter">This will be automatically injected</param>
@@ -79,7 +79,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
 
         /// <summary>
         /// This method accepts objects as parameters, and will open a dialog.
-        /// The method can only be invoked when the user supplies the parameter value.
+        /// The method can only be invoked when the user supplies the parameter values.
         /// The result will appear in the Message Panel.
         /// </summary>
         /// <param name="entity">This will allow ONE entity to be chosen</param>
@@ -87,10 +87,12 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         /// <returns></returns>
         public string MethodWithObjectParameters
         (
+            [Required]
             [UI(preferredControl: UiControlType.Select)]
             [FilterQuerySpecification(typeof(SaveableEntityQuerySpecification))]
             SaveableEntity entity,
 
+            [Required]
             [FilterQuerySpecification(typeof(SaveableEntityQuerySpecification))]
             IEnumerable<SaveableEntity> entities
         )
@@ -115,7 +117,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         }
 
         /// <summary>
-        /// This method has nullable parameters that are all REQUIRED, and will open a dialog.
+        /// This method has nullable parameters all that are all 'Required', and will open a dialog.
         /// The parameters are configured in <see cref="ModelConfig.Configure_E_Methods"/>
         /// </summary>
         /// <returns></returns>
