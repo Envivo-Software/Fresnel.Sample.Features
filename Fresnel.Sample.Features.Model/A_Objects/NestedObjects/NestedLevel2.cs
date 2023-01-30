@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: Copyright (c) 2022 Envivo Software
+// SPDX-FileCopyrightText: Copyright (c) 2022-2023 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
 using Envivo.Fresnel.ModelAttributes;
 using Envivo.Fresnel.ModelTypes.Interfaces;
@@ -27,6 +27,9 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.NestedObjects
 
         [Relationship(RelationshipType.Owns)]
         public ICollection<NestedLevel3> Level3Items { get; private set; } = new List<NestedLevel3>();
+
+        [Relationship(RelationshipType.OwnedBy)]
+        public NestedExampleObject Parent { get; set; }
 
         /// <summary>
         /// <inheritdoc/>

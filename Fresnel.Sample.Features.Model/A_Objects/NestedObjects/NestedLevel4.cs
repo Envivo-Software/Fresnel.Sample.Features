@@ -1,7 +1,9 @@
-// SPDX-FileCopyrightText: Copyright (c) 2022 Envivo Software
+// SPDX-FileCopyrightText: Copyright (c) 2022-2023 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
+using Envivo.Fresnel.ModelAttributes;
 using Envivo.Fresnel.ModelTypes.Interfaces;
 using System;
+using System.Text.Json.Serialization;
 
 namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.NestedObjects
 {
@@ -22,6 +24,10 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.NestedObjects
         /// The description for this object
         /// </summary>
         public string Description { get; set; }
+
+        [Relationship(RelationshipType.OwnedBy)]
+        [JsonInclude]
+        public NestedLevel3 Parent { get; set; }
 
         /// <summary>
         /// <inheritdoc/>
