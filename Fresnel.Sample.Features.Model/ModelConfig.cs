@@ -1,4 +1,6 @@
-﻿using Envivo.Fresnel.ModelAttributes;
+﻿// SPDX-FileCopyrightText: Copyright (c) 2022-2023 Envivo Software
+// SPDX-License-Identifier: Apache-2.0
+using Envivo.Fresnel.ModelAttributes;
 using Envivo.Fresnel.ModelAttributes.Config;
 using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
 using Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByClass;

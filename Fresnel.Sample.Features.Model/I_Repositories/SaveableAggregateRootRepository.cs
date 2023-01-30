@@ -1,4 +1,4 @@
-﻿// SPDX-FileCopyrightText: Copyright (c) 2022 Envivo Software
+﻿// SPDX-FileCopyrightText: Copyright (c) 2022-2023 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
 using Envivo.Fresnel.ModelTypes;
 using Envivo.Fresnel.ModelTypes.Interfaces;
@@ -14,7 +14,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
     /// </summary>
     public class SaveableAggregateRootRepository : IRepository<SaveableAggregateRoot>
     {
-        private static readonly InMemoryRepository<SaveableAggregateRoot> _InMemoryRepository = new InMemoryRepository<SaveableAggregateRoot>(BuildSaveableAggregateRootsForDemo());
+        private static readonly InMemoryRepository<SaveableAggregateRoot> _InMemoryRepository = new(BuildSaveableAggregateRootsForDemo());
 
         private static List<SaveableAggregateRoot> BuildSaveableAggregateRootsForDemo()
         {
