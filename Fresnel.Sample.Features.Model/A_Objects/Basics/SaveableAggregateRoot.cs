@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: Copyright (c) 2022 Envivo Software
+// SPDX-FileCopyrightText: Copyright (c) 2022-2023 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
 using Envivo.Fresnel.ModelTypes.Interfaces;
 using System;
@@ -37,6 +37,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
         /// <summary>
         /// A set of objects within this aggregate
         /// </summary>
-        public IList<SaveableEntity> AssociatedItems { get; set; } = new List<SaveableEntity>();
+        public ICollection<SaveableEntity> AssociatedItems { get; set; } = new List<SaveableEntity>();
     }
 }
