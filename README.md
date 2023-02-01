@@ -1,6 +1,6 @@
 # Fresnel Sample Features
 
-A simple class model to show the various capabilities of [**Fresnel Domain Model Explorer**](https://github.com/Envivo-Software/Envivo.Fresnel).
+A class model that shows the various capabilities of [**Fresnel Domain Model Explorer**](https://github.com/Envivo-Software/Envivo.Fresnel).  If you're trying to figure out how to make a certain Fresnel feature work, you should find examples in this project.
 
 Use this model along with the Developer documentation at
 https://github.com/Envivo-Software/Envivo.Fresnel/wiki
