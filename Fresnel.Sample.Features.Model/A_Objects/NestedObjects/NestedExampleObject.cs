@@ -3,11 +3,12 @@
 using Envivo.Fresnel.ModelAttributes;
 using Envivo.Fresnel.ModelTypes.Interfaces;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.NestedObjects
 {
-    public class NestedExampleObject : IAggregateRoot
+    public class NestedExampleObject : IAggregateRoot, IPersistable
     {
         public NestedExampleObject()
         {
@@ -20,8 +21,14 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.NestedObjects
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
+        [Key]
         public Guid Id { get; set; }
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        [ConcurrencyCheck]
+        public long Version { get; set; }
 
         /// <summary>
         /// The name of this object
