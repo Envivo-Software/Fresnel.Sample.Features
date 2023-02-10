@@ -1,3 +1,26 @@
+﻿2023-01-31:
+🎁 New features:
+- Added example of ModelConfig
+- Added example of property validation in TextValues
+- Added EmptyObject, to show that Explorers still appear in the UI
+- Added example of ObjectWithInjectedDependencies
+- Added example of NestedObjects
+
+🐞 Fixes:
+- Corrected attribute for RegularExpression in TextValues
+- Added SaveableEntityRepository, so that "Save" button is enabled in the Fresnel UI
+
+🎨 Improvements:
+- MultiType now has children of type MultiTypeChild (so that TextValues can be created in the UI)
+- BasicObject now has ToString() that shows the Name property
+- Configured MethodSamples.MethodWithOneParameter() and MethodWithObjectParameters() to have REQUIRED parameters
+- Replaced IList<> with ICollection<>
+
+💨 Other:
+- Updated copyright notices
+- Code cleanup
+
+
 2022-10-16: 
 * fix(BasicObjectRepository): Replaced BasicObjectRepository with SaveableAggregateRootRepository
 * fix(MultiType): Added Relationships for reference properties
