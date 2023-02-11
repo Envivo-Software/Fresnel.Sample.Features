@@ -1,4 +1,9 @@
-﻿2023-01-31:
+﻿2023-02-11:
+🎨 Improvements:
+- NestedExampleObject is now persistable
+
+
+2023-01-31:
 🎁 New features:
 - Added example of ModelConfig
 - Added example of property validation in TextValues
