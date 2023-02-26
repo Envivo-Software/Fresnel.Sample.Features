@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: Copyright (c) 2022-2023 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
+using Envivo.Fresnel.ModelTypes;
 using Envivo.Fresnel.ModelTypes.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -35,8 +36,22 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
         public string Description { get; set; }
 
         /// <summary>
-        /// A set of objects within this aggregate
+        /// A collection of references to other aggregates
         /// </summary>
-        public ICollection<SaveableEntity> AssociatedItems { get; set; } = new List<SaveableEntity>();
+        public ICollection<AggregateReference<SaveableEntity>> AssociatedItems { get; set; } = new List<AggregateReference<SaveableEntity>>();
+
+        /// <summary>
+        /// A single reference to another aggregate
+        /// </summary>
+        public AggregateReference<SaveableEntity> SingleAssociatedItem { get; set; }
+
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <returns></returns>
+        IAggregateReference<T> IAggregateRoot.ToReference<T>()
+        {
+            return AggregateReference<T>.From(this);
+        }
     }
 }

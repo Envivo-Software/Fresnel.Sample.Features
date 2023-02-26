@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: Copyright (c) 2022-2023 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
+using Envivo.Fresnel.ModelTypes;
 using Envivo.Fresnel.ModelTypes.Interfaces;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -27,6 +28,15 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
         /// The description for this object
         /// </summary>
         public string Description { get; set; }
+
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <returns></returns>
+        IAggregateReference<T> IAggregateRoot.ToReference<T>()
+        {
+            return AggregateReference<T>.From(this);
+        }
 
         public override string ToString()
         {

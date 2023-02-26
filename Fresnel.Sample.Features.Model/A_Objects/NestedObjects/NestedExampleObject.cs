@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: Copyright (c) 2022-2023 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
 using Envivo.Fresnel.ModelAttributes;
+using Envivo.Fresnel.ModelTypes;
 using Envivo.Fresnel.ModelTypes.Interfaces;
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -43,6 +44,15 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.NestedObjects
         [Relationship(RelationshipType.Owns)]
         [JsonInclude]
         public NestedLevel2 Level2 { get; internal set; }
+
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <returns></returns>
+        IAggregateReference<T> IAggregateRoot.ToReference<T>()
+        {
+            return AggregateReference<T>.From(this);
+        }
 
         /// <summary>
         /// <inheritdoc/>
