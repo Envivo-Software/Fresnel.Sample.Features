@@ -6,6 +6,7 @@ using Envivo.Fresnel.Sample.Features.Model.A_Objects.NestedObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
 {
@@ -14,60 +15,69 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
     /// </summary>
     public class NestedExampleObjectRepository : IRepository<NestedExampleObject>
     {
-        private static readonly InMemoryRepository<NestedExampleObject> _InMemoryRepository = new();
+        private readonly InMemoryRepository<NestedExampleObject> _InMemoryRepository = new();
 
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
+        /// <param name="aggregateRoot"></param>
         /// <returns></returns>
-        public IQueryable<NestedExampleObject> GetAll()
+        public Task DeleteAsync(NestedExampleObject aggregateRoot)
         {
-            return _InMemoryRepository.GetAll();
+            return _InMemoryRepository.DeleteAsync(aggregateRoot);
         }
 
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
         /// <returns></returns>
-        public NestedExampleObject? Load(Guid id)
+        public IQueryable<NestedExampleObject> GetQuery()
         {
-            return _InMemoryRepository.Load(id);
+            return _InMemoryRepository.GetQuery();
         }
 
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
+        /// <param name="id"></param>
         /// <returns></returns>
-        public int Save(NestedExampleObject aggregateRoot, IEnumerable<object> newObjects, IEnumerable<object> modifiedObjects, IEnumerable<object> deletedObjects)
+        public Task<NestedExampleObject> LoadAsync(Guid id)
         {
-            return _InMemoryRepository.Save(aggregateRoot, newObjects, modifiedObjects, deletedObjects);
+            return _InMemoryRepository.LoadAsync(id);
         }
 
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
+        /// <param name="aggregateRoot"></param>
         /// <returns></returns>
-        public void Delete(NestedExampleObject aggregateRoot)
+        public Task<IAggregateLock> LockAsync(NestedExampleObject aggregateRoot)
         {
-            _InMemoryRepository.Delete(aggregateRoot);
+            return _InMemoryRepository.LockAsync(aggregateRoot);
         }
 
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
+        /// <param name="aggregateRoot"></param>
+        /// <param name="newObjects"></param>
+        /// <param name="modifiedObjects"></param>
+        /// <param name="deletedObjects"></param>
         /// <returns></returns>
-        public IAggregateLock? Lock(NestedExampleObject aggregateRoot)
+        public Task<int> SaveAsync(NestedExampleObject aggregateRoot, IEnumerable<object> newObjects, IEnumerable<object> modifiedObjects, IEnumerable<object> deletedObjects)
         {
-            return _InMemoryRepository.Lock(aggregateRoot);
+            return _InMemoryRepository.SaveAsync(aggregateRoot, newObjects, modifiedObjects, deletedObjects);
         }
 
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
+        /// <param name="aggregateRoot"></param>
         /// <returns></returns>
-        public void Unlock(NestedExampleObject aggregateRoot)
+        /// <exception cref="NotImplementedException"></exception>
+        public Task UnlockAsync(NestedExampleObject aggregateRoot)
         {
-            _InMemoryRepository.Unlock(aggregateRoot);
+            return Task.CompletedTask;
         }
     }
 }

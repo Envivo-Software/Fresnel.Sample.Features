@@ -6,6 +6,7 @@ using Envivo.Fresnel.Sample.Features.Model.B_Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
 {
@@ -26,23 +27,25 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
                 .ToList();
         }
 
-        public IEnumerable<SaveableEntity> GetResults()
+        public Task<IEnumerable<SaveableEntity>> GetResultsAsync()
         {
-            return GetResults(null);
+            return GetResultsAsync(null);
         }
 
-        public IEnumerable<SaveableEntity> GetResults(ObjectWithCollections requestor)
+        public Task<IEnumerable<SaveableEntity>> GetResultsAsync(ObjectWithCollections requestor)
         {
             // If we wanted, we could use the requestor as part of the query clause:
             if (requestor != null)
             {
-                return
+                var results =
                     _SaveableEntities
                     .Where(e => e.Name == requestor?.Name)
-                    .ToList();
+                    .ToList()
+                    .AsEnumerable();
+                return Task.FromResult(results);
             }
 
-            return _SaveableEntities;
+            return Task.FromResult(_SaveableEntities.AsEnumerable());
         }
     }
 }

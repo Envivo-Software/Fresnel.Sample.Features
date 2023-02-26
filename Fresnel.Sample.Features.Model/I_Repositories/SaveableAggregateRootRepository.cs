@@ -6,6 +6,7 @@ using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
 {
@@ -14,7 +15,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
     /// </summary>
     public class SaveableAggregateRootRepository : IRepository<SaveableAggregateRoot>
     {
-        private static readonly InMemoryRepository<SaveableAggregateRoot> _InMemoryRepository = new(BuildSaveableAggregateRootsForDemo());
+        private readonly InMemoryRepository<SaveableAggregateRoot> _InMemoryRepository = new(BuildSaveableAggregateRootsForDemo());
 
         private static List<SaveableAggregateRoot> BuildSaveableAggregateRootsForDemo()
         {
@@ -34,55 +35,64 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
+        /// <param name="aggregateRoot"></param>
         /// <returns></returns>
-        public IQueryable<SaveableAggregateRoot> GetAll()
+        public Task DeleteAsync(SaveableAggregateRoot aggregateRoot)
         {
-            return _InMemoryRepository.GetAll();
+            return _InMemoryRepository.DeleteAsync(aggregateRoot);
         }
 
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
         /// <returns></returns>
-        public SaveableAggregateRoot? Load(Guid id)
+        public IQueryable<SaveableAggregateRoot> GetQuery()
         {
-            return _InMemoryRepository.Load(id);
+            return _InMemoryRepository.GetQuery();
         }
 
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
+        /// <param name="id"></param>
         /// <returns></returns>
-        public int Save(SaveableAggregateRoot aggregateRoot, IEnumerable<object> newObjects, IEnumerable<object> modifiedObjects, IEnumerable<object> deletedObjects)
+        public Task<SaveableAggregateRoot> LoadAsync(Guid id)
         {
-            return _InMemoryRepository.Save(aggregateRoot, newObjects, modifiedObjects, deletedObjects);
+            return _InMemoryRepository.LoadAsync(id);
         }
 
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
+        /// <param name="aggregateRoot"></param>
         /// <returns></returns>
-        public void Delete(SaveableAggregateRoot aggregateRoot)
+        public Task<IAggregateLock> LockAsync(SaveableAggregateRoot aggregateRoot)
         {
-            _InMemoryRepository.Delete(aggregateRoot);
+            return _InMemoryRepository.LockAsync(aggregateRoot);
         }
 
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
+        /// <param name="aggregateRoot"></param>
+        /// <param name="newObjects"></param>
+        /// <param name="modifiedObjects"></param>
+        /// <param name="deletedObjects"></param>
         /// <returns></returns>
-        public IAggregateLock? Lock(SaveableAggregateRoot aggregateRoot)
+        public Task<int> SaveAsync(SaveableAggregateRoot aggregateRoot, IEnumerable<object> newObjects, IEnumerable<object> modifiedObjects, IEnumerable<object> deletedObjects)
         {
-            return _InMemoryRepository.Lock(aggregateRoot);
+            return _InMemoryRepository.SaveAsync(aggregateRoot, newObjects, modifiedObjects, deletedObjects);
         }
 
         /// <summary>
         /// <inheritdoc/>
         /// </summary>
+        /// <param name="aggregateRoot"></param>
         /// <returns></returns>
-        public void Unlock(SaveableAggregateRoot aggregateRoot)
+        /// <exception cref="NotImplementedException"></exception>
+        public Task UnlockAsync(SaveableAggregateRoot aggregateRoot)
         {
-            _InMemoryRepository.Unlock(aggregateRoot);
+            return Task.CompletedTask;
         }
     }
 }
