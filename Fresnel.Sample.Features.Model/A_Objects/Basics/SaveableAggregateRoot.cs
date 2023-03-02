@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: Copyright (c) 2022-2023 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
+using Envivo.Fresnel.ModelAttributes;
 using Envivo.Fresnel.ModelTypes;
 using Envivo.Fresnel.ModelTypes.Interfaces;
 using System;
@@ -38,11 +39,13 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
         /// <summary>
         /// A collection of references to other aggregates
         /// </summary>
+        [Relationship(RelationshipType.Has)]
         public ICollection<AggregateReference<SaveableEntity>> AssociatedItems { get; set; } = new List<AggregateReference<SaveableEntity>>();
 
         /// <summary>
         /// A single reference to another aggregate
         /// </summary>
+        [Relationship(RelationshipType.Has)]
         public AggregateReference<SaveableEntity> SingleAssociatedItem { get; set; }
 
         /// <summary>
