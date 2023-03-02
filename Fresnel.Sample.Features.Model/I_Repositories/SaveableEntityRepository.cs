@@ -20,7 +20,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         private static List<SaveableEntity> BuildSaveableEntitiesForDemo()
         {
             var results =
-                Enumerable.Range(1, 10)
+                Enumerable.Range(1, 50)
                 .Select(i => new SaveableEntity
                 {
                     Id = Guid.NewGuid(),
