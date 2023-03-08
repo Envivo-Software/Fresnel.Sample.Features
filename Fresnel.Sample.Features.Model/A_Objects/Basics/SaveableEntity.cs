@@ -13,7 +13,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
     public class SaveableEntity : IAggregateRoot
     {
         /// <summary>
-        /// The [Key] attribute
+        /// <inheritdoc/>
         /// </summary>
         [Key]
         public Guid Id { get; set; }
