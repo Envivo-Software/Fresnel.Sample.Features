@@ -37,13 +37,13 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByInterface
         /// </summary>
         [Relationship(RelationshipType.Owns)]
         [UI(UiRenderOption.SeparateTabExpanded)]
-        public ICollection<AbstractObject> OwnedObjects { get; set; }
+        public ICollection<AbstractObject> OwnedObjects { get; set; } = new List<AbstractObject>();
 
         /// <summary>
         /// This property allows existing objects of type <see cref="ObjectD"/> to be associated with it
         /// </summary>
         [Relationship(RelationshipType.Has)]
         [UI(UiRenderOption.SeparateTabExpanded)]
-        public ICollection<ObjectD> AssociatedObjects { get; set; }
+        public ICollection<ObjectD> AssociatedObjects { get; set; } = new List<ObjectD>();
     }
 }
