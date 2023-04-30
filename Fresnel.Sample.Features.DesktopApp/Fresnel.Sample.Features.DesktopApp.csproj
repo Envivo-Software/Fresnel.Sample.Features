@@ -2,15 +2,16 @@
 
 	<PropertyGroup>
 		<OutputType>WinExe</OutputType>
-		<TargetFramework>net6.0-windows10.0.22000.0</TargetFramework>
+		<TargetFramework>net6.0-windows10.0.22621.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<UseWindowsForms>true</UseWindowsForms>
-		<AssemblyVersion>1.0.0</AssemblyVersion>
-		<FileVersion>1.0.0</FileVersion>
+		<AssemblyVersion>0.2206.20.1</AssemblyVersion>
+		<FileVersion>0.2206.20.1</FileVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Envivo.Fresnel" Version="0.11.1-preview" />
+	  <PackageReference Include="Envivo.Fresnel" Version="0.12.0-preview" />
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
