@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
 {
@@ -154,21 +155,18 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         }
 
         /// <summary>
-        /// This method takes 10 seconds to run.
+        /// This method takes 5 seconds to run.
         /// </summary>
         /// <returns></returns>
-        public string LongRunningSyncMethod()
+        public async Task<string> LongRunningMethod()
         {
             var runFor = TimeSpan.FromSeconds(10);
             var runUntil = DateTime.Now.Add(runFor);
 
-            while (DateTime.Now < runUntil)
-            {
-                System.Threading.Thread.Sleep(1000);
-                Trace.TraceInformation("Running...");
-            }
+            Trace.TraceInformation("Running...");
+            await Task.Delay(5000);
 
-            return nameof(LongRunningSyncMethod);
+            return nameof(LongRunningMethod);
         }
 
         public void MethodWithoutDescription()
