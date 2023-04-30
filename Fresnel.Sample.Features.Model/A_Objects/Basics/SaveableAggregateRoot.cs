@@ -6,6 +6,7 @@ using Envivo.Fresnel.ModelTypes.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
 {
@@ -45,8 +46,12 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
         /// <summary>
         /// A single reference to another aggregate
         /// </summary>
+        /// <remarks>
+        /// The JSON serialiser cannot handle interface types, hence why this property is ignored
+        /// </remarks>
         [Relationship(RelationshipType.Has)]
-        public AggregateReference<SaveableEntity> SingleAssociatedItem { get; set; }
+        [JsonIgnore()]
+        public IAggregateReference<SaveableEntity> SingleAssociatedItem { get; set; }
 
         /// <summary>
         /// <inheritdoc/>
