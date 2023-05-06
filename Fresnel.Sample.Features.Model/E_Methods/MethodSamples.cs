@@ -55,7 +55,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
 
         /// <summary>
         /// This method accepts multiple parameters, and will open a dialog.
-        /// All parameters are supplied with default values.
+        /// All parameters are supplied with their natural default values.
         /// The result will appear in the Message Panel.
         /// </summary>
         /// <param name="enumFilter">This will be automatically injected</param>
@@ -76,6 +76,21 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
             }
 
             return $"{nameof(MethodWithValueParameters)} executed with the values [{aString}, {aNumber}, {aDate}]";
+        }
+
+        /// <summary>
+        /// This method has optional parameters with custom default values, and will open a dialog.
+        /// The result will appear in the Message Panel.
+        /// </summary>
+        /// <param name="aString">This will accept a String</param>
+        /// <param name="aNumber">This will accept an Integer</param>
+        public string MethodWithOptionalParameters
+        (
+            string aString = "A preset string",
+            int aNumber = 12345
+        )
+        {
+            return $"{nameof(MethodWithOptionalParameters)} executed with the values [{aString}, {aNumber}]";
         }
 
         /// <summary>
