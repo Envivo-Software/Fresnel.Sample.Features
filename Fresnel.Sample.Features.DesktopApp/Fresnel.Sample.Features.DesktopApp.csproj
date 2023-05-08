@@ -10,7 +10,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Envivo.Fresnel" Version="0.12.0-preview" />
+	  <PackageReference Include="Envivo.Fresnel" Version="0.24.4-preview" />
 	  <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
 	</ItemGroup>
 
