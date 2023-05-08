@@ -1,6 +1,5 @@
 // SPDX-FileCopyrightText: Copyright (c) 2022-2023 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
-using Envivo.Fresnel.ModelAttributes;
 using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
 using System;
 using System.Collections.Generic;
@@ -30,8 +29,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.B_Collections
         /// <summary>
         /// New items can be created within this property. Existing items cannot be added to this list.
         /// </summary>
-        [Relationship(RelationshipType.Owns)]
-        [UI(renderOption: UiRenderOption.InlineExpanded)]
         public IList<BasicObject> OwnedItems
         {
             get { return _OwnedItems; }
@@ -41,8 +38,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.B_Collections
         /// <summary>
         /// Existing items can be added to this property.  New items cannot be added to this list.
         /// </summary>
-        [Relationship(RelationshipType.Has)]
-        [UI(renderOption: UiRenderOption.InlineExpanded)]
         public IList<SaveableEntity> AssociatedItems
         {
             get { return _AssociatedItems; }
