@@ -1,7 +1,24 @@
-﻿2023-02-11:
+﻿2023-05-08:
+🎁 New features:
+- Added examples of AggregateReference<T>
+- Added examples of "Inhertitance by Class"
+- Added examples of "Inhertitance by Interface"
+- Added examples of async Methods
+
+🎨 Improvements:
+- Now supports XML documentation as embedded resource
+- SaveableEntityRepository now returns more results, to demonstrate UI paging
+
+🐞 Fixes:
+- Updated package references
+
+==============================================================================
+
+2023-02-11:
 🎨 Improvements:
 - NestedExampleObject is now persistable
 
+==============================================================================
 
 2023-01-31:
 🎁 New features:
@@ -25,6 +42,7 @@
 - Updated copyright notices
 - Code cleanup
 
+==============================================================================
 
 2022-10-16: 
 * fix(BasicObjectRepository): Replaced BasicObjectRepository with SaveableAggregateRootRepository
@@ -34,5 +52,7 @@
 * feat(TextValues): Added method to facilitate testing of Undo functionality
 * refactor(MethodSamples): Now uses nameof
 * refactor: Added comments, cleaned up code
+
+==============================================================================
 
 2022-09-01: PREVIEW RELEASE
