@@ -14,4 +14,17 @@
     <ProjectReference Include="..\..\Fresnel.ModelTypes\Fresnel.ModelTypes.csproj" />
   </ItemGroup>
 
+	<Target Name="EmbedDocumentation" BeforeTargets="PrepareForBuild">
+		<ItemGroup>
+			<EmbeddedResource Include="@(DocFileItem)">
+				<LogicalName>Envivo.$(MSBuildProjectName).xml</LogicalName>
+			</EmbeddedResource>
+		</ItemGroup>
+	</Target>
+
+	<PropertyGroup>
+		<PublishDocumentationFile>false</PublishDocumentationFile>
+		<PublishReferencesDocumentationFiles>false</PublishReferencesDocumentationFiles>
+	</PropertyGroup>
+
 </Project>
