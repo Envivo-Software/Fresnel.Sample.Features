@@ -3,6 +3,7 @@
 using Envivo.Fresnel.ModelAttributes;
 using Envivo.Fresnel.ModelTypes;
 using Envivo.Fresnel.ModelTypes.Interfaces;
+using Envivo.Fresnel.Sample.Features.Model.H_Queries;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -41,6 +42,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
         /// A collection of references to other aggregates
         /// </summary>
         [Relationship(RelationshipType.Has)]
+        [FilterQuerySpecification(typeof(SaveableEntityQuerySpecification))]
         public ICollection<AggregateReference<SaveableEntity>> AssociatedItems { get; set; } = new List<AggregateReference<SaveableEntity>>();
 
         /// <summary>

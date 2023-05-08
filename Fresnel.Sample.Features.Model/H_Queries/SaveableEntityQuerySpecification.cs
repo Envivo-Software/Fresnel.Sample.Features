@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
 {
-    public class SaveableEntityQuerySpecification : IQuerySpecification<ObjectWithCollections, SaveableEntity>
+    public class SaveableEntityQuerySpecification : IQuerySpecification<SaveableEntity>
     {
         private List<SaveableEntity> _SaveableEntities;
 
@@ -29,7 +29,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
 
         public Task<IEnumerable<SaveableEntity>> GetResultsAsync()
         {
-            return GetResultsAsync(null);
+            return Task.FromResult(_SaveableEntities.AsEnumerable());
         }
 
         public Task<IEnumerable<SaveableEntity>> GetResultsAsync(ObjectWithCollections requestor)
@@ -43,6 +43,17 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
                     .ToList()
                     .AsEnumerable();
                 return Task.FromResult(results);
+            }
+
+            return Task.FromResult(_SaveableEntities.AsEnumerable());
+        }
+
+        public Task<IEnumerable<SaveableEntity>> GetResultsAsync(SaveableAggregateRoot requestor)
+        {
+            // If we wanted, we could use the requestor as part of the query clause:
+            if (requestor != null)
+            {
+                // Execute custom filtering here
             }
 
             return Task.FromResult(_SaveableEntities.AsEnumerable());
