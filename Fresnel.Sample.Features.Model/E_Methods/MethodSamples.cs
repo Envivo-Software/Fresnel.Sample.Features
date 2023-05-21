@@ -98,7 +98,8 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         /// The method can only be invoked when the user supplies the parameter values.
         /// The result will appear in the Message Panel.
         /// </summary>
-        /// <param name="entity">This will allow ONE entity to be chosen</param>
+        /// <param name="entity2">This will allow ONE entity to be chosen from a modal</param>
+        /// <param name="entity">This will allow ONE entity to be chosen from a drop-down</param>
         /// <param name="entities">This will allow multiple entities to be chosen</param>
         /// <returns></returns>
         public string MethodWithObjectParameters
@@ -110,10 +111,14 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
 
             [Required]
             [FilterQuerySpecification(typeof(SaveableEntityQuerySpecification))]
+            SaveableEntity entity2,
+
+            [Required]
+            [FilterQuerySpecification(typeof(SaveableEntityQuerySpecification))]
             IEnumerable<SaveableEntity> entities
         )
         {
-            return $"{nameof(MethodWithObjectParameters)} executed with the selection '{entity?.Name}'";
+            return $"{nameof(MethodWithObjectParameters)} executed with the selection '{entity?.Name}' and {entity2?.Name}";
         }
 
         /// <summary>
