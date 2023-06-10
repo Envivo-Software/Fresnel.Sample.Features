@@ -24,5 +24,10 @@ namespace Envivo.Fresnel.Sample.Features.Model.D_Enums
         /// This is the value Cheese
         /// </summary>
         Cheese = 4,
+
+        /// <summary>
+        /// This is the value Spring Onions
+        /// </summary>
+        SpringOnions = 8,
     }
 }
