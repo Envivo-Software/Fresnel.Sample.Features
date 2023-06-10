@@ -94,6 +94,20 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         }
 
         /// <summary>
+        /// This method accepts one object as a parameter.
+        /// It will open a search dialog, and the method is invoked when the selection is made
+        /// </summary>
+        /// <param name="entity">This will allow ONE entity to be chosen</param>
+        /// <returns></returns>
+        public string MethodWithSingleObjectParameter
+        (
+            SaveableEntity entity
+        )
+        {
+            return $"{nameof(MethodWithSingleObjectParameter)} executed with the selection '{entity?.Name}'";
+        }
+
+        /// <summary>
         /// This method accepts objects as parameters, and will open a dialog.
         /// The method can only be invoked when the user supplies the parameter values.
         /// The result will appear in the Message Panel.
