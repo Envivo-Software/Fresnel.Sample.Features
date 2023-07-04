@@ -30,6 +30,11 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
         public string Description { get; set; }
 
         /// <summary>
+        /// This value should have a default value
+        /// </summary>
+        public DateTime CreatedAt { get; set; }
+
+        /// <summary>
         /// <inheritdoc/>
         /// </summary>
         /// <returns></returns>
