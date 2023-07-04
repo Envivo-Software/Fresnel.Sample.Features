@@ -203,6 +203,24 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
             return nameof(LongRunningMethod);
         }
 
+        /// <summary>
+        /// This async method returns a value
+        /// </summary>
+        /// <returns></returns>
+        public async Task<string> AsyncMethodWithReturnValue()
+        {
+            return await Task.FromResult(nameof(AsyncMethodWithReturnValue));
+        }
+
+        /// <summary>
+        /// This async method doesn't return any value
+        /// </summary>
+        /// <returns></returns>
+        public async Task AsyncMethodWithoutReturnValue()
+        {
+            await Task.CompletedTask;
+        }
+
         public void MethodWithoutDescription()
         {
         }
