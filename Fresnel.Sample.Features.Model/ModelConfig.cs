@@ -43,12 +43,15 @@ namespace Envivo.Fresnel.Sample.Features.Model
                 ;
 
             ConfigureClass<SaveableAggregateRoot>()
+                .WithAttributes(new VisualIdentifierAttribute { IconHtml = "<i class=\"bi bi-stack\"></i>", HtmlColour = "#DD0000" })
                 .Property(o => o.Id, new KeyAttribute())
                 .Property(o => o.Version, new ConcurrencyCheckAttribute())
                 ;
 
             ConfigureClass<SaveableEntity>()
+                .WithAttributes(new VisualIdentifierAttribute { IconHtml = "<i class=\"bi bi-layers-half\"></i>", HtmlColour = "#DF0000" })
                 .Property(o => o.Id, new KeyAttribute())
+                .Property(o => o.CreatedAt, new DefaultValueAttribute(typeof(DateTimeValueProvider)))
                 ;
 
             ConfigureClass<AbstractObject>()
@@ -80,6 +83,7 @@ namespace Envivo.Fresnel.Sample.Features.Model
                 .Property(p => p.OwnedItems,
                                 new RelationshipAttribute(RelationshipType.Owns),
                                 new UIAttribute(UiRenderOption.InlineExpanded));
+            ;
         }
 
         private void Configure_C_Properties()
