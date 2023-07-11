@@ -59,5 +59,16 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
 
             return Task.FromResult(_SaveableEntities.AsEnumerable());
         }
+
+        public Task<IEnumerable<SaveableEntity>> GetResultsAsync(SaveableAggregateRoot requestor1, ObjectWithCollections requestor2)
+        {
+            // We could also use multiple requestors as part of the query clause:
+            if (requestor1 != null && requestor2 != null)
+            {
+                // Execute custom filtering here
+            }
+
+            return Task.FromResult(_SaveableEntities.AsEnumerable());
+        }
     }
 }
