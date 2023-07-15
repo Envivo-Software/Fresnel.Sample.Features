@@ -59,12 +59,14 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         /// The result will appear in the Message Panel.
         /// </summary>
         /// <param name="enumFilter">This will be automatically injected</param>
+        /// <param name="aBoolean">This will accept a Boolean</param>
         /// <param name="aString">This will accept a String</param>
         /// <param name="aNumber">This will accept an Integer</param>
         /// <param name="aDate">This will accept a Date</param>
         public string MethodWithValueParameters
         (
             IQuerySpecification<EnumValues.IndividualOptions> enumFilter,
+            bool aBoolean,
             string aString,
             int aNumber,
             DateTime aDate
@@ -75,7 +77,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
                 throw new ArgumentNullException("enumFilter");
             }
 
-            return $"{nameof(MethodWithValueParameters)} executed with the values [{aString}, {aNumber}, {aDate}]";
+            return $"{nameof(MethodWithValueParameters)} executed with the values [{aBoolean}, {aString}, {aNumber}, {aDate}]";
         }
 
         /// <summary>
