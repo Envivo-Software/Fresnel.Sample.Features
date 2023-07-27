@@ -41,7 +41,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.NestedObjects
         /// </summary>
         public string Description { get; set; }
 
-        [UI(UiRenderOption.InlineExpandable)]
+        [UI(UiRenderOption.InlineSimple)]
         [Relationship(RelationshipType.Owns)]
         [JsonInclude]
         public NestedLevel2 Level2 { get; internal set; }
