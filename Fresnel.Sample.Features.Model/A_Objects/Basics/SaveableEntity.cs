@@ -34,15 +34,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
         /// </summary>
         public DateTime CreatedAt { get; set; }
 
-        /// <summary>
-        /// <inheritdoc/>
-        /// </summary>
-        /// <returns></returns>
-        IAggregateReference<T> IAggregateRoot.ToReference<T>()
-        {
-            return AggregateReference<T>.From(this);
-        }
-
         public override string ToString()
         {
             return Name;

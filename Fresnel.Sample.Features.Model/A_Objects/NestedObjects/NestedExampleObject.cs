@@ -41,18 +41,10 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.NestedObjects
         /// </summary>
         public string Description { get; set; }
 
+        [UI(UiRenderOption.InlineExpandable)]
         [Relationship(RelationshipType.Owns)]
         [JsonInclude]
         public NestedLevel2 Level2 { get; internal set; }
-
-        /// <summary>
-        /// <inheritdoc/>
-        /// </summary>
-        /// <returns></returns>
-        IAggregateReference<T> IAggregateRoot.ToReference<T>()
-        {
-            return AggregateReference<T>.From(this);
-        }
 
         /// <summary>
         /// <inheritdoc/>
