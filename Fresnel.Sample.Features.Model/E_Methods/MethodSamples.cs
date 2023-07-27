@@ -4,6 +4,7 @@ using Envivo.Fresnel.ModelAttributes;
 using Envivo.Fresnel.ModelTypes.Interfaces;
 using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
 using Envivo.Fresnel.Sample.Features.Model.D_Enums;
+using Envivo.Fresnel.Sample.Features.Model.E_Methods.Commands;
 using Envivo.Fresnel.Sample.Features.Model.H_Queries;
 using System;
 using System.Collections.Generic;
@@ -221,6 +222,15 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         public async Task AsyncMethodWithoutReturnValue()
         {
             await Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// This method returns an ICommandObject, which presents itself as a dialog
+        /// </summary>
+        /// <returns></returns>
+        public CommandSampleWithObjects MethodUsingCommandObject()
+        {
+            return new();
         }
 
         public void MethodWithoutDescription()
