@@ -63,5 +63,13 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
             An_Object_Collection.Add(newItem);
             return newItem;
         }
+
+        /// <summary>
+        /// This method is visible on every tab within the card
+        /// </summary>
+        public void CommonMethod()
+        {
+
+        }
     }
 }
