@@ -103,6 +103,11 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         public decimal DecimalNumber { get; set; }
 
         /// <summary>
+        /// This is a Byte
+        /// </summary>
+        public byte ByteNumber { get; set; }
+
+        /// <summary>
         /// This is a number property with a custom title
         /// </summary>
         [DisplayName("This name has been made up")]
