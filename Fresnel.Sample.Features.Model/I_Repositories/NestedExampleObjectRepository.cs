@@ -22,9 +22,9 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         /// </summary>
         /// <param name="aggregateRoot"></param>
         /// <returns></returns>
-        public Task DeleteAsync(NestedExampleObject aggregateRoot)
+        public async Task DeleteAsync(NestedExampleObject aggregateRoot)
         {
-            return _InMemoryRepository.DeleteAsync(aggregateRoot);
+            await _InMemoryRepository.DeleteAsync(aggregateRoot);
         }
 
         /// <summary>
@@ -41,9 +41,9 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Task<NestedExampleObject> LoadAsync(Guid id)
+        public async Task<NestedExampleObject> LoadAsync(Guid id)
         {
-            return _InMemoryRepository.LoadAsync(id);
+            return await _InMemoryRepository.LoadAsync(id);
         }
 
         /// <summary>
@@ -51,9 +51,9 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         /// </summary>
         /// <param name="aggregateRoot"></param>
         /// <returns></returns>
-        public Task<IAggregateLock> LockAsync(NestedExampleObject aggregateRoot)
+        public async Task<IAggregateLock> LockAsync(NestedExampleObject aggregateRoot)
         {
-            return _InMemoryRepository.LockAsync(aggregateRoot);
+            return await _InMemoryRepository.LockAsync(aggregateRoot);
         }
 
         /// <summary>
@@ -64,9 +64,9 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         /// <param name="modifiedObjects"></param>
         /// <param name="deletedObjects"></param>
         /// <returns></returns>
-        public Task<int> SaveAsync(NestedExampleObject aggregateRoot, IEnumerable<object> newObjects, IEnumerable<object> modifiedObjects, IEnumerable<object> deletedObjects)
+        public async Task<int> SaveAsync(NestedExampleObject aggregateRoot, IEnumerable<object> newObjects, IEnumerable<object> modifiedObjects, IEnumerable<object> deletedObjects)
         {
-            return _InMemoryRepository.SaveAsync(aggregateRoot, newObjects, modifiedObjects, deletedObjects);
+            return await _InMemoryRepository.SaveAsync(aggregateRoot, newObjects, modifiedObjects, deletedObjects);
         }
 
         /// <summary>
@@ -75,9 +75,9 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         /// <param name="aggregateRoot"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public Task UnlockAsync(NestedExampleObject aggregateRoot)
+        public async Task UnlockAsync(NestedExampleObject aggregateRoot)
         {
-            return Task.CompletedTask;
+            await Task.CompletedTask;
         }
     }
 }

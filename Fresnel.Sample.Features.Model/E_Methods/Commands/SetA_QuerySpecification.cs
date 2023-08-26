@@ -11,12 +11,12 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods.Commands
 {
     public class SetA_QuerySpecification : IQuerySpecification<BasicObject>
     {
-        public Task<IEnumerable<BasicObject>> GetResultsAsync()
+        public async Task<IEnumerable<BasicObject>> GetResultsAsync()
         {
-            return Task.FromResult(Array.Empty<BasicObject>().AsEnumerable());
+            return await Task.FromResult(Array.Empty<BasicObject>().AsEnumerable());
         }
 
-        public Task<IEnumerable<BasicObject>> GetResultsAsync(CommandSampleWithCollections context)
+        public async Task<IEnumerable<BasicObject>> GetResultsAsync(CommandSampleWithCollections context)
         {
             var result =
                 context.AllAvailableObjects
@@ -24,17 +24,17 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods.Commands
                 .Except(context.SetB)
                 .OrderBy(a => a.Name)
                 .ToList();
-            return Task.FromResult(result.AsEnumerable());
+            return await Task.FromResult(result.AsEnumerable());
         }
 
-        public Task<IEnumerable<BasicObject>> GetResultsAsync(CommandSampleWithObjects context)
+        public async Task<IEnumerable<BasicObject>> GetResultsAsync(CommandSampleWithObjects context)
         {
             var result =
                 context.AllAvailableObjects
                 .Except(new[] { context.SelectionB })
                 .OrderBy(a => a.Name)
                 .ToList();
-            return Task.FromResult(result.AsEnumerable());
+            return await Task.FromResult(result.AsEnumerable());
         }
     }
 }

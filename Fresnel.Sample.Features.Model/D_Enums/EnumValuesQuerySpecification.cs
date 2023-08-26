@@ -21,10 +21,10 @@ namespace Envivo.Fresnel.Sample.Features.Model.D_Enums
         ///
         /// </summary>
         /// <returns></returns>
-        public Task<IEnumerable<EnumValues.IndividualOptions>> GetResultsAsync()
+        public async Task<IEnumerable<EnumValues.IndividualOptions>> GetResultsAsync()
         {
             // The requesting object may be used to determine which results to return
-            return Task.FromResult(_FilterItems);
+            return await Task.FromResult(_FilterItems);
         }
     }
 }
