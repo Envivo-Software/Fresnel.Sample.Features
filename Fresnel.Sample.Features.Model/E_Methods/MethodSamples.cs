@@ -21,6 +21,10 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
     {
         private IFactory<BasicObject> _BasicObjectFactory;
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <param name="basicObjectFactory"></param>
         public MethodSamples(IFactory<BasicObject> basicObjectFactory)
         {
             _BasicObjectFactory = basicObjectFactory;
@@ -233,7 +237,9 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
             return new();
         }
 
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public void MethodWithoutDescription()
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
         }
     }
