@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: Copyright (c) 2022-2023 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
 using Envivo.Fresnel.Bootstrap.WinForms;
+using Envivo.Fresnel.Features;
 using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -26,6 +27,7 @@ namespace Envivo.Fresnel.Sample.Features.DesktopApp
             var mainForm =
                 new BlazorWinFormBuilder()
                 .WithServices(serviceCollection)
+                //.WithFeature(Feature.UI_DoodleMode, FeatureState.On)
                 .WithModelAssembly(domainClassType.Assembly)
                 .Build();
 
