@@ -11,11 +11,26 @@ using System.Threading.Tasks;
 namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
 {
     /// <summary>
-    /// An example of a simple in-memory Repository
+    /// An example of a simple in-memory Repository that uses custom filtering
     /// </summary>
-    public class NestedExampleObjectRepository : IRepository<NestedExampleObject>
+    public class NestedExampleObjectRepository : IRepositoryWithCustomFiltering<NestedExampleObject>
     {
-        private readonly InMemoryRepository<NestedExampleObject> _InMemoryRepository = new();
+        private readonly InMemoryRepository<NestedExampleObject> _InMemoryRepository = new(BuildItemsForDemo());
+
+        private static List<NestedExampleObject> BuildItemsForDemo()
+        {
+            var results =
+                Enumerable.Range(1, 15)
+                .Select(i => new NestedExampleObject
+                {
+                    Id = Guid.NewGuid(),
+                    Name = $"{nameof(NestedExampleObject)} {i}",
+                    Description = $"This is the description for item {i}"
+                })
+                .ToList();
+
+            return results;
+        }
 
         /// <summary>
         /// <inheritdoc/>
@@ -34,6 +49,17 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         public IQueryable<NestedExampleObject> GetQuery()
         {
             return _InMemoryRepository.GetQuery();
+        }
+
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        /// <returns></returns>
+        public Task<(IEnumerable<NestedExampleObject>, int)> GetResultsAsync(IQueryFilter queryFilter)
+        {
+            // TODO: Use Dynamic Linq to parse the IQueryFilter, and apply it to the collection
+            dynamic result = (GetQuery().AsEnumerable(), GetQuery().Count());
+            return Task.FromResult(result);
         }
 
         /// <summary>
