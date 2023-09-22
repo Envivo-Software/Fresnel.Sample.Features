@@ -10,14 +10,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.G_Factories
 {
     public class MultiType
     {
-        private MultiTypeChild _An_Object;
-        private ICollection<MultiTypeChild> _A_Collection = new List<MultiTypeChild>();
-
-        public MultiType()
-        {
-            An_Object = new MultiTypeChild();
-        }
-
         [Key]
         public Guid Id { get; set; }
 
@@ -54,21 +46,13 @@ namespace Envivo.Fresnel.Sample.Features.Model.G_Factories
         /// An value object of MultiTypeChild
         /// </summary>
         [Relationship(RelationshipType.Owns)]
-        public MultiTypeChild An_Object
-        {
-            get { return _An_Object; }
-            set { _An_Object = value; }
-        }
+        public MultiTypeChild An_Object { get; set; } = new();
 
         /// <summary>
         /// A collection of value objects
         /// </summary>
         [AllowedOperations(canModify: false)]
         [Relationship(RelationshipType.Owns)]
-        public ICollection<MultiTypeChild> A_Collection
-        {
-            get { return _A_Collection; }
-            set { _A_Collection = value; }
-        }
+        public ICollection<MultiTypeChild> A_Collection { get; set; } = new List<MultiTypeChild>();
     }
 }
