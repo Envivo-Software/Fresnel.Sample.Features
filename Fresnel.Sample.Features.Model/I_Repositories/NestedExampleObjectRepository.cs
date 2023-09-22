@@ -13,7 +13,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
     /// <summary>
     /// An example of a simple in-memory Repository that uses custom filtering
     /// </summary>
-    public class NestedExampleObjectRepository : IRepositoryWithCustomFiltering<NestedExampleObject>
+    public class NestedExampleObjectRepository : IRepository<NestedExampleObject>, IPagedFiltering<NestedExampleObject>
     {
         private readonly InMemoryRepository<NestedExampleObject> _InMemoryRepository = new(BuildItemsForDemo());
 
@@ -55,7 +55,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         /// <inheritdoc/>
         /// </summary>
         /// <returns></returns>
-        public Task<(IEnumerable<NestedExampleObject>, int)> GetResultsAsync(IQueryFilter queryFilter)
+        public Task<(IEnumerable<NestedExampleObject>, int)> GetResultsPageAsync(IQueryFilter queryFilter)
         {
             // TODO: Use Dynamic Linq to parse the IQueryFilter, and apply it to the collection
             dynamic result = (GetQuery().AsEnumerable(), GetQuery().Count());
