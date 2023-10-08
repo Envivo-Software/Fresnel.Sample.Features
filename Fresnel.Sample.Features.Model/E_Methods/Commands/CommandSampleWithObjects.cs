@@ -34,7 +34,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods.Commands
         /// <summary>
         /// Items selected from this set are not available in Set B
         /// </summary>
-        [FilterQuerySpecification(typeof(SetA_QuerySpecification), runWhenContextChanges: true)]
+        [FilterQuerySpecification(typeof(SetA_QuerySpecification))]
         [UI(UiRenderOption.InlineSimple, preferredControl: UiControlType.Select)]
         [AllowedOperations(canAdd: false, canModify: true)]
         public BasicObject SelectionA { get; set; }
@@ -42,7 +42,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods.Commands
         /// <summary>
         /// Items selected from this set are not available in Set A
         /// </summary>
-        [FilterQuerySpecification(typeof(SetB_QuerySpecification), runWhenContextChanges: true)]
+        [FilterQuerySpecification(typeof(SetB_QuerySpecification))]
         [UI(UiRenderOption.InlineSimple, preferredControl: UiControlType.Select)]
         [AllowedOperations(canAdd: false, canModify: true)]
         public BasicObject SelectionB { get; set; }
