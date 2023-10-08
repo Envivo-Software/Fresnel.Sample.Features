@@ -25,7 +25,14 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
                 {
                     Id = Guid.NewGuid(),
                     Name = $"{nameof(SaveableAggregateRoot)} {i}",
-                    Description = $"This is the description for item {i}"
+                    Description = $"This is the description for item {i}",
+                    AssociatedItems = Enumerable.Range(1, 5)
+                        .Select(e => new AggregateReference<SaveableEntity>
+                        {
+                            Id = Guid.NewGuid(),
+                            Description = "This is a dummy Aggregate",
+                            TypeName = typeof(SaveableEntity).Name,
+                        }).ToList()
                 })
                 .ToList();
 
