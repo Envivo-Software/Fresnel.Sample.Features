@@ -15,8 +15,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.G_Factories
 
         public bool A_Boolean { get; set; }
 
-        public char A_Char { get; set; }
-
         public string A_String { get; set; }
 
         public int An_Int { get; set; }

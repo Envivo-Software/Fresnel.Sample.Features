@@ -36,7 +36,8 @@ namespace Envivo.Fresnel.Sample.Features.Model.G_Factories
                 {
                     Id = Guid.NewGuid(),
                     Name = $"Item no {i}",
-                    Description = $"Created by {this.GetType().Name}"
+                    Description = $"Created by {this.GetType().Name}",
+                    Parent = newObj
                 });
             }
 
