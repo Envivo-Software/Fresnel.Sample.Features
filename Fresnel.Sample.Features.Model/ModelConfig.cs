@@ -79,7 +79,8 @@ namespace Envivo.Fresnel.Sample.Features.Model
                 .Property(p => p.AssociatedItems,
                                 new RelationshipAttribute(RelationshipType.Has),
                                 new UIAttribute(UiRenderOption.InlineExpanded),
-                                new FilterQuerySpecificationAttribute(typeof(SaveableEntityQuerySpecification)))
+                                new FilterQuerySpecificationAttribute(typeof(SaveableEntityQuerySpecification)),
+                                new CollectionAttribute(nameof(ObjectWithCollections.AddToAssociatedItems), nameof(ObjectWithCollections.RemoveFromAssociatedItems)))
                 .Property(p => p.OwnedItems,
                                 new RelationshipAttribute(RelationshipType.Owns),
                                 new UIAttribute(UiRenderOption.InlineExpanded));
