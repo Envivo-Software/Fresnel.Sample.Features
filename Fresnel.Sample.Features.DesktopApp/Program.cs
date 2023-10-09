@@ -27,7 +27,7 @@ namespace Envivo.Fresnel.Sample.Features.DesktopApp
             var mainForm =
                 new BlazorWinFormBuilder()
                 .WithServices(serviceCollection)
-                //.WithFeature(Feature.UI_DoodleMode, FeatureState.On)
+                .WithFeature(Feature.UI_DoodleMode, FeatureState.On)
                 .WithModelAssembly(domainClassType.Assembly)
                 .Build();
 
