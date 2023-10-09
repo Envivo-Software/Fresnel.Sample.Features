@@ -32,7 +32,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.B_Collections
         /// <summary>
         /// The unique Id for this entity
         /// </summary>
-        [Key]
         public Guid Id { get; set; }
 
         /// <summary>
@@ -54,6 +53,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.B_Collections
         /// Adds an item to the OwnedItems collection, 
         /// to show that collection changes are detected
         /// </summary>
+        [Method(relatedPropertyName: nameof(OwnedItems))]
         public void MoveItemFromInternalListToOwnedItems()
         {
             if (_PreCannedList.Count == 0)

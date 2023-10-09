@@ -18,7 +18,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.B_Collections
         /// <summary>
         /// The unique Id for this entity
         /// </summary>
-        [Key]
         public Guid Id { get; set; }
 
         /// <summary>
