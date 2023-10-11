@@ -1,4 +1,45 @@
-﻿2023-05-08:
+﻿2023-10-11:
+❗ BREAKING: Updated to .Net 7
+
+🎁 New features:
+- Added examples of Method confirmation dialogs
+- Added example of Property QuerySpecifications
+- Example of custom collection Add/Remove methods that aren't fully implemented
+- Added examples of Property scopes
+- Added more properties to MultiTypeChild, so show different editors within a collection grid
+- Added example of Parent property
+- Added ObjectWithChangingCollections, so show collections changes made by internal code
+- Shows example of "Doodle Mode"
+- NestedExampleObjectRepository now implements IRepositoryWithCustomFiltering
+- Added UneditableValues
+- Added samples for ICommandObject
+- Added ObjectWithCollectionOperations, to test Collection rendering
+- Added examples of custom icons for Classes
+- Added examples of Methods that are related to specific Properties
+- Added example of Url and Image properties
+- SaveableEntity.CreatedAt shows example of DefaultValueProvider (see model.config)
+- MethodSamples shows examples of async
+- OtherCollectionExamples shows granular add/associate/remove permissions
+- HiddenInLibraryObject shows how classes can be hidden in the library panel, but still visible on the Workbench
+
+🎨 Improvements:
+- ObjectWithCollections now shows custom Add/Remove logic
+- SaveableAggregateRootRepository now creates SaveableAggregateRoot with pre-allocated AssociatedItems
+- NumberVAlues now includes ByteNumber
+- MethodsRelatedToProperties now includes a Common Method, that appears on all tabs
+- MethodDamples.MethodWithValueParameters now includes boolean parameter
+
+🐞 Fixes:
+- Added MethodConfirmationSamplesRepository, so that MethodConfirmationSamples.MethodWithUnsavedChangesPrompt can be tested
+- Removed obsolete attribute property
+- Use async/await consistently
+- Removed incorrect UiRenderOption
+- Removed redundant IAggregateRoot.ToReference<T> methods
+- Updated package references
+
+==============================================================================
+
+2023-05-08:
 🎁 New features:
 - Added examples of AggregateReference<T>
 - Added examples of "Inhertitance by Class"
