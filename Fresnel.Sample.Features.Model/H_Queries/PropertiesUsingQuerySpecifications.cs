@@ -21,12 +21,12 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
         [Key]
         public Guid Id { get; set; }
 
-/// <summary>
-/// This object will open a selection dialog
-/// </summary>
-[Relationship(RelationshipType.Has)]
-[FilterQuerySpecification(typeof(SaveableEntityQuerySpecification))]
-public SaveableEntity SingleEntityUsingDialog { get; set; }
+        /// <summary>
+        /// This object will open a selection dialog
+        /// </summary>
+        [Relationship(RelationshipType.Has)]
+        [FilterQuerySpecification(typeof(SaveableEntityQuerySpecification))]
+        public SaveableEntity SingleEntityUsingDialog { get; set; }
 
         /// <summary>
         /// This object will open a selection list
@@ -50,7 +50,7 @@ public SaveableEntity SingleEntityUsingDialog { get; set; }
         /// </summary>
         [Relationship(RelationshipType.Has)]
         [FilterQuerySpecification(typeof(SaveableEntityQuerySpecification))]
-        public AggregateReference<SaveableEntity> SingleAggregateRefUsingDialog { get; set; }
+        public IAggregateReference<AnotherAggregateRoot> SingleAggregateRefUsingDialog { get; set; }
 
         /// <summary>
         /// This object will open a selection list
@@ -58,13 +58,13 @@ public SaveableEntity SingleEntityUsingDialog { get; set; }
         [Relationship(RelationshipType.Has)]
         [FilterQuerySpecification(typeof(SaveableEntityQuerySpecification))]
         [UI(preferredControl: UiControlType.Select)]
-        public AggregateReference<SaveableEntity> SingleAggregateRefUsingSelectList { get; set; }
+        public IAggregateReference<AnotherAggregateRoot> SingleAggregateRefUsingSelectList { get; set; }
 
         /// <summary>
         /// This collection will open a selection dialog
         /// </summary>
         [Relationship(RelationshipType.Has)]
         [FilterQuerySpecification(typeof(SaveableEntityQuerySpecification))]
-        public ICollection<AggregateReference<SaveableEntity>> MultipleAggregateRefsUsingDialog { get; set; } = new List<AggregateReference<SaveableEntity>>();
+        public ICollection<IAggregateReference<AnotherAggregateRoot>> MultipleAggregateRefsUsingDialog { get; set; } = new List<IAggregateReference<AnotherAggregateRoot>>();
     }
 }

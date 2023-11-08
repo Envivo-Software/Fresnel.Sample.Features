@@ -12,9 +12,10 @@ using System.Text.Json.Serialization;
 namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
 {
     /// <summary>
-    /// This is a saveable Aggregate Root, and will appear in the UI.
+    /// This is an Aggregate Root, and will appear in the UI.
     /// </summary>
-    public class SaveableAggregateRoot : IAggregateRoot, IPersistable
+    [Visible(isVisibleInLibrary: false)]
+    public class AnotherAggregateRoot : IAggregateRoot, IPersistable
     {
         /// <summary>
         /// <inheritdoc/>
@@ -38,20 +39,5 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
         /// </summary>
         public string Description { get; set; }
 
-        /// <summary>
-        /// A collection of references to other aggregates
-        /// </summary>
-        [Relationship(RelationshipType.Has)]
-        public ICollection<AggregateReference<AnotherAggregateRoot>> AssociatedItems { get; set; } = new List<AggregateReference<AnotherAggregateRoot>>();
-
-        /// <summary>
-        /// A single reference to another aggregate
-        /// </summary>
-        /// <remarks>
-        /// The JSON serialiser cannot handle interface types, hence why this property is ignored
-        /// </remarks>
-        [Relationship(RelationshipType.Has)]
-        [JsonIgnore()]
-        public IAggregateReference<AnotherAggregateRoot> SingleAssociatedItem { get; set; }
     }
 }

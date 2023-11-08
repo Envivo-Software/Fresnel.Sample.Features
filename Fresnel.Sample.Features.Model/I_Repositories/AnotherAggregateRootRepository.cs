@@ -13,35 +13,24 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
     /// <summary>
     /// An example of a simple in-memory Repository
     /// </summary>
-    public class SaveableAggregateRootRepository : IRepository<SaveableAggregateRoot>
+    public class AnotherAggregateRootRepository : IRepository<AnotherAggregateRoot>
     {
-        private InMemoryRepository<SaveableAggregateRoot> _InMemoryRepository;
+        private InMemoryRepository<AnotherAggregateRoot> _InMemoryRepository;
 
-        public SaveableAggregateRootRepository(AnotherAggregateRootRepository anotherAggregateRootRepository)
+        public AnotherAggregateRootRepository(SaveableEntityRepository saveableEntityRepository)
         {
-            _InMemoryRepository = new(BuildSaveableAggregateRootsForDemo(anotherAggregateRootRepository));
+            _InMemoryRepository = new(BuildAggregateRootsForDemo(saveableEntityRepository));
         }
 
-        private List<SaveableAggregateRoot> BuildSaveableAggregateRootsForDemo(AnotherAggregateRootRepository anotherAggregateRootRepository)
+        private List<AnotherAggregateRoot> BuildAggregateRootsForDemo(SaveableEntityRepository saveableEntityRepository)
         {
             var results =
                 Enumerable.Range(1, 10)
-                .Select(i => new SaveableAggregateRoot
+                .Select(i => new AnotherAggregateRoot
                 {
                     Id = Guid.NewGuid(),
-                    Name = $"{nameof(SaveableAggregateRoot)} {i}",
+                    Name = $"{nameof(AnotherAggregateRoot)} {i}",
                     Description = $"This is the description for item {i}",
-                    AssociatedItems =
-                        anotherAggregateRootRepository
-                        .GetQuery()
-                        .Take(5)
-                        .Select(e => new AggregateReference<AnotherAggregateRoot>
-                        {
-                            Id = Guid.NewGuid(),
-                            AggregateId = e.Id,
-                            Description = e.Name,
-                            TypeName = typeof(SaveableEntity).FullName,
-                        }).ToList()
                 })
                 .ToList();
 
@@ -53,7 +42,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         /// </summary>
         /// <param name="aggregateRoot"></param>
         /// <returns></returns>
-        public async Task DeleteAsync(SaveableAggregateRoot aggregateRoot)
+        public async Task DeleteAsync(AnotherAggregateRoot aggregateRoot)
         {
             await _InMemoryRepository.DeleteAsync(aggregateRoot);
         }
@@ -62,7 +51,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         /// <inheritdoc/>
         /// </summary>
         /// <returns></returns>
-        public IQueryable<SaveableAggregateRoot> GetQuery()
+        public IQueryable<AnotherAggregateRoot> GetQuery()
         {
             return _InMemoryRepository.GetQuery();
         }
@@ -72,7 +61,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task<SaveableAggregateRoot> LoadAsync(Guid id)
+        public async Task<AnotherAggregateRoot> LoadAsync(Guid id)
         {
             return await _InMemoryRepository.LoadAsync(id);
         }
@@ -82,7 +71,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         /// </summary>
         /// <param name="aggregateRoot"></param>
         /// <returns></returns>
-        public async Task<IAggregateLock> LockAsync(SaveableAggregateRoot aggregateRoot)
+        public async Task<IAggregateLock> LockAsync(AnotherAggregateRoot aggregateRoot)
         {
             return await _InMemoryRepository.LockAsync(aggregateRoot);
         }
@@ -95,7 +84,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         /// <param name="modifiedObjects"></param>
         /// <param name="deletedObjects"></param>
         /// <returns></returns>
-        public async Task<int> SaveAsync(SaveableAggregateRoot aggregateRoot, IEnumerable<object> newObjects, IEnumerable<object> modifiedObjects, IEnumerable<object> deletedObjects)
+        public async Task<int> SaveAsync(AnotherAggregateRoot aggregateRoot, IEnumerable<object> newObjects, IEnumerable<object> modifiedObjects, IEnumerable<object> deletedObjects)
         {
             return await _InMemoryRepository.SaveAsync(aggregateRoot, newObjects, modifiedObjects, deletedObjects);
         }
@@ -106,7 +95,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         /// <param name="aggregateRoot"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public async Task UnlockAsync(SaveableAggregateRoot aggregateRoot)
+        public async Task UnlockAsync(AnotherAggregateRoot aggregateRoot)
         {
             await Task.CompletedTask;
         }

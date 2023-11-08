@@ -10,14 +10,11 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
     /// <summary>
     /// This is a saveable object, and will appear in the UI.
     /// </summary>
-    public class SaveableEntity : IAggregateRoot
+    public class SaveableEntity : IEntity
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Key]
         public Guid Id { get; set; }
-
 
         /// <summary>
         /// The name of this object
