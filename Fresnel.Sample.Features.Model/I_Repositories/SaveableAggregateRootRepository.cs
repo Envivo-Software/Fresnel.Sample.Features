@@ -15,38 +15,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
     /// </summary>
     public class SaveableAggregateRootRepository : IRepository<SaveableAggregateRoot>
     {
-        private InMemoryRepository<SaveableAggregateRoot> _InMemoryRepository;
-
-        public SaveableAggregateRootRepository(AnotherAggregateRootRepository anotherAggregateRootRepository)
-        {
-            _InMemoryRepository = new(BuildSaveableAggregateRootsForDemo(anotherAggregateRootRepository));
-        }
-
-        private List<SaveableAggregateRoot> BuildSaveableAggregateRootsForDemo(AnotherAggregateRootRepository anotherAggregateRootRepository)
-        {
-            var results =
-                Enumerable.Range(1, 10)
-                .Select(i => new SaveableAggregateRoot
-                {
-                    Id = Guid.NewGuid(),
-                    Name = $"{nameof(SaveableAggregateRoot)} {i}",
-                    Description = $"This is the description for item {i}",
-                    AssociatedItems =
-                        anotherAggregateRootRepository
-                        .GetQuery()
-                        .Take(5)
-                        .Select(e => new AggregateReference<AnotherAggregateRoot>
-                        {
-                            Id = Guid.NewGuid(),
-                            AggregateId = e.Id,
-                            Description = e.Name,
-                            TypeName = typeof(SaveableEntity).FullName,
-                        }).ToList()
-                })
-                .ToList();
-
-            return results;
-        }
+        private readonly InMemoryRepository<SaveableAggregateRoot> _InMemoryRepository = new();
 
         /// <summary>
         /// <inheritdoc/>

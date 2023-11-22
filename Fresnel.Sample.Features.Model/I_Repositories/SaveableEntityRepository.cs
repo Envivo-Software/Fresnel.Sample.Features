@@ -15,22 +15,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
     /// </summary>
     public class SaveableEntityRepository : IRepository<SaveableEntity>
     {
-        private readonly InMemoryRepository<SaveableEntity> _InMemoryRepository = new(BuildSaveableEntitiesForDemo());
-
-        private static List<SaveableEntity> BuildSaveableEntitiesForDemo()
-        {
-            var results =
-                Enumerable.Range(1, 50)
-                .Select(i => new SaveableEntity
-                {
-                    Id = Guid.NewGuid(),
-                    Name = $"{nameof(SaveableEntity)} {i}",
-                    Description = $"This is the description for item {i}"
-                })
-                .ToList();
-
-            return results;
-        }
+        private readonly InMemoryRepository<SaveableEntity> _InMemoryRepository = new();
 
         /// <summary>
         /// <inheritdoc/>

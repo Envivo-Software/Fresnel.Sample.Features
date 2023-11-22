@@ -15,22 +15,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
     /// </summary>
     public class NestedExampleObjectRepository : IRepository<NestedExampleObject>, IPagedFiltering<NestedExampleObject>
     {
-        private readonly InMemoryRepository<NestedExampleObject> _InMemoryRepository = new(BuildItemsForDemo());
-
-        private static List<NestedExampleObject> BuildItemsForDemo()
-        {
-            var results =
-                Enumerable.Range(1, 15)
-                .Select(i => new NestedExampleObject
-                {
-                    Id = Guid.NewGuid(),
-                    Name = $"{nameof(NestedExampleObject)} {i}",
-                    Description = $"This is the description for item {i}"
-                })
-                .ToList();
-
-            return results;
-        }
+        private readonly InMemoryRepository<NestedExampleObject> _InMemoryRepository = new();
 
         /// <summary>
         /// <inheritdoc/>

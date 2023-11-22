@@ -15,27 +15,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
     /// </summary>
     public class AnotherAggregateRootRepository : IRepository<AnotherAggregateRoot>
     {
-        private InMemoryRepository<AnotherAggregateRoot> _InMemoryRepository;
-
-        public AnotherAggregateRootRepository(SaveableEntityRepository saveableEntityRepository)
-        {
-            _InMemoryRepository = new(BuildAggregateRootsForDemo(saveableEntityRepository));
-        }
-
-        private List<AnotherAggregateRoot> BuildAggregateRootsForDemo(SaveableEntityRepository saveableEntityRepository)
-        {
-            var results =
-                Enumerable.Range(1, 10)
-                .Select(i => new AnotherAggregateRoot
-                {
-                    Id = Guid.NewGuid(),
-                    Name = $"{nameof(AnotherAggregateRoot)} {i}",
-                    Description = $"This is the description for item {i}",
-                })
-                .ToList();
-
-            return results;
-        }
+        private readonly InMemoryRepository<AnotherAggregateRoot> _InMemoryRepository = new();
 
         /// <summary>
         /// <inheritdoc/>
