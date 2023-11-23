@@ -6,7 +6,7 @@ using System;
 namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
 {
     /// <summary>
-    /// This object appears with different names in the UI.
+    /// This object appears with different names in the UI. The configuration is in the ModelConfig class.
     /// </summary>
     public class ObjectWithCustomNames : IEntity
     {

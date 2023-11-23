@@ -9,11 +9,18 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByClass
     {
         public string A_StringValue { get; set; }
 
+        /// <summary>
+        /// This method modifies the String property
+        /// </summary>
         public void A_Method()
         {
             this.A_StringValue += "+ ";
         }
 
+        /// <summary>
+        /// This method modifies the String property using a user-provided string
+        /// </summary>
+        /// <param name="value"></param>
         public void A_MethodWithArgs(string value)
         {
             this.A_StringValue += $"{value} ";

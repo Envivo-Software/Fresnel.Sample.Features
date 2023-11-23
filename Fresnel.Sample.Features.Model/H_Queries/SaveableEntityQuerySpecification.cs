@@ -34,7 +34,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
 
         public async Task<IEnumerable<SaveableEntity>> GetResultsAsync(ObjectWithCollections requestor)
         {
-            // If we wanted, we could use the requestor as part of the query clause:
+            // Here we may use the requestor as part of the query clause:
             var filterName = requestor?.Name;
             if (!string.IsNullOrEmpty(filterName))
             {
@@ -51,7 +51,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
 
         public async Task<IEnumerable<SaveableEntity>> GetResultsAsync(SaveableAggregateRoot requestor)
         {
-            // If we wanted, we could use the requestor as part of the query clause:
+            // Here we may use the requestor as part of the query clause:
             if (requestor != null)
             {
                 // Execute custom filtering here
@@ -73,7 +73,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
 
         public async Task<IEnumerable<SaveableEntity>> GetResultsAsync(PropertiesUsingQuerySpecifications requestor)
         {
-            // If we wanted, we could use the requestor as part of the query clause:
+            // Here we may use the requestor as part of the query clause:
             if (requestor != null)
             {
                 // Execute custom filtering here

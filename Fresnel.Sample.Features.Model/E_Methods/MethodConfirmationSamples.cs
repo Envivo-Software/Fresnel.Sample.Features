@@ -29,7 +29,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
 
         /// <summary>
         /// This method returns an Object.
-        /// It will show as custom a dialog to confirm the operation.
+        /// It will show a custom dialog to confirm the operation.
         /// </summary>
         /// <returns></returns>
         [Method(mandatoryPromptText: "This custom text should appear as a prompt")]
@@ -40,7 +40,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         }
 
         /// <summary>
-        /// This method will show as custom a dialog if the object has unsaved changes.
+        /// This method will show a custom dialog if the object has unsaved changes.
         /// It will only return a result after the object is saved.
         /// </summary>
         /// <returns></returns>
