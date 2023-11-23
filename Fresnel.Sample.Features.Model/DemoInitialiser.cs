@@ -45,16 +45,16 @@ namespace Envivo.Fresnel.Sample.Features.Model
 
         public async Task SetupDemoDataAsync()
         {
-            if (_AnotherAggregateRootRepository.GetQuery().Count() == 0)
+            if (!_AnotherAggregateRootRepository.GetQuery().Any())
                 await SaveToRepo(_AnotherAggregateRootRepository, _DemoAnotherAggregateRootsBuilder.Build());
 
-            if (_NestedExampleObjectRepository.GetQuery().Count() == 0)
+            if (!_NestedExampleObjectRepository.GetQuery().Any())
                 await SaveToRepo(_NestedExampleObjectRepository, _DemoNestedExampleObjectsBuilder.Build());
 
-            if (_SaveableAggregateRootRepository.GetQuery().Count() == 0)
+            if (!_SaveableAggregateRootRepository.GetQuery().Any())
                 await SaveToRepo(_SaveableAggregateRootRepository, _DemoSaveableAggregateRootsBuilder.Build());
 
-            if (_SaveableEntityRepository.GetQuery().Count() == 0)
+            if (!_SaveableEntityRepository.GetQuery().Any())
                 await SaveToRepo(_SaveableEntityRepository, _DemoSaveableEntitiesBuilder.Build());
         }
 
