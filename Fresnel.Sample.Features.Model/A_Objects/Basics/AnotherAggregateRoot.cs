@@ -39,5 +39,12 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
         /// </summary>
         public string Description { get; set; }
 
+        /// <summary>
+        /// <inheritdoc/>
+        /// </summary>
+        public override string ToString()
+        {
+            return Name ?? base.ToString();
+        }
     }
 }
