@@ -8,10 +8,12 @@ https://github.com/Envivo-Software/Envivo.Fresnel/wiki
 ## Requirements
 
 - Windows 10 or above
-- .NET 7
+- .NET 8
 - Visual Studio 2022, with Workloads for:
   - .NET Desktop Development
   - .NET Multi-platform App UI Development
+- **OR** Visual Studio Code with:
+  - C# Dev Kit
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://www.envivo.co.uk/images/white_fg_transparent_bg_for_docs.png">
