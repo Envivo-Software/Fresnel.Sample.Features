@@ -18,22 +18,27 @@ ApplicationConfiguration.Initialize();
 
 Type myDomainClass = typeof(BasicObject);
 
-var serviceCollection = new ServiceCollection();
-// Override (or register) dependencies here:
-serviceCollection.AddSingleton<SaveableAggregateRootRepository>();
-serviceCollection.AddSingleton<SaveableEntityRepository>();
-serviceCollection.AddSingleton<AnotherAggregateRootRepository>();
-serviceCollection.AddSingleton<NestedExampleObjectRepository>();
-
-var builder = new BlazorWinFormBuilder();
 var mainForm =
-    builder
-    .WithServices(serviceCollection)
-    .WithFeature(Feature.UI_DoodleMode, FeatureState.On)
+    new BlazorWinFormBuilder()
     .WithModelAssembly(myDomainClass.Assembly)
+    .WithFeature(Feature.UI_DoodleMode, FeatureState.On)
+    .WithServices(sc =>
+    {
+        // Because we're using InMemoryRepositories, we must use the same instance throughout:
+        sc.AddSingleton<SaveableAggregateRootRepository>();
+        sc.AddSingleton<SaveableEntityRepository>();
+        sc.AddSingleton<AnotherAggregateRootRepository>();
+        sc.AddSingleton<NestedExampleObjectRepository>();
+    })
+    .WithPreStartupSteps(async sp =>
+    {
+        // This let's up setup demo data before the application starts:
+        var demoInitialiser = sp.GetService<DemoInitialiser>();
+        if (demoInitialiser != null)
+        {
+            await demoInitialiser.SetupDemoDataAsync();
+        }
+    })
     .Build();
-
-var demoInitialiser = builder.BuildServiceProvider().GetService<DemoInitialiser>();
-await demoInitialiser.SetupDemoDataAsync();
 
 Application.Run(mainForm);
