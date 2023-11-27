@@ -11,9 +11,9 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
     {
         private readonly InMemoryRepository<MethodConfirmationSamples> _InMemoryRepository = new();
 
-        public Task DeleteAsync(MethodConfirmationSamples aggregateRoot)
+        public async Task DeleteAsync(MethodConfirmationSamples aggregateRoot)
         {
-            return _InMemoryRepository.DeleteAsync(aggregateRoot);
+            await _InMemoryRepository.DeleteAsync(aggregateRoot);
         }
 
         public IQueryable<MethodConfirmationSamples> GetQuery()
@@ -21,24 +21,24 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
             return _InMemoryRepository.GetQuery();
         }
 
-        public Task<MethodConfirmationSamples> LoadAsync(Guid id)
+        public async Task<MethodConfirmationSamples> LoadAsync(Guid id)
         {
-            return _InMemoryRepository.LoadAsync(id);
+            return await _InMemoryRepository.LoadAsync(id);
         }
 
-        public Task<IAggregateLock> LockAsync(MethodConfirmationSamples aggregateRoot)
+        public async Task<IAggregateLock> LockAsync(MethodConfirmationSamples aggregateRoot)
         {
-            return _InMemoryRepository.LockAsync(aggregateRoot);
+            return await _InMemoryRepository.LockAsync(aggregateRoot);
         }
 
-        public Task<int> SaveAsync(MethodConfirmationSamples aggregateRoot, IEnumerable<object> newObjects, IEnumerable<object> modifiedObjects, IEnumerable<object> deletedObjects)
+        public async Task<int> SaveAsync(MethodConfirmationSamples aggregateRoot, IEnumerable<object> newObjects, IEnumerable<object> modifiedObjects, IEnumerable<object> deletedObjects)
         {
-            return _InMemoryRepository.SaveAsync(aggregateRoot, newObjects, modifiedObjects, deletedObjects);
+            return await _InMemoryRepository.SaveAsync(aggregateRoot, newObjects, modifiedObjects, deletedObjects);
         }
 
-        public Task UnlockAsync(MethodConfirmationSamples aggregateRoot)
+        public async Task UnlockAsync(MethodConfirmationSamples aggregateRoot)
         {
-            return _InMemoryRepository.UnlockAsync(aggregateRoot);
+            await _InMemoryRepository.UnlockAsync(aggregateRoot);
         }
     }
 }

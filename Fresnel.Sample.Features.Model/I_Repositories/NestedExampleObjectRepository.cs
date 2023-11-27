@@ -40,11 +40,11 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         /// <inheritdoc/>
         /// </summary>
         /// <returns></returns>
-        public Task<(IEnumerable<NestedExampleObject>, int)> GetResultsPageAsync(IQueryFilter queryFilter)
+        public async Task<(IEnumerable<NestedExampleObject>, int)> GetResultsPageAsync(IQueryFilter queryFilter)
         {
             // TODO: Use Dynamic Linq to parse the IQueryFilter, and apply it to the collection
             dynamic result = (GetQuery().AsEnumerable(), GetQuery().Count());
-            return Task.FromResult(result);
+            return await Task.FromResult(result);
         }
 
         /// <summary>
