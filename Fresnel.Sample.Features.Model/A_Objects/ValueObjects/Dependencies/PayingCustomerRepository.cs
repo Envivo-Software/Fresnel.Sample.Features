@@ -44,16 +44,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.ValueObjects.Dependenci
         /// <inheritdoc/>
         /// </summary>
         /// <param name="aggregateRoot"></param>
-        /// <returns></returns>
-        public async Task<IAggregateLock> LockAsync(PayingCustomer aggregateRoot)
-        {
-            return await _InMemoryRepository.LockAsync(aggregateRoot);
-        }
-
-        /// <summary>
-        /// <inheritdoc/>
-        /// </summary>
-        /// <param name="aggregateRoot"></param>
         /// <param name="newObjects"></param>
         /// <param name="modifiedObjects"></param>
         /// <param name="deletedObjects"></param>
@@ -61,17 +51,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.ValueObjects.Dependenci
         public async Task<int> SaveAsync(PayingCustomer aggregateRoot, IEnumerable<object> newObjects, IEnumerable<object> modifiedObjects, IEnumerable<object> deletedObjects)
         {
             return await _InMemoryRepository.SaveAsync(aggregateRoot, newObjects, modifiedObjects, deletedObjects);
-        }
-
-        /// <summary>
-        /// <inheritdoc/>
-        /// </summary>
-        /// <param name="aggregateRoot"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public async Task UnlockAsync(PayingCustomer aggregateRoot)
-        {
-            await Task.CompletedTask;
         }
     }
 }

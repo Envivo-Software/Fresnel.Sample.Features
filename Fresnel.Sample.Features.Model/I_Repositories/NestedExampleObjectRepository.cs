@@ -61,16 +61,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         /// <inheritdoc/>
         /// </summary>
         /// <param name="aggregateRoot"></param>
-        /// <returns></returns>
-        public async Task<IAggregateLock> LockAsync(NestedExampleObject aggregateRoot)
-        {
-            return await _InMemoryRepository.LockAsync(aggregateRoot);
-        }
-
-        /// <summary>
-        /// <inheritdoc/>
-        /// </summary>
-        /// <param name="aggregateRoot"></param>
         /// <param name="newObjects"></param>
         /// <param name="modifiedObjects"></param>
         /// <param name="deletedObjects"></param>
@@ -78,17 +68,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
         public async Task<int> SaveAsync(NestedExampleObject aggregateRoot, IEnumerable<object> newObjects, IEnumerable<object> modifiedObjects, IEnumerable<object> deletedObjects)
         {
             return await _InMemoryRepository.SaveAsync(aggregateRoot, newObjects, modifiedObjects, deletedObjects);
-        }
-
-        /// <summary>
-        /// <inheritdoc/>
-        /// </summary>
-        /// <param name="aggregateRoot"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public async Task UnlockAsync(NestedExampleObject aggregateRoot)
-        {
-            await Task.CompletedTask;
         }
     }
 }

@@ -26,19 +26,9 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
             return await _InMemoryRepository.LoadAsync(id);
         }
 
-        public async Task<IAggregateLock> LockAsync(MethodConfirmationSamples aggregateRoot)
-        {
-            return await _InMemoryRepository.LockAsync(aggregateRoot);
-        }
-
         public async Task<int> SaveAsync(MethodConfirmationSamples aggregateRoot, IEnumerable<object> newObjects, IEnumerable<object> modifiedObjects, IEnumerable<object> deletedObjects)
         {
             return await _InMemoryRepository.SaveAsync(aggregateRoot, newObjects, modifiedObjects, deletedObjects);
-        }
-
-        public async Task UnlockAsync(MethodConfirmationSamples aggregateRoot)
-        {
-            await _InMemoryRepository.UnlockAsync(aggregateRoot);
         }
     }
 }

@@ -1,4 +1,12 @@
-﻿2023-11-27:
+﻿2024-01-01:
+
+🎨 Improvements:
+- Respositories no longer have redundant LockAsync/UnlockAsync methods (moved to IAggregateLockService)
+- Updated package references
+
+==============================================================================
+
+2023-11-27:
 ❗ BREAKING: Updated to .Net 8
 
 ==============================================================================
