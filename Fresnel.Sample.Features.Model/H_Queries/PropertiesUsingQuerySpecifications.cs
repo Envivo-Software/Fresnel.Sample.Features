@@ -56,7 +56,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
         /// This object will open a selection list
         /// </summary>
         [Relationship(RelationshipType.Has)]
-        [FilterQuerySpecification(typeof(SaveableEntityQuerySpecification))]
+        [FilterQuerySpecification(typeof(AnotherAggregateRootQuerySpecification))]
         [UI(preferredControl: UiControlType.Select)]
         public IAggregateReference<AnotherAggregateRoot> SingleAggregateRefUsingSelectList { get; set; }
 
@@ -64,7 +64,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
         /// This collection will open a selection dialog
         /// </summary>
         [Relationship(RelationshipType.Has)]
-        [FilterQuerySpecification(typeof(SaveableEntityQuerySpecification))]
+        [FilterQuerySpecification(typeof(AnotherAggregateRootQuerySpecification))]
         public ICollection<IAggregateReference<AnotherAggregateRoot>> MultipleAggregateRefsUsingDialog { get; set; } = new List<IAggregateReference<AnotherAggregateRoot>>();
     }
 }
