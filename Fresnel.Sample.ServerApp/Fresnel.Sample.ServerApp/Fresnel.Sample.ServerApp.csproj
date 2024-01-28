@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+	<AssemblyName>Envivo.$(MSBuildProjectName)</AssemblyName>
+	<RootNamespace>Envivo.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+	<Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Program.cs__" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Fresnel.Blazor\Fresnel.Bootstrap.AspNet\Fresnel.Bootstrap.AspNet.csproj" />
+    <ProjectReference Include="..\..\Fresnel.Sample.Features.Model\Fresnel.Sample.Features.Model - DEBUG.csproj" />
+  </ItemGroup>
+
+</Project>
