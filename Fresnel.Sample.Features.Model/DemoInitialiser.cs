@@ -12,6 +12,8 @@ namespace Envivo.Fresnel.Sample.Features.Model
         private readonly SaveableAggregateRootRepository _SaveableAggregateRootRepository;
         private readonly DemoSaveableAggregateRootsBuilder _DemoSaveableAggregateRootsBuilder;
         private readonly SaveableEntityRepository _SaveableEntityRepository;
+        private readonly ObjectWithEagerLoadedPropertiesRepository _ObjectWithEagerLoadedPropertiesRepository;
+        private readonly ObjectWithEagerLoadedPropertiesBuilder _DemoObjectWithEagerLoadedPropertiesBuilder;
         private readonly DemoSaveableEntitiesBuilder _DemoSaveableEntitiesBuilder;
         private readonly AnotherAggregateRootRepository _AnotherAggregateRootRepository;
         private readonly DemoAnotherAggregateRootsBuilder _DemoAnotherAggregateRootsBuilder;
@@ -30,7 +32,10 @@ namespace Envivo.Fresnel.Sample.Features.Model
             DemoSaveableAggregateRootsBuilder demoSaveableAggregateRootsBuilder,
 
             SaveableEntityRepository saveableEntityRepository,
-            DemoSaveableEntitiesBuilder demoSaveableEntitiesBuilder
+            DemoSaveableEntitiesBuilder demoSaveableEntitiesBuilder,
+
+            ObjectWithEagerLoadedPropertiesRepository objectWithEagerLoadedPropertiesRepository,
+            ObjectWithEagerLoadedPropertiesBuilder demoObjectWithEagerLoadedPropertiesBuilder
         )
         {
             _AnotherAggregateRootRepository = anotherAggregateRootRepository;
@@ -41,6 +46,8 @@ namespace Envivo.Fresnel.Sample.Features.Model
             _DemoSaveableAggregateRootsBuilder = demoSaveableAggregateRootsBuilder;
             _SaveableEntityRepository = saveableEntityRepository;
             _DemoSaveableEntitiesBuilder = demoSaveableEntitiesBuilder;
+            _ObjectWithEagerLoadedPropertiesRepository = objectWithEagerLoadedPropertiesRepository;
+            _DemoObjectWithEagerLoadedPropertiesBuilder = demoObjectWithEagerLoadedPropertiesBuilder;
         }
 
         public async Task SetupDemoDataAsync()
@@ -56,6 +63,9 @@ namespace Envivo.Fresnel.Sample.Features.Model
 
             if (!_SaveableEntityRepository.GetQuery().Any())
                 await SaveToRepo(_SaveableEntityRepository, _DemoSaveableEntitiesBuilder.Build());
+
+            if (!_ObjectWithEagerLoadedPropertiesRepository.GetQuery().Any())
+                await SaveToRepo(_ObjectWithEagerLoadedPropertiesRepository, _DemoObjectWithEagerLoadedPropertiesBuilder.Build());
         }
 
         private async Task SaveToRepo<T>(IRepository<T> repo, IEnumerable<T> items)

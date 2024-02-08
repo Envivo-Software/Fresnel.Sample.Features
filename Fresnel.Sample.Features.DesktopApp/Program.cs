@@ -29,10 +29,11 @@ var mainForm =
         sc.AddSingleton<SaveableEntityRepository>();
         sc.AddSingleton<AnotherAggregateRootRepository>();
         sc.AddSingleton<NestedExampleObjectRepository>();
+        sc.AddSingleton<ObjectWithEagerLoadedPropertiesRepository>();
     })
     .WithPreStartupSteps(async sp =>
     {
-        // This let's up setup demo data before the application starts:
+        // This lets us setup demo data before the application starts:
         var demoInitialiser = sp.GetService<DemoInitialiser>();
         if (demoInitialiser != null)
         {
