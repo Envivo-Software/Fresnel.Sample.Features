@@ -49,7 +49,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
         /// This object will open a selection dialog
         /// </summary>
         [Relationship(RelationshipType.Has)]
-        [FilterQuerySpecification(typeof(SaveableEntityQuerySpecification))]
+        [FilterQuerySpecification(typeof(AnotherAggregateRootQuerySpecification))]
         public IAggregateReference<AnotherAggregateRoot> SingleAggregateRefUsingDialog { get; set; }
 
         /// <summary>

@@ -11,11 +11,11 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
 {
     public class AnotherAggregateRootQuerySpecification : IQuerySpecification<AnotherAggregateRoot>
     {
-        private List<AnotherAggregateRoot> _SaveableEntities;
+        private List<AnotherAggregateRoot> _Items;
 
         public AnotherAggregateRootQuerySpecification()
         {
-            _SaveableEntities =
+            _Items =
                 Enumerable.Range(1, 10)
                 .Select(i => new AnotherAggregateRoot
                 {
@@ -28,7 +28,18 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
 
         public async Task<IEnumerable<AnotherAggregateRoot>> GetResultsAsync()
         {
-            return await Task.FromResult(_SaveableEntities.AsEnumerable());
+            return await Task.FromResult(_Items.AsEnumerable());
+        }
+
+        public async Task<IEnumerable<AnotherAggregateRoot>> GetResultsAsync(PropertiesUsingQuerySpecifications requestor)
+        {
+            // Here we may use the requestor as part of the query clause:
+            if (requestor != null)
+            {
+                // Execute custom filtering here
+            }
+
+            return await Task.FromResult(_Items.AsEnumerable());
         }
     }
 }
