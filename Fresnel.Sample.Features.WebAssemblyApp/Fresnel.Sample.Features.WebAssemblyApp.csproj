@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -11,10 +11,6 @@
   <ItemGroup>
     <Content Remove="Properties\launchSettings.json" />
     <Content Remove="wwwroot\index.html" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="clean_bin.bat" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,8 +32,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Fresnel.Blazor\Fresnel.Bootstrap.WebAssembly\Fresnel.Bootstrap.WebAssembly.csproj" />
-    <ProjectReference Include="..\..\Fresnel.Sample.Features.Model\Fresnel.Sample.Features.Model - DEBUG.csproj" />
+    <ProjectReference Include="..\..\Fresnel.Blazor\Fresnel.Bootstrap.WebAssembly\Fresnel.Bootstrap.WebAssembly.csproj" />
+    <ProjectReference Include="..\Fresnel.Sample.Features.Model\Fresnel.Sample.Features.Model - DEBUG.csproj" />
   </ItemGroup>
 
 </Project>
