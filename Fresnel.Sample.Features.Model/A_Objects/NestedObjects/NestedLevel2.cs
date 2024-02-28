@@ -29,7 +29,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.NestedObjects
         public ICollection<NestedLevel3> Level3Items { get; private set; } = new List<NestedLevel3>();
 
         [Relationship(RelationshipType.OwnedBy)]
-        public NestedExampleObject Parent { get; set; }
+        public ExampleOfNestedObjects Parent { get; set; }
 
         /// <summary>
         /// <inheritdoc/>

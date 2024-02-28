@@ -4,7 +4,7 @@ using Envivo.Fresnel.Sample.Features.Model;
 using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
 using Envivo.Fresnel.Sample.Features.Model.I_Repositories;
 
-Type myDomainClass = typeof(BasicObject);
+Type myDomainClass = typeof(ExampleBasicObject);
 
 var app =
     new WebAssemblyHostBuilder()
@@ -15,9 +15,9 @@ var app =
         // Because we're using InMemoryRepositories, we must use the same instance throughout:
         sc.AddSingleton<SaveableAggregateRootRepository>();
         sc.AddSingleton<SaveableEntityRepository>();
-        sc.AddSingleton<AnotherAggregateRootRepository>();
-        sc.AddSingleton<NestedExampleObjectRepository>();
-        sc.AddSingleton<ObjectWithEagerLoadedPropertiesRepository>();
+        sc.AddSingleton<ExampleAggregateRootRepository>();
+        sc.AddSingleton<ExampleOfNestedObjectsRepository>();
+        sc.AddSingleton<ExamplesOfEagerLoadedPropertiesRepository>();
     })
     .WithPreStartupSteps(async sp =>
     {

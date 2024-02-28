@@ -12,21 +12,21 @@ namespace Envivo.Fresnel.Sample.Features.Model
         private readonly SaveableAggregateRootRepository _SaveableAggregateRootRepository;
         private readonly DemoSaveableAggregateRootsBuilder _DemoSaveableAggregateRootsBuilder;
         private readonly SaveableEntityRepository _SaveableEntityRepository;
-        private readonly ObjectWithEagerLoadedPropertiesRepository _ObjectWithEagerLoadedPropertiesRepository;
-        private readonly ObjectWithEagerLoadedPropertiesBuilder _DemoObjectWithEagerLoadedPropertiesBuilder;
+        private readonly ExamplesOfEagerLoadedPropertiesRepository _ExamplesOfEagerLoadedPropertiesRepository;
+        private readonly DemoExamplesOfEagerLoadedPropertiesBuilder _DemoExamplesOfEagerLoadedPropertiesBuilder;
         private readonly DemoSaveableEntitiesBuilder _DemoSaveableEntitiesBuilder;
-        private readonly AnotherAggregateRootRepository _AnotherAggregateRootRepository;
-        private readonly DemoAnotherAggregateRootsBuilder _DemoAnotherAggregateRootsBuilder;
-        private readonly NestedExampleObjectRepository _NestedExampleObjectRepository;
-        private readonly DemoNestedExampleObjectsBuilder _DemoNestedExampleObjectsBuilder;
+        private readonly ExampleAggregateRootRepository _ExampleAggregateRootRepository;
+        private readonly DemoExampleAggregateRootsBuilder _DemoExampleAggregateRootsBuilder;
+        private readonly ExampleOfNestedObjectsRepository _ExampleOfNestedObjectsRepository;
+        private readonly DemoExampleOfNestedObjectsBuilder _DemoExampleOfNestedObjectsBuilder;
 
         public DemoInitialiser
         (
-            AnotherAggregateRootRepository anotherAggregateRootRepository,
-            DemoAnotherAggregateRootsBuilder demoAnotherAggregateRootsBuilder,
+            ExampleAggregateRootRepository anotherAggregateRootRepository,
+            DemoExampleAggregateRootsBuilder demoExampleAggregateRootsBuilder,
 
-            NestedExampleObjectRepository nestedExampleObjectRepository,
-            DemoNestedExampleObjectsBuilder demoNestedExampleObjectsBuilder,
+            ExampleOfNestedObjectsRepository nestedExampleObjectRepository,
+            DemoExampleOfNestedObjectsBuilder demoExampleOfNestedObjectsBuilder,
 
             SaveableAggregateRootRepository saveableAggregateRootRepository,
             DemoSaveableAggregateRootsBuilder demoSaveableAggregateRootsBuilder,
@@ -34,29 +34,29 @@ namespace Envivo.Fresnel.Sample.Features.Model
             SaveableEntityRepository saveableEntityRepository,
             DemoSaveableEntitiesBuilder demoSaveableEntitiesBuilder,
 
-            ObjectWithEagerLoadedPropertiesRepository objectWithEagerLoadedPropertiesRepository,
-            ObjectWithEagerLoadedPropertiesBuilder demoObjectWithEagerLoadedPropertiesBuilder
+            ExamplesOfEagerLoadedPropertiesRepository examplesOfEagerLoadedPropertiesRepository,
+            DemoExamplesOfEagerLoadedPropertiesBuilder demoExamplesOfEagerLoadedPropertiesBuilder
         )
         {
-            _AnotherAggregateRootRepository = anotherAggregateRootRepository;
-            _DemoAnotherAggregateRootsBuilder = demoAnotherAggregateRootsBuilder;
-            _NestedExampleObjectRepository = nestedExampleObjectRepository;
-            _DemoNestedExampleObjectsBuilder = demoNestedExampleObjectsBuilder;
+            _ExampleAggregateRootRepository = anotherAggregateRootRepository;
+            _DemoExampleAggregateRootsBuilder = demoExampleAggregateRootsBuilder;
+            _ExampleOfNestedObjectsRepository = nestedExampleObjectRepository;
+            _DemoExampleOfNestedObjectsBuilder = demoExampleOfNestedObjectsBuilder;
             _SaveableAggregateRootRepository = saveableAggregateRootRepository;
             _DemoSaveableAggregateRootsBuilder = demoSaveableAggregateRootsBuilder;
             _SaveableEntityRepository = saveableEntityRepository;
             _DemoSaveableEntitiesBuilder = demoSaveableEntitiesBuilder;
-            _ObjectWithEagerLoadedPropertiesRepository = objectWithEagerLoadedPropertiesRepository;
-            _DemoObjectWithEagerLoadedPropertiesBuilder = demoObjectWithEagerLoadedPropertiesBuilder;
+            _ExamplesOfEagerLoadedPropertiesRepository = examplesOfEagerLoadedPropertiesRepository;
+            _DemoExamplesOfEagerLoadedPropertiesBuilder = demoExamplesOfEagerLoadedPropertiesBuilder;
         }
 
         public async Task SetupDemoDataAsync()
         {
-            if (!_AnotherAggregateRootRepository.GetQuery().Any())
-                await SaveToRepo(_AnotherAggregateRootRepository, _DemoAnotherAggregateRootsBuilder.Build());
+            if (!_ExampleAggregateRootRepository.GetQuery().Any())
+                await SaveToRepo(_ExampleAggregateRootRepository, _DemoExampleAggregateRootsBuilder.Build());
 
-            if (!_NestedExampleObjectRepository.GetQuery().Any())
-                await SaveToRepo(_NestedExampleObjectRepository, _DemoNestedExampleObjectsBuilder.Build());
+            if (!_ExampleOfNestedObjectsRepository.GetQuery().Any())
+                await SaveToRepo(_ExampleOfNestedObjectsRepository, _DemoExampleOfNestedObjectsBuilder.Build());
 
             if (!_SaveableAggregateRootRepository.GetQuery().Any())
                 await SaveToRepo(_SaveableAggregateRootRepository, _DemoSaveableAggregateRootsBuilder.Build());
@@ -64,8 +64,8 @@ namespace Envivo.Fresnel.Sample.Features.Model
             if (!_SaveableEntityRepository.GetQuery().Any())
                 await SaveToRepo(_SaveableEntityRepository, _DemoSaveableEntitiesBuilder.Build());
 
-            if (!_ObjectWithEagerLoadedPropertiesRepository.GetQuery().Any())
-                await SaveToRepo(_ObjectWithEagerLoadedPropertiesRepository, _DemoObjectWithEagerLoadedPropertiesBuilder.Build());
+            if (!_ExamplesOfEagerLoadedPropertiesRepository.GetQuery().Any())
+                await SaveToRepo(_ExamplesOfEagerLoadedPropertiesRepository, _DemoExamplesOfEagerLoadedPropertiesBuilder.Build());
         }
 
         private async Task SaveToRepo<T>(IRepository<T> repo, IEnumerable<T> items)

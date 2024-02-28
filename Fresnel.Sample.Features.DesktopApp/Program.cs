@@ -16,7 +16,7 @@ Thread.CurrentThread.SetApartmentState(ApartmentState.STA);
 
 ApplicationConfiguration.Initialize();
 
-Type myDomainClass = typeof(BasicObject);
+Type myDomainClass = typeof(ExampleBasicObject);
 
 var mainForm =
     new BlazorWinFormBuilder()
@@ -27,9 +27,9 @@ var mainForm =
         // Because we're using InMemoryRepositories, we must use the same instance throughout:
         sc.AddSingleton<SaveableAggregateRootRepository>();
         sc.AddSingleton<SaveableEntityRepository>();
-        sc.AddSingleton<AnotherAggregateRootRepository>();
-        sc.AddSingleton<NestedExampleObjectRepository>();
-        sc.AddSingleton<ObjectWithEagerLoadedPropertiesRepository>();
+        sc.AddSingleton<ExampleAggregateRootRepository>();
+        sc.AddSingleton<ExampleOfNestedObjectsRepository>();
+        sc.AddSingleton<ExamplesOfEagerLoadedPropertiesRepository>();
     })
     .WithPreStartupSteps(async sp =>
     {

@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 using Envivo.Fresnel.ModelAttributes;
 using Envivo.Fresnel.ModelAttributes.Config;
+using Envivo.Fresnel.Sample.Features.Model.A_Objects.Aggregates;
 using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
 using Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByClass;
 using Envivo.Fresnel.Sample.Features.Model.B_Collections;
@@ -30,7 +31,7 @@ namespace Envivo.Fresnel.Sample.Features.Model
 
             Configure_E_Methods();
 
-            ConfigureClass<MultiType>()
+            ConfigureClass<ExampleObject>()
                 .Property(o => o.An_Int, new DefaultValueAttribute(99))
                 .Property(o => o.A_DateTime, new DefaultValueAttribute(typeof(DateTimeValueProvider)))
                 ;
@@ -38,7 +39,7 @@ namespace Envivo.Fresnel.Sample.Features.Model
 
         private void Configure_A_Objects()
         {
-            ConfigureClass<ObjectWithDependencies>()
+            ConfigureClass<ExampleUsingDependencies>()
                 .Property(o => o.Id, new KeyAttribute())
                 ;
 
@@ -58,7 +59,7 @@ namespace Envivo.Fresnel.Sample.Features.Model
                 .Property(o => o.HiddenProperty, new DisplayAttribute { AutoGenerateField = false })
                 ;
 
-            ConfigureClass<ObjectWithCustomNames>(new DisplayNameAttribute("Custom Names"))
+            ConfigureClass<ExampleWithCustomNames>(new DisplayNameAttribute("Custom Names"))
                 .Property(o => o.A_Boolean, new DisplayNameAttribute("Yes or No"))
                 .Property(o => o.A_String, new DisplayNameAttribute("Text"))
                 .Property(o => o.An_Int, new DisplayNameAttribute("Whole number"))
@@ -72,15 +73,15 @@ namespace Envivo.Fresnel.Sample.Features.Model
 
         private void Configure_B_Collections()
         {
-            ConfigureClass<ChildObject>()
+            ConfigureClass<NestedChildObject>()
                 .Property(p => p.Id, new KeyAttribute());
 
-            ConfigureClass<ObjectWithCollections>()
+            ConfigureClass<ExampleOfCollectionProperties>()
                 .Property(p => p.AssociatedItems,
                                 new RelationshipAttribute(RelationshipType.Has),
                                 new UIAttribute(UiRenderOption.InlineExpanded),
                                 new FilterQuerySpecificationAttribute(typeof(SaveableEntityQuerySpecification)),
-                                new CollectionAttribute(nameof(ObjectWithCollections.AddToAssociatedItems), nameof(ObjectWithCollections.RemoveFromAssociatedItems)))
+                                new CollectionAttribute(nameof(ExampleOfCollectionProperties.AddToAssociatedItems), nameof(ExampleOfCollectionProperties.RemoveFromAssociatedItems)))
                 .Property(p => p.OwnedItems,
                                 new RelationshipAttribute(RelationshipType.Owns),
                                 new UIAttribute(UiRenderOption.InlineExpanded));
@@ -115,7 +116,7 @@ namespace Envivo.Fresnel.Sample.Features.Model
 
         private void Configure_E_Methods()
         {
-            ConfigureClass<MethodSamples>()
+            ConfigureClass<ExamplesOfMethods>()
                 .Method(o => o.MethodWithOneParameter, new KeyAttribute())
                 .MethodParameter(o => o.MethodWithOneParameter, "dateTime",
                                         new RequiredAttribute(),

@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace Envivo.Fresnel.Sample.Features.Model.E_Methods.Commands
 {
-    public class SetA_QuerySpecification : IQuerySpecification<BasicObject>
+    public class SetA_QuerySpecification : IQuerySpecification<ExampleBasicObject>
     {
-        public async Task<IEnumerable<BasicObject>> GetResultsAsync()
+        public async Task<IEnumerable<ExampleBasicObject>> GetResultsAsync()
         {
-            return await Task.FromResult(Array.Empty<BasicObject>().AsEnumerable());
+            return await Task.FromResult(Array.Empty<ExampleBasicObject>().AsEnumerable());
         }
 
-        public async Task<IEnumerable<BasicObject>> GetResultsAsync(CommandSampleWithCollections context)
+        public async Task<IEnumerable<ExampleBasicObject>> GetResultsAsync(ExampleUsingCollections context)
         {
             var result =
                 context.AllAvailableObjects
@@ -27,7 +27,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods.Commands
             return await Task.FromResult(result.AsEnumerable());
         }
 
-        public async Task<IEnumerable<BasicObject>> GetResultsAsync(CommandSampleWithObjects context)
+        public async Task<IEnumerable<ExampleBasicObject>> GetResultsAsync(ExampleUsingObjects context)
         {
             var result =
                 context.AllAvailableObjects

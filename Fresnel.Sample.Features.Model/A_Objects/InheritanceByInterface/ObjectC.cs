@@ -1,6 +1,7 @@
 ﻿// SPDX-FileCopyrightText: Copyright (c) 2022-2023 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByInterface
 {
@@ -9,7 +10,11 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByInterface
     /// </summary>
     public class ObjectC : IBaseObject
     {
+        [Key]
         public Guid Id { get; set; }
+
+        [ConcurrencyCheck]
+        public long Version { get; set; }
 
         public string A_StringValue { get; set; }
 

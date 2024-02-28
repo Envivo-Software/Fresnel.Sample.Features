@@ -5,15 +5,15 @@ using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
 
 namespace Envivo.Fresnel.Sample.Features.Model.G_Factories
 {
-    public class BasicObjectFactory : IFactory<BasicObject>
+    public class BasicObjectFactory : IFactory<ExampleBasicObject>
     {
         /// <summary>
         /// Creates a single BasicObject
         /// </summary>
         /// <returns></returns>
-        public BasicObject Create()
+        public ExampleBasicObject Create()
         {
-            return new BasicObject
+            return new ExampleBasicObject
             {
                 Name = "Created by factory"
             };
@@ -25,9 +25,9 @@ namespace Envivo.Fresnel.Sample.Features.Model.G_Factories
         /// <param name="name">The name to be assigned</param>
         /// <param name="description">The description to be assigned</param>
         /// <returns></returns>
-        public BasicObject Create(string name, string description)
+        public ExampleBasicObject Create(string name, string description)
         {
-            return new BasicObject
+            return new ExampleBasicObject
             {
                 Name = name,
                 Description = description

@@ -18,10 +18,10 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         public Guid Id { get; set; }
 
         /// <summary>
-        /// This is an unformatted Date.
-        /// Clicking the value reveals the appropriate editor control.
+        /// This is an unformatted Date/Time.
+        /// Clicking the value reveals the appropriate editor controls.
         /// </summary>
-        public DateTime NormalDate
+        public DateTime NormalDateTime
         {
             get { return _DateTime; }
             set { _DateTime = value; }
@@ -62,7 +62,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         /// <summary>
         /// This date has no setter, so will be read-only
         /// </summary>
-        public DateTime DisabledDateFormat
+        public DateTime DisabledDateTimeFormat
         {
             get { return _DateTime; }
         }

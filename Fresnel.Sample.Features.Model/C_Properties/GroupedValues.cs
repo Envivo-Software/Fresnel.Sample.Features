@@ -22,8 +22,8 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         public string Text { get; set; }
 
         /// <summary>
-        /// This is an unformatted Date.
-        /// Clicking the value reveals the appropriate editor control.
+        /// This is an unformatted Date/Time.
+        /// Clicking the value reveals the appropriate editor controls.
         /// </summary>
         [Display(GroupName = "Group 1")]
         public DateTime Date { get; set; }
@@ -35,7 +35,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         public bool NormalBoolean { get; set; }
 
         /// <summary>
-        /// This is a normal Boolean
+        /// This is a normal Number
         /// </summary>
         [Display(GroupName = "Group 2")]
         public int NormalNumber { get; set; }

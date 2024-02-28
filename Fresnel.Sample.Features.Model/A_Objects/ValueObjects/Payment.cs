@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.ValueObjects
 {
 /// <summary>
-/// This object is only editable when new, and becomes read-only once it's saved.
+/// This object is only editable when new, and becomes read-only once the parent object is saved.
 /// </summary>
 public class Payment : IValueObject
 {

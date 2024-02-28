@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
 {
@@ -18,17 +19,12 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         public Guid Id { get; set; }
 
         /// <summary>
-        /// This is a normal Char.  It shouldn't allow more than 1 character to be entered.
-        /// </summary>
-        public char NormalChar { get; set; }
-
-        /// <summary>
-        /// This is a normal Text
+        /// This is a normal Text property
         /// </summary>
         public string NormalText { get; set; }
 
         /// <summary>
-        /// This is a Text with a public Getter, but a hidden Setter.
+        /// This is a Text property with a public Getter, but a hidden Setter.
         /// </summary>
         public string ReadOnlyText
         {
@@ -37,12 +33,12 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         }
 
         /// <summary>
-        /// This is a Text with a public Getter, but no Setter.
+        /// This is a Text property with a public Getter, but no Setter.
         /// </summary>
         public string ReadOnlyText2 => NormalText;
 
         /// <summary>
-        /// This is a Text with a hidden Getter, but a public Setter.
+        /// This is a Text property with a hidden Getter, but a public Setter.
         /// This will not be visible in the UI.
         /// </summary>
         public string WriteOnlyText
@@ -52,7 +48,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         }
 
         /// <summary>
-        /// This is a public Text, but will be hidden in the UI.
+        /// This is a public Text property, but will be hidden in the UI.
         /// </summary>
         [Display(AutoGenerateField = false)]
         public string HiddenText
@@ -62,7 +58,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         }
 
         /// <summary>
-        /// This is a multi-line Text. Use SHIFT-ENTER to move to the next line.
+        /// This is a multi-line Text property. Use SHIFT-ENTER to move to the next line.
         /// </summary>
         [DataType(DataType.MultilineText)]
         public string MultiLineText
@@ -72,19 +68,19 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         }
 
         /// <summary>
-        /// This is a password string, and will be shown using asterisks
+        /// This is a password string, and will be hidden using asterisks
         /// </summary>
         [DataType(DataType.Password)]
         public string PasswordText { get; set; }
 
         /// <summary>
-        /// This is a Text that must be at most 8 characters
+        /// This is a Text property that must be at most 8 characters
         /// </summary>
         [MaxLength(8)]
         public string TextWithMaximumSize { get; set; }
 
         /// <summary>
-        /// This is a Text that must be between 8 and 16 characters in length
+        /// This is a Text property that must be between 8 and 16 characters in length
         /// </summary>
         [MinLength(8, ErrorMessage = "Please provide a value greater than 8 characters")]
         [MaxLength(16)]
@@ -98,15 +94,15 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         public string EditMaskText { get; set; }
 
         /// <summary>
-        /// This property has custom validation when it is modified
+        /// This property has custom validation when it is modified (try entering numeric digits)
         /// </summary>
         public string CustomValidation
         {
             get { return _CustomValidation; }
             set
             {
-                if (string.IsNullOrEmpty(value))
-                    throw new ApplicationException("Expected a non-null value");
+                if (value?.Any(char.IsDigit) == true)
+                    throw new ApplicationException("Numbers are not allowed!");
 
                 _CustomValidation = value;
             }
@@ -115,7 +111,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         /// <summary>
         /// Sets the text value using a method
         /// </summary>
-        /// <param name="newValue"></param>
+        /// <param name="newValue">Provide the new value here</param>
         public void ChangeStringValue(string newValue)
         {
             this.NormalText = newValue;

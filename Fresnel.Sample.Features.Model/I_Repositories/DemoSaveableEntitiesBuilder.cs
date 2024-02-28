@@ -18,7 +18,8 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
                 {
                     Id = Guid.NewGuid(),
                     Name = $"{nameof(SaveableEntity)} {i}",
-                    Description = $"This is the description for item {i}"
+                    Description = $"This is the description for item {i}",
+                    CreatedAt = DateTime.Now.AddMilliseconds(i)
                 })
                 .ToList();
 

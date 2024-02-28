@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: Copyright (c) 2022-2023 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
 using Envivo.Fresnel.ModelTypes.Interfaces;
+using Envivo.Fresnel.Sample.Features.Model.A_Objects.Aggregates;
 using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
 using Envivo.Fresnel.Sample.Features.Model.B_Collections;
 using System;
@@ -32,7 +33,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
             return await Task.FromResult(_SaveableEntities.AsEnumerable());
         }
 
-        public async Task<IEnumerable<SaveableEntity>> GetResultsAsync(ObjectWithCollections requestor)
+        public async Task<IEnumerable<SaveableEntity>> GetResultsAsync(ExampleOfCollectionProperties requestor)
         {
             // Here we may use the requestor as part of the query clause:
             var filterName = requestor?.Name;
@@ -60,7 +61,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
             return await Task.FromResult(_SaveableEntities.AsEnumerable());
         }
 
-        public async Task<IEnumerable<SaveableEntity>> GetResultsAsync(SaveableAggregateRoot requestor1, ObjectWithCollections requestor2)
+        public async Task<IEnumerable<SaveableEntity>> GetResultsAsync(SaveableAggregateRoot requestor1, ExampleOfCollectionProperties requestor2)
         {
             // We could also use multiple requestors as part of the query clause:
             if (requestor1 != null && requestor2 != null)

@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
 {
     /// <summary>
-    /// Contains various examples of Factories how they are used
+    /// Contains various examples of Queries and how they are used
     /// </summary>
     [DisplayName("Queries")]
     [VisualIdentifier(HtmlColour = "LightGray")]
