@@ -4,7 +4,6 @@ using Envivo.Fresnel.Bootstrap.WinForms;
 using Envivo.Fresnel.Features;
 using Envivo.Fresnel.Sample.Features.Model;
 using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
-using Envivo.Fresnel.Sample.Features.Model.I_Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading;
@@ -24,12 +23,7 @@ var mainForm =
     .WithFeature(Feature.UI_DoodleMode, FeatureState.On)
     .WithServices(sc =>
     {
-        // Because we're using InMemoryRepositories, we must use the same instance throughout:
-        sc.AddSingleton<SaveableAggregateRootRepository>();
-        sc.AddSingleton<SaveableEntityRepository>();
-        sc.AddSingleton<ExampleAggregateRootRepository>();
-        sc.AddSingleton<ExampleOfNestedObjectsRepository>();
-        sc.AddSingleton<ExamplesOfEagerLoadedPropertiesRepository>();
+        sc.AddModelDependencies();
     })
     .WithPreStartupSteps(async sp =>
     {
