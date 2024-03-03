@@ -10,11 +10,11 @@ using System.Linq;
 
 namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
 {
-    public class ExamplesOfEagerLoadedPropertiesBuilder : IDomainDependency
+    public class DemoExamplesOfEagerLoadedPropertiesBuilder : IDomainDependency
     {
         private readonly ExampleAggregateRootRepository _ExampleAggregateRootRepository;
 
-        public ExamplesOfEagerLoadedPropertiesBuilder(ExampleAggregateRootRepository exampleAggregateRootRepository)
+        public DemoExamplesOfEagerLoadedPropertiesBuilder(ExampleAggregateRootRepository exampleAggregateRootRepository)
         {
             _ExampleAggregateRootRepository = exampleAggregateRootRepository;
         }
