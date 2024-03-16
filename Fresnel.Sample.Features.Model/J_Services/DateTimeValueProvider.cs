@@ -10,9 +10,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.J_Services
     /// </summary>
     public class DateTimeValueProvider : IValueProvider<object, DateTime>
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
         public DateTime GetValue(object context)

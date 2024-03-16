@@ -9,21 +9,19 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.NestedObjects
 {
     public class NestedLevel2 : IEntity
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public Guid Id { get; set; }
 
 
         /// <summary>
         /// The name of this object
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// The description for this object
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [Relationship(RelationshipType.Owns)]
         public ICollection<NestedLevel3> Level3Items { get; private set; } = new List<NestedLevel3>();
@@ -31,10 +29,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.NestedObjects
         [Relationship(RelationshipType.OwnedBy)]
         public ExampleOfNestedObjects Parent { get; set; }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
-        /// <returns></returns>
         public override string ToString()
         {
             return $"{Name}";

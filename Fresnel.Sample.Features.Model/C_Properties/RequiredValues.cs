@@ -12,15 +12,11 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
     /// </summary>
     public class RequiredValues : IEntity, IPersistable
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Key]
         public Guid Id { get; set; }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [ConcurrencyCheck] 
         public long Version { get; set; }
 
@@ -47,6 +43,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         /// <summary>
         /// It will be possible to clear this value, but is still mandatory.
         /// </summary>
-        public string NullableString { get; set; }
+        public string? NullableString { get; set; }
     }
 }

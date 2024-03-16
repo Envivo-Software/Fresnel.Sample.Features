@@ -21,7 +21,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         /// <summary>
         /// This property will thrown an exception when it is read
         /// </summary>
-        public string PropertyWithReadError
+        public string? PropertyWithReadError
         {
             get { throw new ApplicationException("This property threw an exception when it was accessed"); }
             set { _PropertyValue = value; }
@@ -30,7 +30,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         /// <summary>
         /// This property will thrown an exception when it is modified
         /// </summary>
-        public string PropertyWithWriteError
+        public string? PropertyWithWriteError
         {
             get { return _PropertyValue; }
             set { throw new ApplicationException("This property threw an exception when it was updated"); }
@@ -58,7 +58,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         ///
         /// </summary>
         /// <returns></returns>
-        public string ThrowAnException()
+        public string? ThrowAnException()
         {
             throw new ApplicationException("This is a forced exception");
         }

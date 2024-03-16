@@ -50,7 +50,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods.Commands
         /// <summary>
         /// Executes the command when SelectionA and SelectionB have values
         /// </summary>
-        [Visible(false)]
         public bool IsReadyToExecute => (SelectionA != null && SelectionB != null);
 
         public object Execute()

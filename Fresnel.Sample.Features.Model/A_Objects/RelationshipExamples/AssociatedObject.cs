@@ -9,12 +9,10 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.RelationshipExamples
     [Visible(isVisibleInLibrary: false)]
     public class AssociatedObject : IEntity
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public Guid Id { get; set; }
 
-        public string Property1 { get; set; }
+        public string? Property1 { get; set; }
 
         public int Property2 { get; set; }
 

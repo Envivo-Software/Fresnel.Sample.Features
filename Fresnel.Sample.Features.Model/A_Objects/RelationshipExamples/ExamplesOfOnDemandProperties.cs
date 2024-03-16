@@ -15,13 +15,11 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.RelationshipExamples
     /// </summary>
     public class ExamplesOfOnDemandProperties : IEntity
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public Guid Id { get; set; }
 
         /// <summary>
-        /// Ths object appears inline. Because it is read using a Query, it cannot be modified directly.
+        /// This collection appears inline. Because it is read using a Query, the collection cannot be modified directly.
         /// Modifications may be done via the associated Method.
         /// </summary>
         [Relationship(RelationshipType.Has)]
@@ -41,7 +39,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.RelationshipExamples
         }
 
         /// <summary>
-        /// Ths object appears in a separate tab. Because it is read using a Query, it cannot be modified directly.
+        /// This collection appears in a separate tab. Because it is read using a Query, the collection cannot be modified directly.
         /// Modifications may be done via the associated Method.
         /// </summary>
         [Relationship(RelationshipType.Has)]

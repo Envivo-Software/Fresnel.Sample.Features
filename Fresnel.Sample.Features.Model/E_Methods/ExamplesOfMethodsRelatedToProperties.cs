@@ -20,7 +20,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         /// <summary>
         /// A read-only string property
         /// </summary>
-        public string A_String { get; private set; }
+        public string? A_String { get; private set; }
 
         /// <summary>
         /// Used to set the string

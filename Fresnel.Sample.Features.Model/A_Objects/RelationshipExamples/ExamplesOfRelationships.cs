@@ -8,9 +8,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.RelationshipExamples
 {
     public class ExamplesOfRelationships : IEntity
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public Guid Id { get; set; }
 
         /// <summary>

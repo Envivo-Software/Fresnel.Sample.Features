@@ -16,7 +16,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByClass
         /// This property is hidden in the UI, and all sub-classes
         /// </summary>
         [Display(AutoGenerateField = false)]
-        public string HiddenProperty { get; set; }
+        public string? HiddenProperty { get; set; }
 
     }
 }

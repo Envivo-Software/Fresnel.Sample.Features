@@ -11,26 +11,21 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
     /// </summary>
     public class ExampleBasicObject : IEntity
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public Guid Id { get; set; }
 
 
         /// <summary>
         /// The name of this object
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// The description for this object
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
-        /// <returns></returns>
         public override string ToString()
         {
             return $"{Name}";

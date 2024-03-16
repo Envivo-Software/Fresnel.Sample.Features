@@ -15,21 +15,19 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
     /// </summary>
     public class ExampleUsingQuerySpecifications : IEntity
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Key]
         public Guid Id { get; set; }
 
         /// <summary>
-        /// This object will open a selection dialog
+        /// This property allows selection using a selection dialog, using the 'Link' button
         /// </summary>
         [Relationship(RelationshipType.Has)]
         [FilterQuerySpecification(typeof(SaveableEntityQuerySpecification))]
         public SaveableEntity SingleEntityUsingDialog { get; set; }
 
         /// <summary>
-        /// This object will open a selection list
+        /// This property allows selection using a drop-down list
         /// </summary>
         [Relationship(RelationshipType.Has)]
         [FilterQuerySpecification(typeof(SaveableEntityQuerySpecification))]
@@ -37,7 +35,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
         public SaveableEntity SingleEntityUsingSelectList { get; set; }
 
         /// <summary>
-        /// This collection will open a selection dialog
+        /// This collection allows selections using a selection dialog, using the 'Link' button
         /// </summary>
         [Relationship(RelationshipType.Has)]
         [FilterQuerySpecification(typeof(SaveableEntityQuerySpecification))]
@@ -46,14 +44,14 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
 
 
         /// <summary>
-        /// This object will open a selection dialog
+        /// This property links to an Aggregate using a selection dialog, using the 'Link' button
         /// </summary>
         [Relationship(RelationshipType.Has)]
         [FilterQuerySpecification(typeof(ExampleAggregateRootQuerySpecification))]
         public IAggregateReference<ExampleAggregateRoot> SingleAggregateRefUsingDialog { get; set; }
 
         /// <summary>
-        /// This object will open a selection list
+        /// This property links to an Aggregate using a drop-down list
         /// </summary>
         [Relationship(RelationshipType.Has)]
         [FilterQuerySpecification(typeof(ExampleAggregateRootQuerySpecification))]
@@ -61,7 +59,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
         public IAggregateReference<ExampleAggregateRoot> SingleAggregateRefUsingSelectList { get; set; }
 
         /// <summary>
-        /// This collection will open a selection dialog
+        /// This collection links to Aggregates using a selection dialog, using the 'Link' button
         /// </summary>
         [Relationship(RelationshipType.Has)]
         [FilterQuerySpecification(typeof(ExampleAggregateRootQuerySpecification))]

@@ -19,7 +19,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         /// This is a normal Text
         /// </summary>
         [Display(GroupName = "Group 1")]
-        public string Text { get; set; }
+        public string? Text { get; set; }
 
         /// <summary>
         /// This is an unformatted Date/Time.

@@ -21,7 +21,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.J_Services
         /// Invokes a method using the DomainService
         /// </summary>
         /// <returns></returns>
-        public string InvokeService()
+        public string? InvokeService()
         {
             return DomainService?.DownloadFile();
         }

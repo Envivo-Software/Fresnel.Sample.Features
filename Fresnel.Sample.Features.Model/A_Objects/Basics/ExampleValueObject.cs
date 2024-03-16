@@ -11,27 +11,23 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
     /// </summary>
     public class ExampleValueObject : IValueObject, IPersistable
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Key]
         public Guid Id { get; set; }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [ConcurrencyCheck]
         public long Version { get; set; }
 
         /// <summary>
         /// The person's name
         /// </summary>
-        public string FullName { get; set; }
+        public string? FullName { get; set; }
 
         /// <summary>
         /// The person's date of birth
         /// </summary>
         [DataType(DataType.Date)]
-        public DateTime DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; } = DateTime.Now;
     }
 }

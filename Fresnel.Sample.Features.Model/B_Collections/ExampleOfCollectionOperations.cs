@@ -34,11 +34,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.B_Collections
         /// </summary>
         public Guid Id { get; set; }
 
-        /// <summary>
-        ///
-        /// </summary>
-        public string Name { get; set; }
-
         [UI(UiRenderOption.InlineExpanded)]
         [AllowedOperations(canCreate: false, canAdd: false, canRemove: false)]
         public ICollection<ExampleBasicObject> OwnedItems { get; set; } = new List<ExampleBasicObject>();
@@ -77,15 +72,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.B_Collections
             var item = OwnedItems.First();
             _PreCannedList.Add(item);
             this.OwnedItems.Remove(item);
-        }
-
-        /// <summary>
-        /// <inheritdoc/>
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return Name;
         }
     }
 }

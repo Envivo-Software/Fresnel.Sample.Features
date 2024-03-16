@@ -18,12 +18,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.B_Collections
         public Guid Id { get; set; }
 
         /// <summary>
-        ///
-        /// </summary>
-        [Visible(false)]
-        public string Name { get; set; }
-
-        /// <summary>
         /// New items can be created within this property. Existing items cannot be added to this list.
         /// </summary>
         [Collection(addMethodName: nameof(AddToItems), removeMethodName: nameof(RemoveFromItems))]
@@ -57,15 +51,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.B_Collections
             //return OwnedItems.Remove(entity);
 
             return true;
-        }
-
-        /// <summary>
-        /// <inheritdoc/>
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return Name;
         }
     }
 }

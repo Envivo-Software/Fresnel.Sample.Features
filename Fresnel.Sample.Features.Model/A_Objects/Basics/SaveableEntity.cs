@@ -19,12 +19,12 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
         /// <summary>
         /// The name of this object
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// The description for this object
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// This value should have a default value

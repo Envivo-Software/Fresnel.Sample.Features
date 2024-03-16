@@ -18,7 +18,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.G_Factories
 
         public bool A_Boolean { get; set; }
 
-        public string A_String { get; set; }
+        public string? A_String { get; set; }
 
         public int An_Int { get; set; }
 
@@ -41,7 +41,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.G_Factories
         /// <summary>
         /// This property uses expression syntax
         /// </summary>
-        public string PropertyWithExpression => "Some value";
+        public string? PropertyWithExpression => "Some value";
 
         /// <summary>
         /// A child value object

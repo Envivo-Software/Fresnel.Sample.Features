@@ -19,37 +19,30 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.NestedObjects
             };
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Key]
         public Guid Id { get; set; }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [ConcurrencyCheck]
         public long Version { get; set; }
 
         /// <summary>
         /// The name of this object
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// The description for this object
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [UI(UiRenderOption.InlineSimple)]
         [Relationship(RelationshipType.Owns)]
         [JsonInclude]
         public NestedLevel2 Level2 { get; internal set; }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
-        /// <returns></returns>
         public override string ToString()
         {
             return $"{Name}";

@@ -16,31 +16,25 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Aggregates
     /// </summary>
     public class ExampleAggregateRoot : IAggregateRoot, IPersistable
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Key]
         public Guid Id { get; set; }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [ConcurrencyCheck]
         public long Version { get; set; }
 
         /// <summary>
         /// The name of this aggregate root
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// The description for this aggregate root
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public override string ToString()
         {
             return Name ?? base.ToString();

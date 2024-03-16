@@ -17,9 +17,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
     {
         private readonly InMemoryRepository<SaveableAggregateRoot> _InMemoryRepository = new();
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         /// <param name="aggregateRoot"></param>
         /// <returns></returns>
         public async Task DeleteAsync(SaveableAggregateRoot aggregateRoot)
@@ -27,18 +25,13 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
             await _InMemoryRepository.DeleteAsync(aggregateRoot);
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
-        /// <returns></returns>
         public IQueryable<SaveableAggregateRoot> GetQuery()
         {
             return _InMemoryRepository.GetQuery();
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         public async Task<SaveableAggregateRoot> LoadAsync(Guid id)
@@ -46,9 +39,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
             return await _InMemoryRepository.LoadAsync(id);
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         /// <param name="aggregateRoot"></param>
         /// <param name="newObjects"></param>
         /// <param name="modifiedObjects"></param>

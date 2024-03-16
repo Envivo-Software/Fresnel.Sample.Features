@@ -17,7 +17,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.J_Services
         {
         }
 
-        public string DownloadFile()
+        public string? DownloadFile()
         {
             return "Done!";
         }

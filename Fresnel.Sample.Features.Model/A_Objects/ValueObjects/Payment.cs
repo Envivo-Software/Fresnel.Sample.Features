@@ -17,7 +17,7 @@ public class Payment : IValueObject
 
     public decimal Amount { get; set; } = new();
 
-    public string OtherNotes { get; set; }
+    public string? OtherNotes { get; set; }
 
     public override string ToString()
     {

@@ -10,24 +10,22 @@ namespace Envivo.Fresnel.Sample.Features.Model.G_Factories
 {
     public class ExampleObjectChild : IValueObject
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public Guid Id { get; set; }
 
         /// <summary>
         /// The name of this value object
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// The description for this value object
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         public bool A_Boolean { get; set; }
 
-        public string A_String { get; set; }
+        public string? A_String { get; set; }
 
         public int An_Int { get; set; }
 

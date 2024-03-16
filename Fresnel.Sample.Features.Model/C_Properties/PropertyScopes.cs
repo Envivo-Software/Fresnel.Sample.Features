@@ -8,15 +8,15 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
     {
         public Guid Id { get; set; }
 
-        public string PublicGetterAndPublicSetter { get; set; }
+        public string? PublicGetterAndPublicSetter { get; set; }
 
-        public string PublicGetterAndInternalSetter { get; internal set; }
+        public string? PublicGetterAndInternalSetter { get; internal set; }
 
-        public string PublicGetterAndPrivateSetter { get; private set; }
+        public string? PublicGetterAndPrivateSetter { get; private set; }
 
         internal string InternalGetterAndInternalSetter { get; set; }
 
-        public string PrivateGetterAndPublicSetter { private get; set; }
+        public string? PrivateGetterAndPublicSetter { private get; set; }
 
         private string PrivateGetterAndPrivateSetter { get; set; }
     }

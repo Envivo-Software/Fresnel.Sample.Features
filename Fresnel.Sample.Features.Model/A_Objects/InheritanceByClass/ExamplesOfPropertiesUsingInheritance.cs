@@ -12,9 +12,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByClass
     /// </summary>
     public class ExamplesOfPropertiesUsingInheritance
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public Guid Id { get; set; }
 
         /// <summary>

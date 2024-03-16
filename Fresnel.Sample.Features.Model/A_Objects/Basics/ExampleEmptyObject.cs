@@ -5,11 +5,12 @@ using System;
 
 namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
 {
+    /// <summary>
+    /// This object has no visible properties
+    /// </summary>
     public class ExampleEmptyObject : IEntity
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public Guid Id { get; set; }
     }
 }

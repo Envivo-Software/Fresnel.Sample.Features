@@ -18,7 +18,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.ValueObjects
         [ConcurrencyCheck]
         public long Version { get; set; }
 
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [Relationship(RelationshipType.Owns)]
         [UI(renderOption: UiRenderOption.InlineExpanded)]

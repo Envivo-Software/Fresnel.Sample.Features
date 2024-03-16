@@ -7,7 +7,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByClass
     /// </summary>
     public class ObjectC : AbstractObject
     {
-        public string A_StringValue { get; set; }
+        public string? A_StringValue { get; set; }
 
         /// <summary>
         /// This method modifies the String property

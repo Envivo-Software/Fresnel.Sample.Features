@@ -8,7 +8,7 @@ using System.Linq;
 namespace Envivo.Fresnel.Sample.Features.Model.B_Collections
 {
     /// <summary>
-    /// This object has collections with other objects within them
+    /// This object has a collection whose contents completely change
     /// </summary>
     public class ExampleOfChangingCollections
     {
@@ -18,11 +18,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.B_Collections
         /// The unique Id for this entity
         /// </summary>
         public Guid Id { get; set; }
-
-        /// <summary>
-        ///
-        /// </summary>
-        public string Name { get; set; }
 
         /// <summary>
         /// This collection's contents change every time the button is clicked
@@ -45,15 +40,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.B_Collections
                 .ToList();
             Items.Clear();
             Items.AddRange(replacementSet);
-        }
-
-        /// <summary>
-        /// <inheritdoc/>
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return Name;
         }
 
         private ICollection<ExampleBasicObject> CreatePreDefinedItems()

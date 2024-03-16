@@ -19,18 +19,18 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         /// Allows a URL to be provided, and allows viewing in a separate window
         /// </summary>
         [UI(preferredControl: UiControlType.Url)]
-        public string Custom_URL { get; set; }
+        public string? Custom_URL { get; set; }
 
         /// <summary>
         /// Allows a File to be provided, and allows viewing in a separate window
         /// </summary>
         [UI(preferredControl: UiControlType.File)]
-        public string CustomFilePath { get; set; }
+        public string? CustomFilePath { get; set; }
 
         /// <summary>
         /// Displays the given image file
         /// </summary>
         [UI(preferredControl: UiControlType.Image)]
-        public string ImagePath { get; set; }
+        public string? ImagePath { get; set; }
     }
 }

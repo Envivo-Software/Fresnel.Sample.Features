@@ -11,9 +11,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.ValueObjects.Dependenci
     {
         private readonly InMemoryRepository<ExampleCustomer> _InMemoryRepository = new();
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         /// <param name="aggregateRoot"></param>
         /// <returns></returns>
         public async Task DeleteAsync(ExampleCustomer aggregateRoot)
@@ -21,18 +19,13 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.ValueObjects.Dependenci
             await _InMemoryRepository.DeleteAsync(aggregateRoot);
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
-        /// <returns></returns>
         public IQueryable<ExampleCustomer> GetQuery()
         {
             return _InMemoryRepository.GetQuery();
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         public async Task<ExampleCustomer> LoadAsync(Guid id)
@@ -40,9 +33,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.ValueObjects.Dependenci
             return await _InMemoryRepository.LoadAsync(id);
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         /// <param name="aggregateRoot"></param>
         /// <param name="newObjects"></param>
         /// <param name="modifiedObjects"></param>

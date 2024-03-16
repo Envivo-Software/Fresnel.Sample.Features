@@ -17,11 +17,6 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
         [Key]
         public Guid Id { get; set; }
 
-        /// <summary>
-        ///
-        /// </summary>
-        public string Name { get; set; }
-
         public ExampleBasicObject BasicObject1 { get; set; } =
             new()
             {
@@ -35,14 +30,5 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
                 Id = Guid.NewGuid(),
                 Description = "This is assigned to BasicObject2"
             };
-
-        /// <summary>
-        /// <inheritdoc/>
-        /// </summary>
-        /// <returns></returns>
-        public override string ToString()
-        {
-            return Name;
-        }
     }
 }

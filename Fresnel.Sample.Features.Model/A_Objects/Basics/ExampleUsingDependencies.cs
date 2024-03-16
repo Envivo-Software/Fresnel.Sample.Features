@@ -11,9 +11,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
     /// </summary>
     public class ExampleUsingDependencies
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         /// <param name="basicObjectFactory"></param>
         public ExampleUsingDependencies(IFactory<ExampleBasicObject> basicObjectFactory)
         {
@@ -21,9 +19,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
             Name = "This name is provided by default";
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         /// <param name="basicObjectFactory"></param>
         /// <param name="name"></param>
         public ExampleUsingDependencies(IFactory<ExampleBasicObject> basicObjectFactory, string name)
@@ -41,17 +37,14 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
         /// <summary>
         ///
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// This property will have an item created by the injected factory
         /// </summary>
         public ExampleBasicObject BasicObject { get; private set; }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
-        /// <returns></returns>
         public override string ToString()
         {
             return Name;

@@ -17,9 +17,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
     {
         private readonly InMemoryRepository<ExampleOfNestedObjects> _InMemoryRepository = new();
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         /// <param name="aggregateRoot"></param>
         /// <returns></returns>
         public async Task DeleteAsync(ExampleOfNestedObjects aggregateRoot)
@@ -27,19 +25,13 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
             await _InMemoryRepository.DeleteAsync(aggregateRoot);
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
-        /// <returns></returns>
         public IQueryable<ExampleOfNestedObjects> GetQuery()
         {
             return _InMemoryRepository.GetQuery();
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
-        /// <returns></returns>
         public async Task<(IEnumerable<ExampleOfNestedObjects>, int)> GetResultsPageAsync(IQueryFilter queryFilter)
         {
             // TODO: Use Dynamic Linq to parse the IQueryFilter, and apply it to the collection
@@ -47,9 +39,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
             return await Task.FromResult(result);
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         public async Task<ExampleOfNestedObjects> LoadAsync(Guid id)
@@ -57,9 +47,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
             return await _InMemoryRepository.LoadAsync(id);
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         /// <param name="aggregateRoot"></param>
         /// <param name="newObjects"></param>
         /// <param name="modifiedObjects"></param>

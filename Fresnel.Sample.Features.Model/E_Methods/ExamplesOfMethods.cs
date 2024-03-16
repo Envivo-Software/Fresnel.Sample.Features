@@ -21,9 +21,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
     {
         private IFactory<ExampleBasicObject> _BasicObjectFactory;
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         /// <param name="basicObjectFactory"></param>
         public ExamplesOfMethods(IFactory<ExampleBasicObject> basicObjectFactory)
         {
@@ -68,7 +66,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         /// <param name="aString">This will accept a String</param>
         /// <param name="aNumber">This will accept an Integer</param>
         /// <param name="aDate">This will accept a Date</param>
-        public string MethodWithValueParameters
+        public string? MethodWithValueParameters
         (
             IQuerySpecification<EnumValues.IndividualOptions> enumFilter,
             bool aBoolean,
@@ -91,7 +89,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         /// </summary>
         /// <param name="aString">This will accept a String</param>
         /// <param name="aNumber">This will accept an Integer</param>
-        public string MethodWithOptionalParameters
+        public string? MethodWithOptionalParameters
         (
             string aString = "A preset string",
             int aNumber = 12345
@@ -106,7 +104,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         /// </summary>
         /// <param name="entity">This will allow ONE entity to be chosen</param>
         /// <returns></returns>
-        public string MethodWithSingleObjectParameter
+        public string? MethodWithSingleObjectParameter
         (
             SaveableEntity entity
         )
@@ -123,7 +121,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         /// <param name="entity">This will allow ONE entity to be chosen from a drop-down</param>
         /// <param name="entities">This will allow multiple entities to be chosen</param>
         /// <returns></returns>
-        public string MethodWithObjectParameters
+        public string? MethodWithObjectParameters
         (
             [Required]
             [UI(preferredControl: UiControlType.Select)]
@@ -146,7 +144,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         /// This method has nullable parameters, and will open a dialog.
         /// </summary>
         /// <returns></returns>
-        public string MethodWithNullableParameters
+        public string? MethodWithNullableParameters
         (
             string aString,
             int? anInteger,
@@ -163,7 +161,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         /// The parameters are configured in ModelConfig.Configure_E_Methods
         /// </summary>
         /// <returns></returns>
-        public string MethodWithRequiredParameters
+        public string? MethodWithRequiredParameters
         (
             string aString,
             int? anInteger,
@@ -179,7 +177,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         /// It will invoke without showing a dialog, and the result will appear in the Message Panel.
         /// </summary>
         /// <returns></returns>
-        public string MethodThatReturnsA_String()
+        public string? MethodThatReturnsA_String()
         {
             return "This is a string";
         }

@@ -16,7 +16,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByInterface
         [ConcurrencyCheck]
         public long Version { get; set; }
 
-        public string A_StringValue { get; set; }
+        public string? A_StringValue { get; set; }
 
 
         /// <summary>

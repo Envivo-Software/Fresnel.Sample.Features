@@ -10,14 +10,12 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
     /// </summary>
     public class ExampleWithCustomNames : IEntity
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public Guid Id { get; set; }
 
         public bool A_Boolean { get; set; }
 
-        public string A_String { get; set; }
+        public string? A_String { get; set; }
 
         public int An_Int { get; set; }
 
