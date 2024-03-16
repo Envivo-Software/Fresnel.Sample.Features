@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: Copyright (c) 2022-2023 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
+using Envivo.Fresnel.Sample.Features.Model.D_Enums;
 using System;
 
 namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
@@ -38,6 +39,16 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
         /// <summary>
         /// It will be possible to clear this value.
         /// </summary>
-        public string NullableString { get; set; }
+        public string? NullableString { get; set; }
+
+        /// <summary>
+        /// It will be possible to clear this value.
+        /// </summary>
+        public EnumValues.IndividualOptions? NullableEnum { get; set; }
+
+        /// <summary>
+        /// It will be possible to clear this value.
+        /// </summary>
+        public CombinationOptions? NullableBitwiseEnum { get; set; }
     }
 }
