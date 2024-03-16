@@ -36,15 +36,9 @@ namespace Envivo.Fresnel.Sample.Features.Model.H_Queries
         public async Task<IEnumerable<SaveableEntity>> GetResultsAsync(ExampleOfCollectionProperties requestor)
         {
             // Here we may use the requestor as part of the query clause:
-            var filterName = requestor?.Name;
-            if (!string.IsNullOrEmpty(filterName))
+            if (requestor != null)
             {
-                var results =
-                    _SaveableEntities
-                    .Where(e => e.Name == filterName)
-                    .ToList()
-                    .AsEnumerable();
-                return await Task.FromResult(results);
+                // Execute custom filtering here
             }
 
             return await Task.FromResult(_SaveableEntities.AsEnumerable());

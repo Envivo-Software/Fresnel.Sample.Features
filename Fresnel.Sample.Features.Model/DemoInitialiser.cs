@@ -58,11 +58,11 @@ namespace Envivo.Fresnel.Sample.Features.Model
             if (!_ExampleOfNestedObjectsRepository.GetQuery().Any())
                 await SaveToRepo(_ExampleOfNestedObjectsRepository, _DemoExampleOfNestedObjectsBuilder.Build());
 
-            if (!_SaveableAggregateRootRepository.GetQuery().Any())
-                await SaveToRepo(_SaveableAggregateRootRepository, _DemoSaveableAggregateRootsBuilder.Build());
-
             if (!_SaveableEntityRepository.GetQuery().Any())
                 await SaveToRepo(_SaveableEntityRepository, _DemoSaveableEntitiesBuilder.Build());
+
+            if (!_SaveableAggregateRootRepository.GetQuery().Any())
+                await SaveToRepo(_SaveableAggregateRootRepository, _DemoSaveableAggregateRootsBuilder.Build());
 
             if (!_ExamplesOfEagerLoadedPropertiesRepository.GetQuery().Any())
                 await SaveToRepo(_ExamplesOfEagerLoadedPropertiesRepository, _DemoExamplesOfEagerLoadedPropertiesBuilder.Build());

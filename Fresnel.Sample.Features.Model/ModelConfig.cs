@@ -18,9 +18,7 @@ namespace Envivo.Fresnel.Sample.Features.Model
 {
     public class ModelConfig : ModelConfigBase
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         public override void Configure()
         {
             Configure_A_Objects();
@@ -77,15 +75,29 @@ namespace Envivo.Fresnel.Sample.Features.Model
                 .Property(p => p.Id, new KeyAttribute());
 
             ConfigureClass<ExampleOfCollectionProperties>()
-                .Property(p => p.AssociatedItems,
-                                new RelationshipAttribute(RelationshipType.Has),
-                                new UIAttribute(UiRenderOption.InlineExpanded),
-                                new FilterQuerySpecificationAttribute(typeof(SaveableEntityQuerySpecification)),
-                                new CollectionAttribute(nameof(ExampleOfCollectionProperties.AddToAssociatedItems), nameof(ExampleOfCollectionProperties.RemoveFromAssociatedItems)))
                 .Property(p => p.OwnedItems,
                                 new RelationshipAttribute(RelationshipType.Owns),
-                                new UIAttribute(UiRenderOption.InlineExpanded));
-            ;
+                                new UIAttribute(UiRenderOption.InlineExpanded))
+                .Method(m => m.AddNewOwnedItem,
+                                new MethodAttribute(relatedPropertyName: nameof(ExampleOfCollectionProperties.OwnedItems)))
+
+                .Property(p => p.AssociatedItems,
+                                new RelationshipAttribute(RelationshipType.Has),
+                                new UIAttribute(UiRenderOption.SeparateTabExpanded),
+                                new FilterQuerySpecificationAttribute(typeof(SaveableEntityQuerySpecification)),
+                                new CollectionAttribute(nameof(ExampleOfCollectionProperties.AddToAssociatedItems),
+                                                        nameof(ExampleOfCollectionProperties.RemoveFromAssociatedItems)))
+
+                .Property(p => p.CollectionWithCustomColumns,
+                                new RelationshipAttribute(RelationshipType.Owns),
+                                new CollectionAttribute(visibleColumnNames: new string[] {
+                                    nameof(ExampleObject.A_Bitwise_Enum),
+                                    nameof(ExampleObject.An_Enum),
+                                    nameof(ExampleObject.An_Object),
+                                    nameof(ExampleObject.An_Int),
+                                    nameof(ExampleObject.A_Boolean)
+                                }))
+                ;
         }
 
         private void Configure_C_Properties()

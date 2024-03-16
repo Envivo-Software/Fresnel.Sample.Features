@@ -11,21 +11,24 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
     /// <summary>
     /// A set of methods demonstrating custom confirmation dialogs
     /// </summary>
-    public class ExamplesOfConfirmationDialogs : IAggregateRoot
+    public class ExamplesOfConfirmationDialogs : IAggregateRoot, IPersistable
     {
         private IFactory<ExampleBasicObject> _BasicObjectFactory;
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         /// <param name="basicObjectFactory"></param>
         public ExamplesOfConfirmationDialogs(IFactory<ExampleBasicObject> basicObjectFactory)
         {
             _BasicObjectFactory = basicObjectFactory;
         }
 
+        /// <inheritdoc/>
         [Key]
         public Guid Id { get; set; }
+
+        /// <inheritdoc/>
+        [ConcurrencyCheck]
+        public long Version { get; set; }
 
         /// <summary>
         /// This method returns an Object.

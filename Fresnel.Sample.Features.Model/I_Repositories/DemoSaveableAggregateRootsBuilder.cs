@@ -11,11 +11,17 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
 {
     public class DemoSaveableAggregateRootsBuilder : IDomainDependency
     {
-        private readonly ExampleAggregateRootRepository _AnotherAggregateRootRepository;
+        private readonly SaveableEntityRepository _SaveableEntityRepository;
+        private readonly ExampleAggregateRootRepository _ExampleAggregateRootRepository;
 
-        public DemoSaveableAggregateRootsBuilder(ExampleAggregateRootRepository anotherAggregateRootRepository)
+        public DemoSaveableAggregateRootsBuilder
+        (
+            SaveableEntityRepository saveableEntityRepository,
+            ExampleAggregateRootRepository exampleAggregateRootRepository
+        )
         {
-            _AnotherAggregateRootRepository = anotherAggregateRootRepository;
+            _SaveableEntityRepository = saveableEntityRepository;
+            _ExampleAggregateRootRepository = exampleAggregateRootRepository;
         }
 
         public IEnumerable<SaveableAggregateRoot> Build()
@@ -27,8 +33,15 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
                     Id = Guid.NewGuid(),
                     Name = $"{nameof(SaveableAggregateRoot)} {i}",
                     Description = $"This is the description for item {i}",
-                    AssociatedItems =
-                        _AnotherAggregateRootRepository
+
+                    AssociatedEntities =
+                        _SaveableEntityRepository
+                        .GetQuery()
+                        .Take(5)
+                        .ToList(),
+
+                    AssociatedAggregates =
+                        _ExampleAggregateRootRepository
                         .GetQuery()
                         .Take(5)
                         .Select(e => new AggregateReference<ExampleAggregateRoot>
