@@ -25,6 +25,7 @@ var mainForm =
     {
         sc.AddModelDependencies();
     })
+    .WithFileLogging()
     .WithPreStartupSteps(async sp =>
     {
         // This lets us setup demo data before the application starts:
