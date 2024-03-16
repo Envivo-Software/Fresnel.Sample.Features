@@ -15,6 +15,8 @@ namespace Envivo.Fresnel.Sample.Features.Model
             sc.AddSingleton<ExampleOfNestedObjectsRepository>();
             sc.AddSingleton<ExamplesOfEagerLoadedPropertiesRepository>();
             sc.AddSingleton<ExampleCustomerRepository>();
+            sc.AddSingleton<ExampleImmutableObjectRepository>();
+            sc.AddSingleton<ExampleImmutablePropertiesRepository>();
 
             return sc;
         }
