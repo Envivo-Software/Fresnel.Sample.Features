@@ -13,8 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Fresnel.Blazor\Fresnel.Bootstrap.WebServer\Fresnel.Bootstrap.WebServer.csproj" />
-    <ProjectReference Include="..\Fresnel.Sample.Features.Model\Fresnel.Sample.Features.Model - DEBUG.csproj" />
+    <PackageReference Include="Envivo.Fresnel.WebServer" Version="0.92.5-preview" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fresnel.Sample.Features.Model\Fresnel.Sample.Features.Model.csproj" />
   </ItemGroup>
 
 </Project>

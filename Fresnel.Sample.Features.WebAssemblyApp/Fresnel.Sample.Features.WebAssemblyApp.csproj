@@ -27,13 +27,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Envivo.Fresnel.WebAssembly" Version="0.92.5-preview" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.3" />
 	<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.3" />
-  </ItemGroup>
+ </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Fresnel.Blazor\Fresnel.Bootstrap.WebAssembly\Fresnel.Bootstrap.WebAssembly.csproj" />
-    <ProjectReference Include="..\Fresnel.Sample.Features.Model\Fresnel.Sample.Features.Model - DEBUG.csproj" />
+    <ProjectReference Include="..\Fresnel.Sample.Features.Model\Fresnel.Sample.Features.Model.csproj" />
   </ItemGroup>
 
 </Project>
