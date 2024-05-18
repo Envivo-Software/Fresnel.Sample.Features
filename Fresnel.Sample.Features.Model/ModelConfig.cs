@@ -103,7 +103,8 @@ namespace Envivo.Fresnel.Sample.Features.Model
         private void Configure_C_Properties()
         {
             ConfigureClass<BooleanValues>()
-                .Property(p => p.Orientation, new UIAttribute(trueValue: "Clockwise", falseValue: "Anti-Clockwise"));
+                // Even though we're configuring here, the property Attributes will override these values:
+                .Property(p => p.Orientation, new UIAttribute(trueValue: "Right", falseValue: "Left"));
 
             ConfigureClass<DateValues>()
                 .Property(p => p.TimeFormat, new DataTypeAttribute(DataType.Time))
