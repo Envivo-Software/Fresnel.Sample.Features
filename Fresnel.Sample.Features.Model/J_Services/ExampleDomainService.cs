@@ -5,7 +5,7 @@ using Envivo.Fresnel.ModelTypes.Interfaces;
 namespace Envivo.Fresnel.Sample.Features.Model.J_Services
 {
     /// <summary>
-    /// This Domain Services provide access to logic without instantiating an object
+    /// This Domain Service provides access to logic without instantiating an object
     /// </summary>
     public class ExampleDomainService : IDomainService
     {
