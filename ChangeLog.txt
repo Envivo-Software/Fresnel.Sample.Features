@@ -1,4 +1,15 @@
-﻿2024-03-22:
+﻿2024-05-20:
+
+🐞 Fixes:
+- Removed broken link to MyNerve font
+- Fixed XML comments 
+
+🎁 New features:
+- Example of Model Config Attributes that are overridden by the object's members
+
+==============================================================================
+
+2024-03-22:
 
 🐞 Fixes:
 - Corrections to SaveableAggregateRoot
