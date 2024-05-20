@@ -1,4 +1,25 @@
-﻿2024-01-01:
+﻿2024-03-22:
+
+🐞 Fixes:
+- Corrections to SaveableAggregateRoot
+- Ensure ExampleAggregateRootQuerySpecification uses same objects as ExampleAggregateRootRepository
+- Corrected Aggregate References within PropertiesUsingQuerySpecifications
+- Corrected Filter queries for IAggregateReference<> properties
+
+🎨 Improvements:
+- NullableValues now includes nullable Enums
+
+🎁 New features:
+- Added examples of NamespaceDoc
+- Added examples of Immutable objects
+- Added example of Payment Value Object, to demonstrate transient vs persistent behaviour
+- Added ObjectWithEagerLoadedPropertiesRepository, to show that Inline Properties are immediately visible in the UI
+- Added example SSRI Interactive Server project
+- Added example WebAssembly project
+
+==============================================================================
+
+2024-01-01:
 
 🎨 Improvements:
 - Respositories no longer have redundant LockAsync/UnlockAsync methods (moved to IAggregateLockService)
