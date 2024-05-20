@@ -1,24 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-	<AssemblyName>Envivo.$(MSBuildProjectName)</AssemblyName>
-	<RootNamespace>Envivo.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
-	<Nullable>enable</Nullable>
+    <AssemblyName>Envivo.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>Envivo.$(MSBuildProjectName.Replace(" ", "_"))</RootNamespace>
+    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="9.0.0" />
   </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="Envivo.Fresnel.WebServer" Version="0.92.5-preview" />
+    <PackageReference Include="Envivo.Fresnel.WebServer" Version="0.94.0-preview" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Fresnel.Sample.Features.Model\Fresnel.Sample.Features.Model.csproj" />
   </ItemGroup>
-
 </Project>
