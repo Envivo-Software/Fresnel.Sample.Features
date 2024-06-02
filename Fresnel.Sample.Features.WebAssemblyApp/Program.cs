@@ -2,27 +2,29 @@ using Envivo.Fresnel.Bootstrap.WebAssembly;
 using Envivo.Fresnel.Features;
 using Envivo.Fresnel.Sample.Features.Model;
 using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
+using WebAssemblyHostBuilder = Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder;
 
-Type myDomainClass = typeof(ExampleBasicObject);
+var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-var app =
-    new WebAssemblyHostBuilder()
-    .WithModelAssembly(myDomainClass.Assembly)
+builder.AddFresnel(opt =>
+{
+    opt
+    .WithModelAssemblyFrom<ExampleBasicObject>()
     .WithFeature(Feature.UI_DoodleMode, FeatureState.On)
-    .WithServices(sc =>
-    {
-        sc.AddModelDependencies();
-    })
-    .WithFileLogging()
-    .WithPreStartupSteps(async sp =>
-    {
-        // This lets us setup demo data before the application starts:
-        var demoInitialiser = sp.GetService<DemoInitialiser>();
-        if (demoInitialiser != null)
-        {
-            await demoInitialiser.SetupDemoDataAsync();
-        }
-    })
-    .Build();
+    .WithDefaultFileLogging();
 
-await app.RunAsync();
+    builder.Services.AddModelDependencies();
+});
+
+var host = builder.Build();
+
+host.UseFresnel();
+
+// Setup demo data before the application starts:
+var demoInitialiser = host.Services.GetService<DemoInitialiser>();
+if (demoInitialiser != null)
+{
+    await demoInitialiser.SetupDemoDataAsync();
+}
+
+await host.RunAsync();

@@ -5,6 +5,7 @@ using Envivo.Fresnel.Features;
 using Envivo.Fresnel.Sample.Features.Model;
 using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Threading;
 using System.Windows.Forms;
@@ -15,26 +16,28 @@ Thread.CurrentThread.SetApartmentState(ApartmentState.STA);
 
 ApplicationConfiguration.Initialize();
 
-Type myDomainClass = typeof(ExampleBasicObject);
+var builder = new HostApplicationBuilder(args);
 
-var mainForm =
-    new BlazorWinFormBuilder()
-    .WithModelAssembly(myDomainClass.Assembly)
+builder.AddFresnel(opt =>
+{
+    opt
+    .WithModelAssemblyFrom<ExampleBasicObject>()
     .WithFeature(Feature.UI_DoodleMode, FeatureState.On)
-    .WithServices(sc =>
-    {
-        sc.AddModelDependencies();
-    })
-    .WithFileLogging()
-    .WithPreStartupSteps(async sp =>
-    {
-        // This lets us setup demo data before the application starts:
-        var demoInitialiser = sp.GetService<DemoInitialiser>();
-        if (demoInitialiser != null)
-        {
-            await demoInitialiser.SetupDemoDataAsync();
-        }
-    })
-    .Build();
+    .WithDefaultFileLogging();
 
+    builder.Services.AddModelDependencies();
+});
+
+var host = builder.Build();
+
+host.UseFresnel();
+
+// Setup demo data before the application starts:
+var demoInitialiser = host.Services.GetService<DemoInitialiser>();
+if (demoInitialiser != null)
+{
+    await demoInitialiser.SetupDemoDataAsync();
+}
+
+var mainForm = host.Services.GetService<BlazorWinForm>();
 Application.Run(mainForm);
