@@ -10,7 +10,7 @@
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="9.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Envivo.Fresnel.WebServer" Version="0.94.0-preview" />
+    <PackageReference Include="Envivo.Fresnel.WebServer" Version="0.94.2-preview" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
   </ItemGroup>
   <ItemGroup>
