@@ -1,4 +1,11 @@
-﻿2024-05-20:
+﻿2024-06-04:
+
+🎨 Improvements:
+- Removed wwwroot folder (now copied at build time)
+
+==============================================================================
+
+2024-05-20:
 
 🐞 Fixes:
 - Removed broken link to MyNerve font
@@ -33,7 +40,7 @@
 2024-01-01:
 
 🎨 Improvements:
-- Respositories no longer have redundant LockAsync/UnlockAsync methods (moved to IAggregateLockService)
+- Repositories no longer have redundant LockAsync/UnlockAsync methods (moved to IAggregateLockService)
 - Updated package references
 
 ==============================================================================
