@@ -5,6 +5,7 @@ using Envivo.Fresnel.ModelTypes.Interfaces;
 using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Envivo.Fresnel.Sample.Features.Model.E_Methods.Commands
@@ -13,7 +14,10 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods.Commands
     /// An example of a Command object, that uses Properties to represent 'parameters'.
     /// This also shows how properties are updated if the context changes.
     /// </summary>
-    public class ExampleUsingCollections : ICommandObject, IValueObject
+    public class ExampleUsingCollections :
+        ICommandObject,
+        ICommandObject<ExamplesOfMethods, string>,
+        IValueObject
     {
         public Guid Id { get; set; }
 
@@ -54,10 +58,23 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods.Commands
         /// Executes the command when items are added to SetA and SetB
         /// </summary>
         /// <returns></returns>
-        public object Execute()
+        public void Execute()
         {
             // Do something with the SetA and SetB 'parameters'
-            return null;
+            var msg = $"Executed with {SetA.Count} items in SetA, and {SetB.Count} items in SetB";
+            Trace.TraceInformation(msg);
+        }
+
+        /// <summary>
+        /// Executes the command when items are added to SetA and SetB, and within the context of a parent object
+        /// </summary>
+        /// <returns></returns>
+        public string Execute(ExamplesOfMethods context)
+        {
+            // We can also do something with the object that triggered this method:
+            var msg = $"Executed within the context of '{context}', with {SetA.Count} items in SetA, and {SetB.Count} items in SetB";
+            Trace.TraceInformation(msg);
+            return msg;
         }
     }
 }

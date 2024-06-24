@@ -235,6 +235,15 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
             return new();
         }
 
+        /// <summary>
+        /// This method returns another ICommandObject, which presents itself as a dialog
+        /// </summary>
+        /// <returns></returns>
+        public ExampleUsingCollections MethodUsingAnotherCommandObject()
+        {
+            return new();
+        }
+
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public void MethodWithoutDescription()
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
