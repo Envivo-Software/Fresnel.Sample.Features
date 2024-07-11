@@ -1,4 +1,7 @@
-﻿2024-06-04:
+﻿2024-07-11:
+🎁 New features:
+- Now uses Fluent Builder pattern
+- Added examples of generic Execute() methods on Command Objects
 
 🎨 Improvements:
 - Removed wwwroot folder (now copied at build time)
