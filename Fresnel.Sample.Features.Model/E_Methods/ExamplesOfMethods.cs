@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
@@ -110,6 +111,21 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         )
         {
             return $"{nameof(MethodWithSingleObjectParameter)} executed with the selection '{entity?.Name}'";
+        }
+
+        /// <summary>
+        /// This method accepts a set of objects as a parameter.
+        /// It will open a search dialog, and the method is invoked when the selections are made
+        /// </summary>
+        /// <param name="entities">This will allow multiple entities to be chosen</param>
+        /// <returns></returns>
+        public string? MethodWithCollectionParameter
+        (
+            [FilterQuerySpecification(typeof(SaveableEntityQuerySpecification))]
+            IEnumerable<SaveableEntity> entities
+        )
+        {
+            return $"{nameof(MethodWithCollectionParameter)} executed with {entities?.Count()} selections";
         }
 
         /// <summary>
