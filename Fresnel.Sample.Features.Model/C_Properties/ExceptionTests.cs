@@ -11,7 +11,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
     public class ExceptionTests
     {
         private bool _Bool = false;
-        private string _PropertyValue;
+        private string? _PropertyValue;
 
         /// <summary>
         /// The unique Id for this entity
