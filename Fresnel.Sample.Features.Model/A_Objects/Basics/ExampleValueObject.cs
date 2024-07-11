@@ -29,5 +29,10 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics
         /// </summary>
         [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; } = DateTime.Now;
+
+        public override string ToString()
+        {
+            return $"{FullName} : {DateOfBirth:d}";
+        }
     }
 }
