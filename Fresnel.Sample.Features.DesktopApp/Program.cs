@@ -23,7 +23,9 @@ builder.AddFresnel(opt =>
     opt
     .WithModelAssemblyFrom<ExampleBasicObject>()
     .WithFeature(Feature.UI_DoodleMode, FeatureState.On)
-    .WithDefaultFileLogging();
+    .WithFeature(Feature.UI_UserFeedback, FeatureState.On)
+    .WithDefaultFileLogging()
+    ;
 
     builder.Services.AddModelDependencies();
 });
@@ -39,5 +41,5 @@ if (demoInitialiser != null)
     await demoInitialiser.SetupDemoDataAsync();
 }
 
-var mainForm = host.Services.GetService<BlazorWinForm>();
+var mainForm = host.Services.GetService<BlazorWinForm>() ?? throw new NullReferenceException();
 Application.Run(mainForm);
