@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: Copyright (c) 2022-2024 Envivo Software
+﻿// SPDX-FileCopyrightText: Copyright (c) 2022-2025 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
 using Envivo.Fresnel.Bootstrap.WinForms;
 using Envivo.Fresnel.Features;
