@@ -10,7 +10,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
 {
     public class DemoExampleOfNestedObjectsBuilder : IDomainDependency
     {
-       
+
         public IEnumerable<ExampleOfNestedObjects> Build()
         {
             var results =
@@ -19,7 +19,12 @@ namespace Envivo.Fresnel.Sample.Features.Model.I_Repositories
                 {
                     Id = Guid.NewGuid(),
                     Name = $"{nameof(ExampleOfNestedObjects)} {i}",
-                    Description = $"This is the description for item {i}"
+                    Description = $"This is the description for item {i}",
+                    Level2 = new NestedLevel2
+                    {
+                        Id = Guid.NewGuid(),
+                        Description = $"This is nested item {i}"
+                    }
                 })
                 .ToList();
 
