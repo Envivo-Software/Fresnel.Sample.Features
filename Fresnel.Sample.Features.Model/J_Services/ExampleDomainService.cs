@@ -1,5 +1,6 @@
-// SPDX-FileCopyrightText: Copyright (c) 2022-2025 Envivo Software
+﻿// SPDX-FileCopyrightText: Copyright (c) 2022-2025 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
+using Envivo.Fresnel.ModelAttributes;
 using Envivo.Fresnel.ModelTypes.Interfaces;
 
 namespace Envivo.Fresnel.Sample.Features.Model.J_Services
@@ -13,7 +14,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.J_Services
         /// Uploads a file to the server
         /// </summary>
         /// <param name="file">Provide the file to be uploaded to the server</param>
-        public void UploadFile(string file)
+        public void UploadFile([UI(preferredControl: UiControlType.File)] string file)
         {
         }
 
