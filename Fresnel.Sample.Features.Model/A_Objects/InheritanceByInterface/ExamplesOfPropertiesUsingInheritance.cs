@@ -1,9 +1,8 @@
 ﻿// SPDX-FileCopyrightText: Copyright (c) 2022-2025 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
-using Envivo.Fresnel.ModelAttributes;
-using Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByClass;
 using System;
 using System.Collections.Generic;
+using Envivo.Fresnel.ModelAttributes;
 
 namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByInterface
 {
@@ -35,7 +34,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByInterface
         /// </summary>
         [Relationship(RelationshipType.Owns)]
         [UI(UiRenderOption.SeparateTabExpanded)]
-        public ICollection<AbstractObject> OwnedObjects { get; set; } = new List<AbstractObject>();
+        public ICollection<IBaseObject> OwnedObjects { get; set; } = new List<IBaseObject>();
 
         /// <summary>
         /// This property allows existing objects of type ObjectD to be associated with it
