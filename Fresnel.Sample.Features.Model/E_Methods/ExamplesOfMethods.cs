@@ -1,18 +1,17 @@
 ﻿// SPDX-FileCopyrightText: Copyright (c) 2022-2025 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
-using Envivo.Fresnel.ModelAttributes;
-using Envivo.Fresnel.ModelTypes.Interfaces;
-using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
-using Envivo.Fresnel.Sample.Features.Model.C_Properties;
-using Envivo.Fresnel.Sample.Features.Model.D_Enums;
-using Envivo.Fresnel.Sample.Features.Model.E_Methods.Commands;
-using Envivo.Fresnel.Sample.Features.Model.H_Queries;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Envivo.Fresnel.ModelAttributes;
+using Envivo.Fresnel.ModelTypes.Interfaces;
+using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
+using Envivo.Fresnel.Sample.Features.Model.D_Enums;
+using Envivo.Fresnel.Sample.Features.Model.E_Methods.Commands;
+using Envivo.Fresnel.Sample.Features.Model.H_Queries;
 
 namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
 {
