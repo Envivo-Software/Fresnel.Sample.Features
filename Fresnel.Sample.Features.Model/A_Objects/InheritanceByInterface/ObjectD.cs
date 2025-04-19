@@ -17,5 +17,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByInterface
         public long Version { get; set; }
 
         public DateTime A_DateTime { get; set; }
+
+        public string CommonValue { get; set; }
     }
 }

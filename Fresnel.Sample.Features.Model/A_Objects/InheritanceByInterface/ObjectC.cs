@@ -18,6 +18,7 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByInterface
 
         public string? A_StringValue { get; set; }
 
+        public string CommonValue { get; set; }
 
         /// <summary>
         /// This method modifies the String property

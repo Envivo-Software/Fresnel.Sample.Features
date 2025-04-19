@@ -9,6 +9,9 @@ namespace Envivo.Fresnel.Sample.Features.Model.A_Objects.InheritanceByInterface
     /// </summary>
     public interface IBaseObject : IEntity, IPersistable
     {
-
+        /// <summary>
+        /// This value is common to all sub-classes
+        /// </summary>
+        string CommonValue { get; set; }
     }
 }
