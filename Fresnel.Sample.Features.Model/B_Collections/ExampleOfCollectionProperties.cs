@@ -1,5 +1,6 @@
-// SPDX-FileCopyrightText: Copyright (c) 2022-2025 Envivo Software
+﻿// SPDX-FileCopyrightText: Copyright (c) 2022-2025 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
+using Envivo.Fresnel.ModelAttributes;
 using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
 using Envivo.Fresnel.Sample.Features.Model.G_Factories;
 using System;
@@ -26,6 +27,10 @@ namespace Envivo.Fresnel.Sample.Features.Model.B_Collections
         /// <summary>
         /// Existing items can be added to this property.  New items cannot be added to this list.
         /// </summary>
+        [Collection(
+            addMethodName: nameof(AddToAssociatedItems),
+            removeMethodName: nameof(RemoveFromAssociatedItems))
+        ]
         public ICollection<SaveableEntity> AssociatedItems { get; set; } = new List<SaveableEntity>();
 
         /// <summary>
