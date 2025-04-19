@@ -1,8 +1,9 @@
-// SPDX-FileCopyrightText: Copyright (c) 2022-2025 Envivo Software
+﻿// SPDX-FileCopyrightText: Copyright (c) 2022-2025 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
 using Envivo.Fresnel.ModelAttributes;
 using Envivo.Fresnel.ModelTypes.Interfaces;
 using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
+using Envivo.Fresnel.Sample.Features.Model.C_Properties;
 using Envivo.Fresnel.Sample.Features.Model.D_Enums;
 using Envivo.Fresnel.Sample.Features.Model.E_Methods.Commands;
 using Envivo.Fresnel.Sample.Features.Model.H_Queries;
@@ -264,6 +265,15 @@ namespace Envivo.Fresnel.Sample.Features.Model.E_Methods
         public void MethodWithoutDescription()
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
+        }
+
+        /// <summary>
+        /// This method will thrown an exception when clicked
+        /// </summary>
+        /// <returns></returns>
+        public ExampleUsingCollections MethodThatThrowsAnException()
+        {
+            throw new ApplicationException("This is a forced exception");
         }
     }
 }
