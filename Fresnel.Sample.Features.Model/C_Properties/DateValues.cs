@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: Copyright (c) 2022-2025 Envivo Software
+﻿// SPDX-FileCopyrightText: Copyright (c) 2022-2025 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
 using System;
 using System.ComponentModel.DataAnnotations;
@@ -77,5 +77,10 @@ namespace Envivo.Fresnel.Sample.Features.Model.C_Properties
             get { return _Timespan; }
             set { _Timespan = value; }
         }
+
+        /// <summary>
+        /// This is the new DateOnly type, and will be editable using an appropriate editor
+        /// </summary>
+        public DateOnly DateOnly { get; set; }
     }
 }
