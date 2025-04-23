@@ -1,8 +1,10 @@
 ﻿using System;
+using Envivo.Fresnel.ModelAttributes;
 using Envivo.Fresnel.ModelTypes.Interfaces;
 
 namespace Envivo.Fresnel.Sample.Features.Model.K_Charts
 {
+    [UiExplorer(preferredSize: UiExplorerSize.Maximised)]
     public class ChartDemo
     {
         public Guid Id { get; set; }
