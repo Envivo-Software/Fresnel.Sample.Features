@@ -1,14 +1,14 @@
 ﻿// SPDX-FileCopyrightText: Copyright (c) 2022-2025 Envivo Software
 // SPDX-License-Identifier: Apache-2.0
-using Envivo.Fresnel.Bootstrap.WinForms;
-using Envivo.Fresnel.Features;
-using Envivo.Fresnel.Sample.Features.Model;
-using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using System;
 using System.Threading;
 using System.Windows.Forms;
+using Envivo.Fresnel.Bootstrap.WinForms;
+using Envivo.Fresnel.Features;
+using Envivo.Fresnel.Sample.Features.Model;
+using Envivo.Fresnel.Sample.Features.Model.G_Factories;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 // WinForms needs STA:
 Thread.CurrentThread.SetApartmentState(ApartmentState.Unknown);
@@ -21,8 +21,8 @@ var builder = new HostApplicationBuilder(args);
 builder.AddFresnel(opt =>
 {
     opt
-    .WithModelAssemblyFrom<ExampleBasicObject>()
-    .WithFeature(Feature.UI_DoodleMode, FeatureState.On)
+    .WithModelAssemblyFrom<ExampleObject>()
+    .WithFeature(Feature.UI_DoodleMode, FeatureState.Off)
     .WithFeature(Feature.UI_UserFeedback, FeatureState.On)
     .WithFeature(Feature.UI_DataCharts, FeatureState.On)
     .WithDefaultFileLogging()

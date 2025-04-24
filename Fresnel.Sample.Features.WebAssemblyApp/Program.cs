@@ -1,6 +1,7 @@
-using Envivo.Fresnel.Bootstrap.WebAssembly;
+﻿using Envivo.Fresnel.Bootstrap.WebAssembly;
 using Envivo.Fresnel.Features;
 using Envivo.Fresnel.Sample.Features.Model;
+using Envivo.Fresnel.Sample.Features.Model.A_Objects.Aggregates;
 using Envivo.Fresnel.Sample.Features.Model.A_Objects.Basics;
 using WebAssemblyHostBuilder = Microsoft.AspNetCore.Components.WebAssembly.Hosting.WebAssemblyHostBuilder;
 
@@ -11,7 +12,16 @@ builder.AddFresnel(opt =>
     opt
     .WithModelAssemblyFrom<ExampleBasicObject>()
     .WithFeature(Feature.UI_DoodleMode, FeatureState.On)
-    .WithDefaultFileLogging();
+    .WithFeature(Feature.UI_UserFeedback, FeatureState.On)
+    .WithFeature(Feature.UI_DataCharts, FeatureState.On)
+    .WithDefaultFileLogging()
+    .WithSessionConfig((config, services) =>
+    {
+        var instance = new ExampleBasicObject();
+        config.StartWith(instance); // 👈🏼 open a new instance by default
+        config.StartWithSearch<SaveableAggregateRoot>(); // 👈🏼 Or open the search form for a Domain Type
+    })
+    ;
 
     builder.Services.AddModelDependencies();
 });

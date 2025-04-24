@@ -10,7 +10,10 @@ builder.AddFresnel(opt =>
     opt
     .WithModelAssemblyFrom<ExampleBasicObject>()
     .WithFeature(Feature.UI_DoodleMode, FeatureState.On)
-    .WithDefaultFileLogging();
+    .WithFeature(Feature.UI_UserFeedback, FeatureState.On)
+    .WithFeature(Feature.UI_DataCharts, FeatureState.On)
+    .WithDefaultFileLogging()
+    ;
 
     builder.Services.AddLogging();
 
